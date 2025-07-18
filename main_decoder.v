@@ -1,0 +1,29 @@
+module main_decoder(
+input [6:0] OpCode,
+output RegWrite,
+output [1:0] ImmSrc,
+output ALUSrc,
+output MemWrite,
+output [1:0]ResultSrc,
+output branch,
+output [1:0] ALUOp,
+output jump
+);
+reg [10:0]control;
+assign {RegWrite, ImmSrc, ALUSrc, MemWrite, ResultSrc, branch, ALUOp, jump}=control;
+
+
+always @(*)
+begin
+
+case (OpCode)
+7'b0000011: control=11'b10010010000;
+7'b0100011: control=11'b00111xx0000;
+7'b0110011: control=11'b1xx00000100;
+7'b1100011: control=11'b01000xx1010;
+7'b0010011: control=11'b10010000100;
+7'b1101111: control=11'b111x0100xx1;
+default: control=11'bx;
+endcase
+end
+endmodule

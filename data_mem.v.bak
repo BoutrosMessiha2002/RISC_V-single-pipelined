@@ -1,0 +1,25 @@
+module data_mem #(parameter ADDRESS=128, parameter DATA=32, parameter N= 32)(
+input [ADDRESS-1:0] A,
+input [DATA-1:0] WD,
+input clk,
+input WE,
+output wire [DATA-1:0] RD
+);
+
+reg [DATA-1:0] data_memory [ADDRESS-1:0] ;
+integer i;
+
+initial begin
+for(i=0;i<N;i=i+1)
+data_memory[i]=32'd0;
+end 
+
+always @(posedge clk)
+begin
+if(WE)
+data_memory[A[31:2]]= WD;
+end
+assign RD=data_memory[A[31:2]];
+
+endmodule
+

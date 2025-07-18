@@ -1,0 +1,99 @@
+D:/RISCV/PC.v {1 {vlog -work work -vopt -stats=none D:/RISCV/PC.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} D:/RISCV/RISCV_tb.v {1 {vlog -work work -vopt -stats=none {D:\RISCV\RISCV_tb.v}
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module RISCV_tb
+
+Top level modules:
+	RISCV_tb
+
+} {} {}} D:/RISCV/reg_file.v {1 {vlog -work work -vopt -stats=none D:/RISCV/reg_file.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
+
+} {} {}} D:/RISCV/instr_mem.v {1 {vlog -work work -vopt -stats=none {D:\RISCV\instr_mem.v}
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module instr_mem
+
+Top level modules:
+	instr_mem
+
+} {} {}} D:/RISCV/data_mem.v {1 {vlog -work work -vopt -stats=none D:/RISCV/data_mem.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module data_mem
+
+Top level modules:
+	data_mem
+
+} {} {}} D:/RISCV/control_unit.v {1 {vlog -work work -vopt -stats=none D:/RISCV/control_unit.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module control_unit
+
+Top level modules:
+	control_unit
+
+} {} {}} D:/RISCV/MUX2to1.v {1 {vlog -work work -vopt -stats=none D:/RISCV/MUX2to1.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module mux2to1
+
+Top level modules:
+	mux2to1
+
+} {} {}} D:/RISCV/ALU.v {1 {vlog -work work -vopt -stats=none {D:\RISCV\ALU.v}
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} D:/RISCV/mux4to1.v {1 {vlog -work work -vopt -stats=none D:/RISCV/mux4to1.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module mux4to1
+
+Top level modules:
+	mux4to1
+
+} {} {}} D:/RISCV/main_decoder.v {1 {vlog -work work -vopt -stats=none D:/RISCV/main_decoder.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module main_decoder
+
+Top level modules:
+	main_decoder
+
+} {} {}} D:/RISCV/RISCV.v {1 {vlog -work work -vopt -stats=none {D:\RISCV\RISCV.v}
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module riscv
+
+Top level modules:
+	riscv
+
+} {} {}} D:/RISCV/ALU_decoder.v {1 {vlog -work work -vopt -stats=none D:/RISCV/ALU_decoder.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module ALU_decoder
+
+Top level modules:
+	ALU_decoder
+
+} {} {}} D:/RISCV/adder.v {1 {vlog -work work -vopt -stats=none D:/RISCV/adder.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module adder
+
+Top level modules:
+	adder
+
+} {} {}} D:/RISCV/sign_extend.v {1 {vlog -work work -vopt -stats=none D:/RISCV/sign_extend.v
+QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+-- Compiling module sign_extend
+
+Top level modules:
+	sign_extend
+
+} {} {}}

@@ -1,0 +1,15 @@
+module instr_mem #(parameter ADDRESS=32, parameter INSTR=32)(
+input [ADDRESS-1:0] A,
+output [INSTR-1:0] RD
+);
+reg [ADDRESS-1:0] instr_memory [INSTR-1:0];
+
+initial
+begin
+instr_memory[31]=32'd19;
+instr_memory[32]=32'd23;
+end
+assign RD=instr_memory[A[31:2]];
+
+endmodule
+
