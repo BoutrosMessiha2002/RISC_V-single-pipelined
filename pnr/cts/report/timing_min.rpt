@@ -1,0 +1,46 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by design
+        -nosplit
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 08:38:53 2025
+****************************************
+
+  Startpoint: data/data_memory_reg[31][30] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: data/data_memory_reg[31][30] (rising edge-triggered flip-flop clocked by clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: clk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (propagated)                 0.22      0.22
+
+  data/data_memory_reg[31][30]/CLK (DFFX1)         0.00      0.22 r
+  data/data_memory_reg[31][30]/QN (DFFX1)          0.49      0.70 r
+  data/U2341/ZN (INVX0)                            0.10      0.80 f
+  data/U2121/Q (AO21X1)                            0.28      1.07 f
+  data/data_memory_reg[31][30]/D (DFFX1)           0.00      1.07 f
+  data arrival time                                          1.07
+
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (propagated)                 0.23      0.23
+  data/data_memory_reg[31][30]/CLK (DFFX1)         0.00      0.23 r
+  clock uncertainty                                0.20      0.43
+  library hold time                               -0.01      0.42
+  data required time                                         0.42
+  ------------------------------------------------------------------------
+  data required time                                         0.42
+  data arrival time                                         -1.07
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.65
+
+
+1

@@ -1,0 +1,17 @@
+****************************************
+Report : port
+Module : RISCV
+Mode   : default
+Corner : default
+Scenario: default
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:29:14 2025
+****************************************
+                      Pin Cap                    Wire Cap
+                   Min          Max           Min          Max
+Port      Dir    rise/fall    rise/fall     rise/fall    rise/fall    Attributes
+--------------------------------------------------------------------------------
+clk       in     0.00/0.00    0.00/0.00     0.00/0.00    0.00/0.00
+rst       in     0.00/0.00    0.00/0.00     0.00/0.00    0.00/0.00
+test_mode in     0.00/0.00    0.00/0.00     0.00/0.00    0.00/0.00
+1

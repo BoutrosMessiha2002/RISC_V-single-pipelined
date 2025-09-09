@@ -1,0 +1,65 @@
+Information: The stitching and editing of coupling caps is turned OFF for design 'RISCV.dlib:RISCV_placement.design'. (TIM-125)
+Information: Design Average RC for design RISCV_placement  (NEX-011)
+Information: r = 0.519507 ohm/um, via_r = 0.863651 ohm/cut, c = 0.094813 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 0.562500 ohm/um, via_r = 0.874126 ohm/cut, c = 0.113077 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'RISCV'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 31833, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 1448, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 09:01:23 2025
+****************************************
+
+  Startpoint: PC_dut/PC_reg[8] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: PC_dut/PC_reg[28] (rising edge-triggered flip-flop clocked by clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  PC_dut/PC_reg[8]/CLK (DFFARX1)                   0.00      0.00 r
+  PC_dut/PC_reg[8]/QN (DFFARX1)                    0.41      0.41 f
+  PC_dut/U12/ZN (INVX0)                            0.14      0.55 r
+  add_43/U299/ZN (INVX0)                           0.12      0.67 f
+  add_43/U15/ZN (INVX0)                            0.11      0.78 r
+  add_43/U14/Q (AND2X1)                            0.23      1.01 r
+  add_43/U5/Q (AND3X1)                             0.33      1.33 r
+  add_43/U4/QN (NAND2X1)                           0.13      1.46 f
+  add_43/U9/QN (NOR2X1)                            0.14      1.60 r
+  add_43/U116/Q (AND2X1)                           0.27      1.88 r
+  add_43/U128/Q (AND2X1)                           0.24      2.12 r
+  add_43/U54/Q (AND2X4)                            0.33      2.45 r
+  add_43/U163/ZN (INVX0)                           0.09      2.55 f
+  add_43/U164/ZN (INVX0)                           0.09      2.63 r
+  add_43/U166/Q (XOR2X2)                           0.28      2.91 r
+  PCmux/U2/QN (NAND2X0)                            0.17      3.08 f
+  PCmux/U47/QN (NAND2X0)                           0.20      3.27 r
+  PC_dut/PC_reg[28]/D (DFFARX1)                    0.00      3.27 r
+  data arrival time                                          3.27
+
+  clock clk (rise edge)                            5.00      5.00
+  clock network delay (ideal)                      0.00      5.00
+  PC_dut/PC_reg[28]/CLK (DFFARX1)                  0.00      5.00 r
+  clock uncertainty                               -0.30      4.70
+  library setup time                              -0.42      4.28
+  data required time                                         4.28
+  ------------------------------------------------------------------------
+  data required time                                         4.28
+  data arrival time                                         -3.27
+  ------------------------------------------------------------------------
+  slack (MET)                                                1.01
+
+
+1

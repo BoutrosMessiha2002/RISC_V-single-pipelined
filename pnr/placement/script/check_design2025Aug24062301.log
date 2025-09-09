@@ -1,0 +1,40 @@
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Sun Aug 24 06:23:01 2025
+****************************************
+No mismatches exist on the design.
+1
+****************************************
+Report : SCANDEF check
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Sun Aug 24 06:23:01 2025
+****************************************
+  Checking between SCANDEF file and design:
+
+  Total PARTITION group count: 1
+  Total SCANCHAINS checked: 5
+  VALIDATED :  5
+  FAILED    :  0
+
+  Chain name     Status    #cells    #bits     PARTITION      Scan in        Scan out
+  1              V         314       314       scan_clk_45_45 scan_in_1      scan_out_1
+  2              V         314       314       scan_clk_45_45 scan_in_2      scan_out_2
+  3              V         314       314       scan_clk_45_45 scan_in_3      scan_out_3
+  4              V         313       313       scan_clk_45_45 scan_in_4      scan_out_4
+  5              V         313       313       scan_clk_45_45 scan_in_5      scan_out_5
+1
+Information: There are no relative placement groups in the design. (NDMUI-173)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+1
+1

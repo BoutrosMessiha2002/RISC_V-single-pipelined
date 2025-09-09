@@ -1,0 +1,78 @@
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+Begin Clock violations...
+
+ Warning: Clock PIs off did not force off clock input RSTB of nonscan DFF PC_dut/PC_reg[28]. (C2-1)
+Information: There are 29 other cells with the same violation. (TEST-171)
+
+Clock violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Scan chain violations...
+
+ Warning: Nonscan DFF PC_dut/PC_reg[28] disturbed during time 0 of load_unload procedure. (S19-1)
+Information: There are 29 other cells with the same violation. (TEST-171)
+
+Scan chain violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Other violations...
+
+Warning: Cell PC_dut/PC_reg[1] has constant 0 value. (TEST-504)
+Information: There is 1 other cell with the same violation. (TEST-173)
+
+Other violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 62
+
+-----------------------------------------------------------------
+
+30 CLOCK VIOLATIONS
+    30 Unstable nonscan DFF when clocks off violations (C2)
+
+30 SCAN CHAIN VIOLATIONS
+    30 Nonscan cell disturb violations (S19)
+
+2 OTHER VIOLATIONS
+     2 Cell is constant 0 violations (TEST-504)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  32 out of 2080 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITH VIOLATIONS
+      *  30 cells have test design rule violations
+      *   2 cells have constant 0 value
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *2048 cells are valid scan cells
+
+Information: Test design rule checking completed. (TEST-123)
+1

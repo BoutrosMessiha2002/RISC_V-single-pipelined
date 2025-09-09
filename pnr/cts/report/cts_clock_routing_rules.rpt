@@ -1,0 +1,9 @@
+****************************************
+ Report : clock routing rules
+ Design : RISCV
+ Date   : Thu Aug 28 08:38:39 2025
+****************************************
+   Design Base; Net Type: sink;     Rule: default rule; Min Layer: M2; Max Layer: M4
+   Design Base; Net Type: internal; Rule: NDR; Min Layer: M4; Max Layer: M7
+   Design Base; Net Type: root;     Rule: NDR; Min Layer: M4; Max Layer: M7
+

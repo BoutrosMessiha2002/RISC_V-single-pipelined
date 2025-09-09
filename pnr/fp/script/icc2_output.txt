@@ -1,0 +1,162 @@
+
+icc2_shell> start_gui
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_fp.design
+Information: User units loaded from library 'saed90nm_max' (LNK-040)
+Opening block 'RISCV.dlib:RISCV_fp.design' in edit mode
+Begin building search trees for block RISCV.dlib:RISCV_fp.design
+Done building search trees for block RISCV.dlib:RISCV_fp.design (time 0s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_fp.design
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_pp.design
+Opening block 'RISCV.dlib:RISCV_pp.design' in edit mode
+Information: loading PG routing via master rules, patterns, strategies and strategy via rules.
+Begin building search trees for block RISCV.dlib:RISCV_pp.design
+Done building search trees for block RISCV.dlib:RISCV_pp.design (time 0s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_pp.design
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_placement.design
+Opening block 'RISCV.dlib:RISCV_placement.design' in edit mode
+Begin building search trees for block RISCV.dlib:RISCV_placement.design
+Done building search trees for block RISCV.dlib:RISCV_placement.design (time 0s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_placement.design
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_cts.design
+Opening block 'RISCV.dlib:RISCV_cts.design' in edit mode
+Begin building search trees for block RISCV.dlib:RISCV_cts.design
+Done building search trees for block RISCV.dlib:RISCV_cts.design (time 0s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_cts.design
+Information: Clearing abstracted power annotation ... 
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+Opening block 'RISCV.dlib:RISCV_routing.design' in edit mode
+Begin building search trees for block RISCV.dlib:RISCV_routing.design
+Done building search trees for block RISCV.dlib:RISCV_routing.design (time 1s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_routing.design
+Information: Clearing abstracted power annotation ... 
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> report_timing
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+Information: Corner default: no PVT mismatches. (PVT-032)
+Information: The stitching and editing of coupling caps is turned OFF for design 'RISCV.dlib:RISCV_routing.design'. (TIM-125)
+Information: Design RISCV_routing has 31713 nets, 0 global routed, 31711 detail routed. (NEX-024)
+Information: The RC mode used is DR for design 'RISCV'. (NEX-022)
+---extraction options---
+Corner: default
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Global options:
+ reference_direction       : use_from_tluplus
+ real_metalfill_extraction : none
+ virtual_shield_extraction : true
+---app options---
+ host.max_cores                   : 1
+ extract.connect_open           : true
+ extract.incremental_extraction : true
+ extract.enable_coupling_cap    : false
+Extracting design: RISCV_routing 
+Warning: Net 'clk' is exceeding threshold (over 1000 pins) and will be skipped. (NEX-020)
+Information: coupling capacitance is lumped to ground. (NEX-030)
+Information: 31710 nets are successfully extracted. (NEX-028)
+Information: Advanced receiver model has not been enabled for detailed routed design. (TIM-204)
+Information: The parasitics of virtually routed nets are automatically saved to RC Cache. (TIM-016)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 31711, routed nets = 31710, across physical hierarchy nets = 0, parasitics cached nets = 31710, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Mon Sep  8 23:23:38 2025
+****************************************
+
+  Startpoint: PC_dut/PC_reg[10] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: PC_dut/PC_reg[24] (rising edge-triggered flip-flop clocked by clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  PC_dut/PC_reg[10]/CLK (DFFARX1)                  0.00      0.00 r
+  PC_dut/PC_reg[10]/Q (DFFARX1)                    0.69      0.69 r
+  add_43/U56/ZN (INVX0)                            0.16      0.85 f
+  add_43/U57/ZN (INVX0)                            0.13      0.98 r
+  add_43/U5/Q (AND3X1)                             0.38      1.37 r
+  add_43/U4/QN (NAND2X1)                           0.13      1.50 f
+  add_43/U9/QN (NOR2X1)                            0.14      1.63 r
+  add_43/U127/Q (AND2X1)                           0.26      1.89 r
+  add_43/U212/ZN (INVX0)                           0.12      2.02 f
+  add_43/U213/ZN (INVX0)                           0.11      2.13 r
+  add_43/U259/QN (NAND2X0)                         0.17      2.30 f
+  add_43/U78/Q (XNOR2X1)                           0.37      2.67 f
+  add_43/U79/ZN (INVX0)                            0.26      2.93 r
+  PCmux/U80/QN (NAND2X0)                           0.25      3.17 f
+  PCmux/U46/QN (NAND2X1)                           0.13      3.30 r
+  PC_dut/PC_reg[24]/D (DFFARX1)                    0.00      3.30 r
+  data arrival time                                          3.30
+
+  clock clk (rise edge)                            5.00      5.00
+  clock network delay (ideal)                      0.00      5.00
+  PC_dut/PC_reg[24]/CLK (DFFARX1)                  0.00      5.00 r
+  clock uncertainty                               -0.30      4.70
+  library setup time                              -0.37      4.33
+  data required time                                         4.33
+  ------------------------------------------------------------------------
+  data required time                                         4.33
+  data arrival time                                         -3.30
+  ------------------------------------------------------------------------
+  slack (MET)                                                1.03
+
+
+1
+icc2_shell> report_timing > ./setup.rpt
+icc2_shell> report_timing -delay_type min > ./setup.rpt
+icc2_shell> report_timing -delay_type min > ./hold.rpt
+icc2_shell> report_timing > ./setup.rpt
+icc2_shell> dc_shell
+Error: unknown command 'dc_shell' (CMD-005)
+icc2_shell> set_working_design_stack RISCV.dlib:RISCV_fp.design
+icc2_shell> set_working_design_stack RISCV.dlib:RISCV_routing.design
+icc2_shell> set_working_design_stack RISCV.dlib:RISCV_cts.design
+icc2_shell> set_working_design_stack RISCV.dlib:RISCV_placement.design
+icc2_shell> set_working_design_stack RISCV.dlib:RISCV_pp.design
+icc2_shell> 

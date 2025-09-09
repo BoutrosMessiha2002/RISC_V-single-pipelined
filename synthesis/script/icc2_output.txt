@@ -1,0 +1,86 @@
+
+icc2_shell> read_verilog ../output/RISCV.top
+Error: File '../output/RISCV.top' cannot be found using search_path of: '.'. (FILE-002)
+icc2_shell> read_verilog ../output/RISCV_top.v
+Error: File '../output/RISCV_top.v' cannot be found using search_path of: '.'. (FILE-002)
+icc2_shell> read_verilog ../output/RISCV.v
+Warning: Library 'RISCV' has no reference Libraries. (LIB-075)
+Loading verilog file '/home/ICer/test_RISCV/synthesis/output/RISCV.v'
+Information: Reading Verilog into new design 'RISCV' in library 'RISCV'. (VR-012)
+Number of modules read: 20
+Top level ports: 37
+Total ports in all modules: 1385
+Total nets in all modules: 34898
+Total instances in all modules: 32413
+Elapsed = 00:00:00.15, CPU = 00:00:00.15
+1
+icc2_shell> read_sdc ../output/RISCV.sdc
+Warning: Library RISCV has no reference libraries. (LNK-063)
+Using libraries: RISCV
+Linking block RISCV:RISCV.design
+Warning: Unable to resolve reference to 'INVX1' first referenced from module 'RISCV'. (LNK-005)
+Warning: Unable to resolve reference to 'INVX0' first referenced from module 'RISCV'. (LNK-005)
+Warning: Unable to resolve reference to 'MUX21X1' first referenced from module 'mux2to1_DATA1_1'. (LNK-005)
+Warning: Unable to resolve reference to 'MUX21X2' first referenced from module 'mux2to1_DATA1_0'. (LNK-005)
+Warning: Unable to resolve reference to 'NAND2X2' first referenced from module 'mux2to1_DATA32_0'. (LNK-005)
+Warning: Unable to resolve reference to 'NAND2X0' first referenced from module 'mux2to1_DATA32_0'. (LNK-005)
+Warning: Unable to resolve reference to 'DFFARX1' first referenced from module 'PC'. (LNK-005)
+Warning: Unable to resolve reference to 'DFFARX1' first referenced from module 'reg_file_ADDRESS5_DATA32'. (LNK-005)
+Warning: Unable to resolve reference to 'AO21X1' first referenced from module 'reg_file_ADDRESS5_DATA32'. (LNK-005)
+Warning: Unable to resolve reference to 'AND3X1' first referenced from module 'reg_file_ADDRESS5_DATA32'. (LNK-005)
+Warning: Unable to resolve reference to 'NOR3X0' first referenced from module 'reg_file_ADDRESS5_DATA32'. (LNK-005)
+Warning: Unable to resolve reference to 'NOR4X1' first referenced from module 'reg_file_ADDRESS5_DATA32'. (LNK-005)
+Information: Message limit (link.reference_limit 12) reached for this block, remaining reference messages will be suppressed. (LNK-043)
+Information: Block 'RISCV:RISCV.design' has 32394 unbound instances. (LNK-073)
+Information: Block 'RISCV:RISCV.design' has 48 unresolved references. (LNK-074)
+Design 'RISCV' was successfully linked.
+Information: Loading SDC version 2.1 file '/home/ICer/test_RISCV/synthesis/output/RISCV.sdc' (FILE-007)
+Warning: The 'set_max_fanout' command is not supported in this program.  The command will be ignored. (CSTR-011)
+Cannot find driving_cell NBUFFX2 in any library
+Warning: Missing or unusable driving_cell 'NBUFFX2'. (CSTR-081)
+Cannot find driving_cell NBUFFX2 in any library
+Warning: Missing or unusable driving_cell 'NBUFFX2'. (CSTR-081)
+Cannot find driving_cell NBUFFX2 in any library
+Warning: Missing or unusable driving_cell 'NBUFFX2'. (CSTR-081)
+Cannot find driving_cell NBUFFX2 in any library
+Warning: Missing or unusable driving_cell 'NBUFFX2'. (CSTR-081)
+Begin building search trees for block RISCV:RISCV.design
+Done building search trees for block RISCV:RISCV.design (time 0s)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+1
+icc2_shell> report_timing
+Warning: no valid parasitic for default corner(LATE) (NEX-018)
+Warning: no valid parasitic for default corner(EARLY) (NEX-018)
+Warning: no valid parasitic for (all corners) corner((both specs)) (NEX-018)
+Information: The stitching and editing of coupling caps is turned OFF for design 'RISCV:RISCV.design'. (TIM-125)
+Warning: No physical information exists for design 'RISCV'. Zero interconnect delay is used in timing analysis. (TIM-101)
+Warning: The extractor can not be initialized for design 'RISCV'. Zero interconnect delay is used in timing analysis. (TIM-102)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 5, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 0, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Sun Aug 24 08:34:58 2025
+****************************************
+No paths.
+1
+icc2_shell> exit
+Maximum memory usage for this session: 157.82 MB
+CPU usage for this session:      4 seconds (  0.00 hours)
+Elapsed time for this session:    240 seconds (  0.07 hours)
+Thank you for using IC Compiler II.
+

@@ -1,0 +1,57 @@
+#@ # 
+#@ # Running icc2_shell Version O-2018.06-SP1 for linux64 -- Jul 17, 2018
+#@ # Date:   Mon Sep  8 23:16:36 2025
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+start_gui
+gui_set_pref_value -category {SelectByNamePalette} -key {ObjectType} -value {Logical Cells}
+open_lib /home/ICer/test_RISCV/pnr/setup/RISCV.dlib -edit
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_fp.design
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetX} -value {0.005}
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetY} -value {0.005}
+link_block
+win_set_filter -visible -class cell -filter {hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -visible -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_filter -expand_cell_types {soft_macro  }
+win_set_select_class -visible {cell port bound routing_blockage shaping_blockage pg_region pin_blockage block_shielding topology_node topology_edge core_area die_area edit_group shape via terminal fill_cell placement_blockage }
+win_set_filter -class cell -filter {cell_array hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_select_class {cell port bound routing_blockage shaping_blockage pg_region pin_blockage topology_node topology_edge edit_group shape via placement_blockage }
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_pp.design
+link_block
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_placement.design
+link_block
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_cts.design
+link_block
+gui_zoom -window [gui_get_current_window -view] -rect {{-59.330 573.530} {1067.950 206.895}}
+gui_zoom -window [gui_get_current_window -view] -rect {{-28.970 493.390} {344.175 244.915}}
+gui_zoom -window [gui_get_current_window -view] -full
+gui_zoom -window [gui_get_current_window -view] -rect {{63.895 631.340} {626.775 254.055}}
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+link_block
+gui_zoom -window [gui_get_current_window -view] -rect {{-16.730 756.085} {769.775 -7.605}}
+gui_zoom -window [gui_get_current_window -view] -rect {{12.230 743.875} {745.995 11.640}}
+report_timing
+report_timing > ./setup.rpt
+report_timing -delay_type min > ./setup.rpt
+report_timing -delay_type min > ./hold.rpt
+report_timing > ./setup.rpt
+gui_set_map_option -map {globalCongestionMap} -option {rule_level} -value {hard}
+gui_set_bucket_option -map {globalCongestionMap} -bucket {Bucket8} -option {visible} -value {true}
+gui_scroll -window [gui_get_current_window -view] -vrel -.2
+gui_scroll -window [gui_get_current_window -view] -vrel -.2
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_scroll -window [gui_get_current_window -view] -vrel -.2
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {cellDensityMap} -show {true}
+gui_set_map_option -map {cellDensityMap} -option {area_type} -value {Reset}
+gui_set_map_option -map {cellDensityMap} -option {area_type} -value {WholeDesign}
+gui_zoom -window [gui_get_current_window -view] -full
+dc_shell
+set_working_design_stack RISCV.dlib:RISCV_fp.design
+set_working_design_stack RISCV.dlib:RISCV_routing.design
+set_working_design_stack RISCV.dlib:RISCV_cts.design
+set_working_design_stack RISCV.dlib:RISCV_placement.design
+set_working_design_stack RISCV.dlib:RISCV_pp.design

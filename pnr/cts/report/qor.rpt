@@ -1,0 +1,64 @@
+****************************************
+Report : qor
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 08:38:53 2025
+****************************************
+
+
+Scenario           'default'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     13
+Critical Path Length:              3.60
+Critical Path Slack:               0.75
+Critical Path Clk Period:          5.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:             17
+Hierarchical Port Count:           3735
+Leaf Cell Count:                  37997
+Buf/Inv Cell Count:               26442
+Buf Cell Count:                      66
+Inv Cell Count:                   26376
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:         35917
+Sequential Cell Count:             2080
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           309633.64
+Noncombinational Area:         51992.99
+Buf/Inv Area:                 239181.00
+Total Buffer Area:               364.95
+Total Inverter Area:          238816.05
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                       0.00
+Net YLength:                       0.00
+----------------------------------------
+Cell Area (netlist):                         361626.62
+Cell Area (netlist and physical only):       361626.62
+Net Length:                        0.00
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:             40078
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1

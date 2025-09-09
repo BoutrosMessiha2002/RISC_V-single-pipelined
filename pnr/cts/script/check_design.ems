@@ -1,0 +1,15 @@
+<Database>
+Name/home/ICer/test_RISCV/pnr/cts/script/check_design.ems
+Creation TimeThu Aug 28 00:33:30 2025
+Modified TimeThu Aug 28 00:33:30 2025
+Design NameRISCV_cts
+Library NameRISCV.dlib
+</Database>
+<RuleCount>
+DFT-0111
+</RuleCount>
+<UserDefinedRules>
+</UserDefinedRules>
+<Messages>
+DFT-011reason10
+</Messages>

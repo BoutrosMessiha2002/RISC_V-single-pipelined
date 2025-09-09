@@ -1,0 +1,15 @@
+<Database>
+Name/home/ICer/test_RISCV/pnr/placement/script/check_design.ems
+Creation TimeThu Aug 28 08:59:15 2025
+Modified TimeThu Aug 28 08:59:15 2025
+Design NameRISCV_placement
+Library NameRISCV.dlib
+</Database>
+<RuleCount>
+DFT-0111
+</RuleCount>
+<UserDefinedRules>
+</UserDefinedRules>
+<Messages>
+DFT-011reason10
+</Messages>

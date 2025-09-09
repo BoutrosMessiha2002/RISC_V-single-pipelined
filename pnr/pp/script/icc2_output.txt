@@ -1,0 +1,385 @@
+
+icc2_shell> set offset 1
+1
+icc2_shell> set width 1.5
+1.5
+icc2_shell> set spacing 1
+1
+icc2_shell> set horiz_top M9
+M9
+icc2_shell> set vert_top M8
+M8
+icc2_shell> 
+icc2_shell> set mesh2_horiz_top M7
+M7
+icc2_shell> set mesh2_vert_top M6
+M6
+icc2_shell> set mesh_width 5
+5
+icc2_shell> set mesh_pitch 7
+7
+icc2_shell> set mesh_offset 1
+1
+icc2_shell> set design RISCV
+RISCV
+icc2_shell> sh rm /home/ICer/test_RISCV/pnr/setup/RISV.dlib/RISCV_fp/design.ndm.lock
+Error: rm: cannot remove '/home/ICer/test_RISCV/pnr/setup/RISV.dlib/RISCV_fp/design.ndm.lock': No such file or directory
+        Use error_info for more info. (CMD-013)
+icc2_shell> set design_lib_path /home/ICer/test_RISCV/pnr/setup
+/home/ICer/test_RISCV/pnr/setup
+icc2_shell> open_block $design_lib_path/${design}.dlib:${design}_fp.design
+Information: User units loaded from library 'saed90nm_max' (LNK-040)
+Opening block 'RISCV.dlib:RISCV_fp.design' in edit mode
+{RISCV.dlib:RISCV_fp.design}
+icc2_shell> copy_block -from_block ${design}.dlib:${design}_fp.design -to_block ${design}_pp
+{RISCV.dlib:RISCV_pp.design}
+icc2_shell> current_block ${design}_pp.design
+{RISCV.dlib:RISCV_pp.design}
+icc2_shell> 
+icc2_shell> remove_ignored_layers -all -max_routing_layer -min_routing_layer
+1
+icc2_shell> report_ignored_layers
+****************************************
+Report : Ignored Layers
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:29:34 2025
+****************************************
+Layer Attribute                 Value
+--------------------------------------------------------------------------------
+Min Routing Layer               (none given)
+Max Routing Layer               (none given)
+RC Estimation Ignored Layers    (none given)
+1
+icc2_shell> 
+icc2_shell> create_net -power VDD
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_pp.design
+Design 'RISCV' was successfully linked.
+{VDD}
+icc2_shell> create_net -ground VSS
+{VSS}
+icc2_shell> 
+icc2_shell> connect_pg_net -net VDD [get_pins -hierarchical *\VDD]
+icc2_shell> connect_pg_net -net VSS [get_pins -hierarchical *\VSS]
+icc2_shell> 
+icc2_shell> set_app_option -name plan.pgroute.auto_connect_pg_net -value true
+plan.pgroute.auto_connect_pg_net true
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> create_pg_region ring_region -core -expand_by_edge "{{side:1} {offset:$offset}} {{side:2} {offset:$offset}} {{side:3} {offset:$offset}} {{side:4} {offset:$offset}}"
+Define region based on core area.
+Expanding the region by: 
+{Horizontal offset: 0.000} {Vertical offset: 0.000} {Edge ID: 1 offset: 1.000} {Edge ID: 2 offset: 1.000} {Edge ID: 3 offset: 1.000} {Edge ID: 4 offset: 1.000} 
+Create region ring_region
+{ring_region}
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> create_pg_ring_pattern ring_pattern -horizontal_layer $horiz_top -vertical_layer $vert_top  -horizontal_spacing $spacing -vertical_spacing $spacing -horizontal_width $width -vertical_width $width
+Successfully create PG ring pattern ring_pattern.
+icc2_shell> 
+icc2_shell> set_pg_strategy ring_strategy -pg_regions {ring_region} -pattern {{name:ring_pattern} {nets: "VSS VDD"}}
+Successfully set PG strategy ring_strategy.
+icc2_shell> 
+icc2_shell> compile_pg -strategies ring_strategy
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Begin building search trees for block RISCV.dlib:RISCV_pp.design
+Done building search trees for block RISCV.dlib:RISCV_pp.design (time 0s)
+Updating PG strategies.
+Updating strategy ring_strategy.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating rings.
+Creating via connection between strategies and existing shapes.
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy ring_strategy.
+Checking 8 stacked vias:0% 10% 20% 30% 50% 60% 70% 80% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 8 wires.
+Committing wires takes 0.00 seconds.
+Committed 8 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 1 seconds.
+1
+icc2_shell> 
+icc2_shell> 
+icc2_shell> check_pg_drc
+Command check_pg_drc started  at Thu Aug 28 00:29:35 2025
+Command check_pg_drc finished at Thu Aug 28 00:29:35 2025
+CPU usage for check_pg_drc: 0.00 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.00 seconds ( 0.00 hours)
+No errors found.
+icc2_shell> check_pg_connectivity
+Loading cell instances...
+Number of Standard Cells: 29716
+Number of Macro Cells: 0
+Number of IO Pad Cells: 0
+Number of Blocks: 0
+Loading P/G wires and vias...
+Number of VDD Wires: 4
+Number of VDD Vias: 4
+Number of VDD Terminals: 0
+Number of VSS Wires: 4
+Number of VSS Vias: 4
+Number of VSS Terminals: 0
+**************Verify net VDD connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 29716
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+**************Verify net VSS connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 29716
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Overall runtime: 0 seconds.
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> create_pg_mesh_pattern mesh1  -layers {{{vertical_layer: M8} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim:true}} {{horizontal_layer: M9} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim: true}}}
+Successfully create mesh pattern mesh1.
+1
+icc2_shell> 
+icc2_shell> 
+icc2_shell> set_pg_strategy mesh_strat1 -core -pattern {{pattern: mesh1} {nets: "VSS VDD"}} -extension {stop:outermost_ring}
+Successfully set PG strategy mesh_strat1.
+icc2_shell> compile_pg -strategies mesh_strat1
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Updating PG strategies.
+Updating strategy mesh_strat1.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating straps and vias in power plan.
+Creating wire shapes for strategies mesh_strat1 .
+Creating wire shapes runtime: 0 seconds
+Blockage cutting and DRC fixing for wire shapes for strategies mesh_strat1 .
+Check and fix DRC for 74 wires for strategy mesh_strat1.
+Checking DRC for 74 wires:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Creating 74 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via shapes for strategies mesh_strat1 .
+Working on strategy mesh_strat1.
+Number of detected intersections: 685
+Total runtime of via shapes creation: 0 seconds
+Check and fix DRC for 685 stacked vias for strategy mesh_strat1.
+Checking DRC for 685 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Runtime of via DRC checking for strategy mesh_strat1: 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 148 stacked vias.
+Checking DRC for 148 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy mesh_strat1.
+Checking 685 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 148 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 74 wires.
+Committing wires takes 0.00 seconds.
+Committed 833 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> check_pg_drc
+Command check_pg_drc started  at Thu Aug 28 00:29:35 2025
+Begin building search trees for block RISCV.dlib:RISCV_pp.design
+Done building search trees for block RISCV.dlib:RISCV_pp.design (time 0s)
+Command check_pg_drc finished at Thu Aug 28 00:29:35 2025
+CPU usage for check_pg_drc: 0.01 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.01 seconds ( 0.00 hours)
+No errors found.
+icc2_shell> 
+icc2_shell> 
+? 
+icc2_shell> #create_pg_mesh_pattern mesh2  -layers {{{vertical_layer: M6} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim:true}} #{{horizontal_layer: M7} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim: true}}}
+icc2_shell> #set_pg_strategy mesh_strat2 -core -pattern {{pattern: mesh2} {nets: "VSS VDD"}} -extension {stop:outermost_ring}
+icc2_shell> #compile_pg -strategies mesh_strat2
+icc2_shell> #check_pg_drc
+icc2_shell> 
+icc2_shell> create_pg_std_cell_conn_pattern std_cell_rail -layers M1 -rail_width 0.16
+Successfully create standard cell rail pattern std_cell_rail.
+icc2_shell> set_pg_strategy rails_M1 -core -pattern {{name: std_cell_rail} {nets: "VDD VSS"} }
+Successfully set PG strategy rails_M1.
+icc2_shell> 
+icc2_shell> compile_pg -strategies rails_M1
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Updating PG net and connection through connect_pg_net auto-mode for the design.
+Successfully updated PG connection.
+Update PG connection runtime: 0 seconds.
+Loading library and design information.
+Updating PG strategies.
+Updating strategy rails_M1.
+Number of Standard Cells: 0
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating standard cell rails.
+Creating standard cell rails for strategy rails_M1.
+DRC checking and fixing for standard cell rail strategy rails_M1.
+Checking DRC for 255 wires:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Creating 255 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 4718 stacked vias.
+Checking DRC for 4718 stacked vias:0% 5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Via DRC checking runtime 1.00 seconds.
+via connection runtime: 1 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 4718 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committed 255 wires.
+Committing wires takes 0.00 seconds.
+Committed 33026 vias.
+Committed 0 wires for via creation.
+Committing vias takes 0.00 seconds.
+Overall PG creation runtime: 1 seconds.
+Successfully compiled PG.
+Overall runtime: 2 seconds.
+1
+icc2_shell> 
+icc2_shell> 
+icc2_shell> check_pg_drc
+Command check_pg_drc started  at Thu Aug 28 00:29:37 2025
+Begin building search trees for block RISCV.dlib:RISCV_pp.design
+Done building search trees for block RISCV.dlib:RISCV_pp.design (time 0s)
+Command check_pg_drc finished at Thu Aug 28 00:29:37 2025
+CPU usage for check_pg_drc: 0.44 seconds ( 0.00 hours)
+Elapsed time for check_pg_drc: 0.44 seconds ( 0.00 hours)
+No errors found.
+icc2_shell> check_pg_connectivity
+Loading cell instances...
+Number of Standard Cells: 29716
+Number of Macro Cells: 0
+Number of IO Pad Cells: 0
+Number of Blocks: 0
+Loading P/G wires and vias...
+Number of VDD Wires: 167
+Number of VDD Vias: 16402
+Number of VDD Terminals: 0
+Number of VSS Wires: 170
+Number of VSS Vias: 17465
+Number of VSS Terminals: 0
+**************Verify net VDD connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 29716
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+**************Verify net VSS connectivity*****************
+  Number of floating wires: 0
+  Number of floating vias: 0
+  Number of floating std cells: 29716
+  Number of floating hard macros: 0
+  Number of floating I/O pads: 0
+  Number of floating terminals: 0
+  Number of floating hierarchical blocks: 0
+************************************************************
+Overall runtime: 0 seconds.
+icc2_shell> check_pg_missing_vias
+Check net VDD vias...
+Number of missing vias: 0
+Checking net VDD vias took 0 seconds.
+Check net VSS vias...
+Number of missing vias: 0
+Checking net VSS vias took 0 seconds.
+Overall runtime: 0 seconds.
+icc2_shell> 
+icc2_shell> 
+icc2_shell> check_pg_drc  > ../report/pg_drc.rpt
+icc2_shell> check_pg_connectivity > ../report/pg_connectivity.rpt
+icc2_shell> analyze_power_plan -report_track_utilization_only > ../report/track_utilization.rpt
+icc2_shell> report_utilization > ../report/utilization.rpt
+icc2_shell> report_qor > ../report/qor.rpt  ; #optional
+icc2_shell> report_timing > ../report/timing.rpt ; #optional
+icc2_shell> 
+icc2_shell> # ================================================ #
+icc2_shell> # =================== End_Step =================== #
+icc2_shell> # ================================================ #
+icc2_shell> write_def ../output/cv32e40p_top.def
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:29:41 2025
+****************************************
+No mismatches exist on the design.
+---------------------------------------
+Number of Written DEF Constructs
+---------------------------------------
+VERSION                        : 1
+DIVIDERCHAR                    : 1
+BUSBITCHARS                    : 1
+DESIGN                         : 1
+UNITS                          : 1
+PROPERTYDEFINITIONS            : 1
+DIEAREA                        : 1
+ROW                            : 254
+TRACKS                         : 18
+VIAS                           : 11
+COMPONENTS                     : 29716
+PINS                           : 37
+PINPROPERTIES                  : 35
+SPECIALNETS                    : 2
+NETS                           : 31844
+1
+icc2_shell> write_verilog -include {all} ../output/cv32e40p_top.v
+1
+icc2_shell> write_sdc -output ../output/cv32e40p_top.sdc
+1
+icc2_shell> save_block ;
+Information: Saving block 'RISCV.dlib:RISCV_pp.design'
+1
+icc2_shell> 
+icc2_shell> 
+icc2_shell> 
+icc2_shell> 
+icc2_shell> exit
+Maximum memory usage for this session: 284.43 MB
+CPU usage for this session:     12 seconds (  0.00 hours)
+Elapsed time for this session:     15 seconds (  0.00 hours)
+Thank you for using IC Compiler II.
+

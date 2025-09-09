@@ -1,0 +1,24 @@
+****************************************
+ Report : target skew and latency
+ Design : RISCV
+ Date   : Thu Aug 28 08:38:39 2025
+****************************************
+
+##Target Skew
+
+Clock                        Corner                        Target
+-----------------------------------------------------------------
+All clocks                   default                       0.05
+
+##Target Latency
+
+Clock                        Corner                        Target
+-----------------------------------------------------------------
+All clocks                   default                       0.1
+
+##Max Level Count
+
+Clock                                  Count
+-----------------------------------------------------------------
+No max level constraints found.
+1

@@ -1,0 +1,26 @@
+#@ # 
+#@ # Running icc2_shell Version O-2018.06-SP1 for linux64 -- Jul 17, 2018
+#@ # Date:   Thu Aug 28 09:26:30 2025
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_pp/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_pp.design
+copy_block -from_block ${design}.dlib:${design}_pp.design -to_block ${design}_placement
+current_block ${design}_placement.design
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_pp/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_pp.design
+copy_block -from_block ${design}.dlib:${design}_pp.design -to_block ${design}_placement
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_pp/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_pp.design
+copy_block -from_block ${design}.dlib:${design}_pp.design -to_block ${design}_placement
+current_block ${design}_placement.design
+start_gui
+gui_set_pref_value -category {SelectByNamePalette} -key {ObjectType} -value {Logical Cells}
+link_block

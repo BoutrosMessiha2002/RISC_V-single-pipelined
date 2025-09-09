@@ -1,0 +1,296 @@
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Wed Aug 27 09:39:14 2025
+****************************************
+No mismatches exist on the design.
+1
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_cts.design
+Design 'RISCV' was successfully linked.
+****************************************
+Report : SCANDEF check
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Wed Aug 27 09:39:14 2025
+****************************************
+  Checking between SCANDEF file and design:
+
+  Total PARTITION group count: 1
+  Total SCANCHAINS checked: 5
+  VALIDATED :  5
+  FAILED    :  0
+
+  Chain name     Status    #cells    #bits     PARTITION      Scan in        Scan out
+  1              V         410       410       scan_clk_45_45 scan_in_1      scan_out_1
+  2              V         410       410       scan_clk_45_45 scan_in_2      scan_out_2
+  3              V         410       410       scan_clk_45_45 scan_in_3      scan_out_3
+  4              V         409       409       scan_clk_45_45 scan_in_4      scan_out_4
+  5              V         409       409       scan_clk_45_45 scan_in_5      scan_out_5
+1
+
+************************
+
+running check_legality
+
+Begin building search trees for block RISCV.dlib:RISCV_cts.design
+Done building search trees for block RISCV.dlib:RISCV_cts.design (time 0s)
+Warning: Routing direction of metal layer PO is neither "horizontal" nor "vertical".  PDC checks will not be performed on this layer. (PDC-003)
+PDC app_options settings =========
+	place.legalize.enable_prerouted_net_check: 1
+	place.legalize.num_tracks_for_access_check: 1
+	place.legalize.use_eol_spacing_for_access_check: 0
+	place.legalize.allow_touch_track_for_access_check: 1
+	place.legalize.reduce_conservatism_in_eol_check: 0
+	place.legalize.preroute_shape_merge_distance: 0.0
+	place.legalize.enable_non_preferred_direction_span_check: 0
+
+Layer M1: cached 0 shapes out of 228 total shapes.
+Layer M2: cached 0 shapes out of 0 total shapes.
+Cached 7524 vias out of 27019 total vias.
+
+check_legality for block design RISCV ... 
+Warning: Routing direction of metal layer PO is neither "horizontal" nor "vertical".  PDC checks will not be performed on this layer. (PDC-003)
+Design has no advanced rules
+Checking legality
+Checking cell legality:
+0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Sorting rows.
+Checking spacing rule legality.
+0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%
+Checking packing rule legality.
+
+
+****************************************
+  Report : Legality
+****************************************
+
+VIOLATIONS BY CATEGORY:
+   MOVABLE  APP-FIXED USER-FIXED  DESCRIPTION
+         0          0          0  Two objects overlap.
+         0          0          0  A cell violates a pnet.
+         0          0          0  A cell is illegal at a site.
+         0          0          0  A cell is not aligned with a site.
+         0          0          0  A cell has an illegal orientation.
+         0          0          0  A cell spacing rule is violated.
+         0          0          0  A layer rule is violated.
+         0          0          0  A cell is in the wrong region.
+         0          0          0  Two cells violate cts margins.
+         0          0          0  Two cells violate coloring.
+
+         0          0          0  TOTAL
+
+TOTAL 0 Violations.
+
+VIOLATIONS BY SUBCATEGORY:
+     MOVABLE  APP-FIXED USER-FIXED  DESCRIPTION
+
+         0          0          0    Two objects overlap.
+           0          0          0    Two cells overlap.
+           0          0          0    Two cells have overlapping keepout margins.
+           0          0          0    A cell overlaps a blockage.
+           0          0          0    A cell keepout margin overlaps a blockage.
+
+         0          0          0    A cell violates a pnet.
+
+         0          0          0    A cell is illegal at a site.
+           0          0          0    A cell violates pin-track alignment rules.
+           0          0          0    A cell is illegal at a site.
+           0          0          0    A cell violates legal index rule.
+           0          0          0    A cell has the wrong variant for its location.
+
+         0          0          0    A cell is not aligned with a site.
+           0          0          0    A cell is not aligned with the base site.
+           0          0          0    A cell is not aligned with an overlaid site.
+
+         0          0          0    A cell has an illegal orientation.
+
+         0          0          0    A cell spacing rule is violated.
+           0          0          0    A spacing rule is violated in a row.
+           0          0          0    A spacing rule is violated between adjacent rows.
+           0          0          0    A cell violates vertical abutment rule.
+           0          0          0    A cell violates metal spacing rule.
+
+         0          0          0    A layer rule is violated.
+           0          0          0    A layer VTH rule is violated.
+           0          0          0    A layer OD rule is violated.
+           0          0          0    A layer OD max-width rule is violated.
+           0          0          0    A layer ALL_OD corner rule is violated.
+           0          0          0    A layer max-vertical-length rule is violated.
+           0          0          0    A layer TPO rule is violated.
+           0          0          0    Filler cell insertion cannot satisfy layer rules.
+
+         0          0          0    A cell is in the wrong region.
+           0          0          0    A cell is outside its hard bound.
+           0          0          0    A cell is in the wrong voltage area.
+           0          0          0    A cell violates an exclusive movebound.
+
+         0          0          0    Two cells violate cts margins.
+
+         0          0          0    Two cells violate coloring.
+
+
+check_legality for block design RISCV succeeded!
+
+
+check_legality succeeded.
+
+**************************
+
+1
+NEX: 25839 nets
+NEX: 99.50%(25709/25839) nets are valid placed
+
+Histogram of "num of nodes per net"
+  value: 	percent%
+     0: 	0.5% 
+     1: 	0.1% 
+     2: 	41.8% 
+     3: 	57.5% (peak)
+     4: 	0.0% (average = 4) 
+    1000: 	0.0% 
+    10000: 	0.0% 
+
+
+Histogram of "net bbox size(um)"
+  value: 	percent%
+   0.00: 	0.5% 
+   1.00: 	1.0% 
+   2.00: 	2.0% 
+   3.00: 	4.6% 
+   4.00: 	7.6% (peak)
+   5.00: 	28.0% 
+   10.00: 	20.5% 
+   20.00: 	12.3% (average = 38.0) 
+   40.00: 	13.3% 
+   100.00: 	6.6% 
+   200.00: 	2.9% 
+   400.00: 	0.7% 
+
+
+Histogram of "net bbox aspect()"
+  value: 	percent%
+   0.00: 	0.5% 
+   1.00: 	6.0% (peak)
+   1.10: 	5.7% 
+   1.20: 	4.5% 
+   1.30: 	4.3% 
+   1.40: 	3.8% 
+   1.50: 	3.4% 
+   1.60: 	4.0% 
+   1.70: 	2.6% 
+   1.80: 	3.0% 
+   1.90: 	2.5% 
+   2.00: 	10.5% 
+   2.50: 	7.9% 
+   3.00: 	9.8% 
+   4.00: 	6.4% 
+   5.00: 	12.0% (average = 6.3) 
+   10.00: 	6.6% 
+   20.00: 	2.6% 
+   30.00: 	1.5% 
+   40.00: 	0.8% 
+   50.00: 	1.3% 
+   100.00: 	0.4% 
+
+NEX: 23661 insts
+
+Histogram of "inst bbox size(um)"
+  value: 	percent%
+   3.00: 	79.0% (average = 3.9) (peak)
+   4.00: 	12.0% 
+   5.00: 	0.2% 
+   10.00: 	8.8% 
+
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+1
+Information: CTS will work on the following scenarios. (CTS-101)
+   default	(Mode: default; Corner: default)
+Information: CTS will work on all clocks in active scenarios, including 2 master clocks and 0 generated clocks. (CTS-107)
+Information: Clock derating is disabled
+
+CTS related app options set by user:
+   No CTS related app option is set.
+
+****************************************
+Report : check_clock_tree
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Wed Aug 27 09:39:16 2025
+****************************************
+
+=================================================
+Summary
+=================================================
+
+Tag           Count     Solution  Description
+--------------------------------------------------------------------------------
+
+---------------------------------------------
+       Clock Definitions & Propagation
+---------------------------------------------
+CTS-002       0         None      There are active CTS scenarios with no clock definition.
+CTS-004       0         None      There are generated clocks that cannot be reached by their master clock.
+CTS-005       0         None      Generated clocks defined on bidirectional pins
+CTS-019       0         None      Clocks propagate to output ports
+CTS-905       1         None      There are clocks with no sinks
+CTS-906       0         None      There are sinks with no clock
+CTS-907       0         None      There are disabled timing arcs in the clock network
+
+---------------------------------------------
+               Reference Cells
+---------------------------------------------
+CTS-007       0         None      Failed to specify any clock buffers or inverters for CTS
+CTS-008       0         None      Clock reference cells have dont_touch or dont_use
+CTS-903       0         None      Cells instantiated in the clock network are not in the clock reference list
+CTS-904       0         None      Some clock reference cells have no LEQ cell specified for resizing
+
+---------------------------------------------
+               Skew Balancing
+---------------------------------------------
+CTS-006       0         None      Balancing conflicts exist between different clocks
+CTS-009       0         None      Cell instances in the clock tree have multiple conditional delay arcs between the same pins
+CTS-908       0         None      Large phase delay in abstracted sub-blocks
+CTS-910       0         None      Balance point constraints are defined downstream of another balance point or ignore point constraint
+CTS-911       0         None      Clock pins downstream of a balance point or ignore point have been added to a skew group
+CTS-913       0         None      Explicit ignore points have been added to a skew group, and will not be balanced
+CTS-917       0         None      Implicit ignore points have been added to a skew group, and will be balanced
+
+---------------------------------------------
+                Multi-Voltage
+---------------------------------------------
+CTS-901       0         None      Clock nets have MV violations
+CTS-902       0         None      No AON (always-on) buffers or inverters available for CTS
+CTS-918       0         None      Voltage area blocked for buffering.
+
+---------------------------------------------
+    Capacitance & Transition Constraints
+---------------------------------------------
+CTS-909       0         None      set_load constraints detected in the clock tree
+CTS-912       0         None      set_load constraints on output clock ports exceed the max capacitance limit
+CTS-914       0         None      set_input_transition on clock ports exceeds the max transition limit
+CTS-915       0         None      Excessively small max capacitance constraints in the clock network
+CTS-916       0         None      Excessively small max transition constraints in the clock network
+
+---------------------------------------------
+                Other issues
+---------------------------------------------
+CTS-012       0         None      Nets in the clock network have a dont_touch constraint
+CTS-013       0         None      Cells in the clock network have a dont_touch constraint
+CTS-015       0         None      set_max_delay or set_min_delay constraints are defined in the clock network
+CTS-900       0         None      Clock routing rules are outside of allowable layers
+=================================================
+                     Details
+=================================================
+1
+1

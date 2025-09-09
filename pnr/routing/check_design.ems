@@ -1,0 +1,15 @@
+<Database>
+Name/home/ICer/test_RISCV/pnr/routing/check_design.ems
+Creation TimeFri Aug 29 13:29:12 2025
+Modified TimeFri Aug 29 13:29:12 2025
+Design NameRISCV_routing
+Library NameRISCV.dlib
+</Database>
+<RuleCount>
+DFT-0111
+</RuleCount>
+<UserDefinedRules>
+</UserDefinedRules>
+<Messages>
+DFT-011reason10
+</Messages>

@@ -1,0 +1,817 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 20
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Sun Aug 24 06:26:17 2025
+****************************************
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[11][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U453/ZN (INVX0)                            15.34    3946.01 f
+  data/U454/ZN (INVX0)                             1.45    3947.46 r
+  data/data_memory_reg[11][8]/RSTB (SDFFARX1)      0.00    3947.46 r
+  data arrival time                                        3947.46
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[11][8]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.89     10.86
+  data required time                                        10.86
+  ------------------------------------------------------------------------
+  data required time                                        10.86
+  data arrival time                                        -3947.46
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3936.60
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[31][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U453/ZN (INVX0)                            15.34    3946.01 f
+  data/U455/ZN (INVX0)                             1.34    3947.35 r
+  data/data_memory_reg[31][3]/RSTB (SDFFARX1)      0.00    3947.35 r
+  data arrival time                                        3947.35
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[31][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.87     10.84
+  data required time                                        10.84
+  ------------------------------------------------------------------------
+  data required time                                        10.84
+  data arrival time                                        -3947.35
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3936.51
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[9][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U846/ZN (INVX0)                           1302.77   3637.18 f
+  data/U3/Z (NBUFFX32)                           271.08    3908.26 f
+  data/U1083/ZN (INVX0)                           21.25    3929.52 r
+  data/U465/ZN (INVX0)                            12.14    3941.65 f
+  data/U466/ZN (INVX0)                             4.44    3946.10 r
+  data/data_memory_reg[9][8]/RSTB (SDFFARX1)       0.00    3946.10 r
+  data arrival time                                        3946.10
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[9][8]/CLK (SDFFARX1)        0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               1.16     11.13
+  data required time                                        11.13
+  ------------------------------------------------------------------------
+  data required time                                        11.13
+  data arrival time                                        -3946.10
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3934.98
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[1][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U329/ZN (INVX0)                            10.99    3940.56 f
+  data/U331/ZN (INVX0)                             3.95    3944.51 r
+  data/data_memory_reg[1][7]/RSTB (SDFFARX1)       0.00    3944.52 r
+  data arrival time                                        3944.52
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[1][7]/CLK (SDFFARX1)        0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               1.08     11.05
+  data required time                                        11.05
+  ------------------------------------------------------------------------
+  data required time                                        11.05
+  data arrival time                                        -3944.52
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3933.47
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[13][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U329/ZN (INVX0)                            10.99    3940.56 f
+  data/U330/ZN (INVX0)                             2.58    3943.14 r
+  data/data_memory_reg[13][8]/RSTB (SDFFARX1)      0.00    3943.14 r
+  data arrival time                                        3943.14
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[13][8]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               1.02     10.99
+  data required time                                        10.99
+  ------------------------------------------------------------------------
+  data required time                                        10.99
+  data arrival time                                        -3943.14
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3932.15
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[26][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U846/ZN (INVX0)                           1302.77   3637.18 f
+  data/U3/Z (NBUFFX32)                           271.08    3908.26 f
+  data/U1083/ZN (INVX0)                           21.25    3929.52 r
+  data/U465/ZN (INVX0)                            12.14    3941.65 f
+  data/U467/ZN (INVX0)                             1.26    3942.91 r
+  data/data_memory_reg[26][3]/RSTB (SDFFARX1)      0.00    3942.91 r
+  data arrival time                                        3942.91
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[26][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.86     10.83
+  data required time                                        10.83
+  ------------------------------------------------------------------------
+  data required time                                        10.83
+  data arrival time                                        -3942.91
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3932.09
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[14][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U823/ZN (INVX0)                             0.90    3939.85 f
+  data/U42/ZN (INVX0)                              0.20    3940.05 r
+  data/U43/ZN (INVX0)                              0.44    3940.49 f
+  data/U824/ZN (INVX0)                             0.22    3940.71 r
+  data/data_memory_reg[14][3]/RSTB (SDFFARX1)      0.00    3940.71 r
+  data arrival time                                        3940.71
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[14][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.31     10.28
+  data required time                                        10.28
+  ------------------------------------------------------------------------
+  data required time                                        10.28
+  data arrival time                                        -3940.71
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3930.43
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[1][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U823/ZN (INVX0)                             0.90    3939.85 f
+  data/U42/ZN (INVX0)                              0.20    3940.05 r
+  data/U43/ZN (INVX0)                              0.44    3940.49 f
+  data/U825/ZN (INVX0)                             0.19    3940.68 r
+  data/data_memory_reg[1][8]/RSTB (SDFFARX1)       0.00    3940.68 r
+  data arrival time                                        3940.68
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[1][8]/CLK (SDFFARX1)        0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.30     10.27
+  data required time                                        10.27
+  ------------------------------------------------------------------------
+  data required time                                        10.27
+  data arrival time                                        -3940.68
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3930.41
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[13][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U181/ZN (INVX0)                             0.67    3939.61 f
+  data/U936/ZN (INVX0)                             0.32    3939.93 r
+  data/U332/ZN (INVX0)                             0.24    3940.16 f
+  data/U334/ZN (INVX0)                             0.13    3940.30 r
+  data/data_memory_reg[13][7]/RSTB (SDFFARX1)      0.00    3940.30 r
+  data arrival time                                        3940.30
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[13][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.29     10.26
+  data required time                                        10.26
+  ------------------------------------------------------------------------
+  data required time                                        10.26
+  data arrival time                                        -3940.30
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3930.04
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[13][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U181/ZN (INVX0)                             0.67    3939.61 f
+  data/U936/ZN (INVX0)                             0.32    3939.93 r
+  data/U332/ZN (INVX0)                             0.24    3940.16 f
+  data/U333/ZN (INVX0)                             0.13    3940.29 r
+  data/data_memory_reg[13][3]/RSTB (SDFFARX1)      0.00    3940.29 r
+  data arrival time                                        3940.29
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[13][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.29     10.26
+  data required time                                        10.26
+  ------------------------------------------------------------------------
+  data required time                                        10.26
+  data arrival time                                        -3940.29
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3930.03
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[19][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U181/ZN (INVX0)                             0.67    3939.61 f
+  data/U935/ZN (INVX0)                             0.16    3939.77 r
+  data/U335/ZN (INVX0)                             0.18    3939.94 f
+  data/U336/ZN (INVX0)                             0.15    3940.09 r
+  data/data_memory_reg[19][7]/RSTB (SDFFARX1)      0.00    3940.09 r
+  data arrival time                                        3940.09
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[19][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.29     10.26
+  data required time                                        10.26
+  ------------------------------------------------------------------------
+  data required time                                        10.26
+  data arrival time                                        -3940.09
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3929.83
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[14][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U181/ZN (INVX0)                             0.67    3939.61 f
+  data/U935/ZN (INVX0)                             0.16    3939.77 r
+  data/U335/ZN (INVX0)                             0.18    3939.94 f
+  data/U337/ZN (INVX0)                             0.12    3940.06 r
+  data/data_memory_reg[14][7]/RSTB (SDFFARX1)      0.00    3940.06 r
+  data arrival time                                        3940.06
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[14][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.28     10.25
+  data required time                                        10.25
+  ------------------------------------------------------------------------
+  data required time                                        10.25
+  data arrival time                                        -3940.06
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3929.81
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[19][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1082/ZN (INVX0)                           15.34    3929.57 r
+  data/U933/ZN (INVX0)                             7.90    3937.46 f
+  data/U934/ZN (INVX0)                             1.48    3938.94 r
+  data/U823/ZN (INVX0)                             0.90    3939.85 f
+  data/U826/ZN (INVX0)                             0.23    3940.07 r
+  data/data_memory_reg[19][8]/RSTB (SDFFARX1)      0.00    3940.07 r
+  data arrival time                                        3940.07
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[19][8]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.32     10.29
+  data required time                                        10.29
+  ------------------------------------------------------------------------
+  data required time                                        10.29
+  data arrival time                                        -3940.07
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3929.78
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[6][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U192/ZN (INVX0)                             0.55    3938.41 f
+  data/U891/ZN (INVX0)                             0.15    3938.56 r
+  data/U459/ZN (INVX0)                             0.49    3939.05 f
+  data/U461/ZN (INVX0)                             0.20    3939.25 r
+  data/data_memory_reg[6][7]/RSTB (SDFFARX1)       0.00    3939.25 r
+  data arrival time                                        3939.25
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[6][7]/CLK (SDFFARX1)        0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.31     10.28
+  data required time                                        10.28
+  ------------------------------------------------------------------------
+  data required time                                        10.28
+  data arrival time                                        -3939.25
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.97
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[31][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U192/ZN (INVX0)                             0.55    3938.41 f
+  data/U891/ZN (INVX0)                             0.15    3938.56 r
+  data/U459/ZN (INVX0)                             0.49    3939.05 f
+  data/U460/ZN (INVX0)                             0.19    3939.24 r
+  data/data_memory_reg[31][7]/RSTB (SDFFARX1)      0.00    3939.24 r
+  data arrival time                                        3939.24
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[31][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.31     10.28
+  data required time                                        10.28
+  ------------------------------------------------------------------------
+  data required time                                        10.28
+  data arrival time                                        -3939.24
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.96
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[30][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U846/ZN (INVX0)                           1302.77   3637.18 f
+  data/U3/Z (NBUFFX32)                           271.08    3908.26 f
+  data/U1078/ZN (INVX0)                           14.81    3923.07 r
+  data/U302/ZN (INVX0)                            12.29    3935.36 f
+  data/U304/ZN (INVX0)                             4.61    3939.97 r
+  data/data_memory_reg[30][3]/RSTB (SDFFARX1)      0.01    3939.98 r
+  data arrival time                                        3939.98
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[30][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               1.06     11.03
+  data required time                                        11.03
+  ------------------------------------------------------------------------
+  data required time                                        11.03
+  data arrival time                                        -3939.98
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.95
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[6][8] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U462/ZN (INVX0)                             1.13    3938.99 f
+  data/U463/ZN (INVX0)                             0.24    3939.23 r
+  data/data_memory_reg[6][8]/RSTB (SDFFARX1)       0.00    3939.23 r
+  data arrival time                                        3939.23
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[6][8]/CLK (SDFFARX1)        0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.33     10.30
+  data required time                                        10.30
+  ------------------------------------------------------------------------
+  data required time                                        10.30
+  data arrival time                                        -3939.23
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.93
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[27][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U462/ZN (INVX0)                             1.13    3938.99 f
+  data/U464/ZN (INVX0)                             0.23    3939.22 r
+  data/data_memory_reg[27][7]/RSTB (SDFFARX1)      0.00    3939.22 r
+  data arrival time                                        3939.22
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[27][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.33     10.30
+  data required time                                        10.30
+  ------------------------------------------------------------------------
+  data required time                                        10.30
+  data arrival time                                        -3939.22
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.92
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[11][7] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U192/ZN (INVX0)                             0.55    3938.41 f
+  data/U892/ZN (INVX0)                             0.14    3938.55 r
+  data/U456/ZN (INVX0)                             0.16    3938.72 f
+  data/U458/ZN (INVX0)                             0.12    3938.83 r
+  data/data_memory_reg[11][7]/RSTB (SDFFARX1)      0.00    3938.83 r
+  data arrival time                                        3938.83
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[11][7]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.28     10.25
+  data required time                                        10.25
+  ------------------------------------------------------------------------
+  data required time                                        10.25
+  data arrival time                                        -3938.83
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.58
+
+
+
+  Startpoint: fun_rst (input port clocked by fun_clk)
+  Endpoint: data/data_memory_reg[27][3] (recovery check against rising-edge clock clocked by fun_clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: fun_clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock fun_clk (rise edge)                        0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  input external delay                             0.08      0.08
+
+  fun_rst (in)                                     0.01      0.09 r
+  rst_mux/U1/Q (MUX21X2)                         2334.32   2334.41 r
+  data/U847/ZN (INVX0)                           1304.64   3639.05 f
+  data/U4/Z (NBUFFX32)                           275.18    3914.23 f
+  data/U1080/ZN (INVX0)                           16.44    3930.66 r
+  data/U889/ZN (INVX0)                             6.16    3936.82 f
+  data/U890/ZN (INVX0)                             1.03    3937.85 r
+  data/U192/ZN (INVX0)                             0.55    3938.41 f
+  data/U892/ZN (INVX0)                             0.14    3938.55 r
+  data/U456/ZN (INVX0)                             0.16    3938.72 f
+  data/U457/ZN (INVX0)                             0.12    3938.83 r
+  data/data_memory_reg[27][3]/RSTB (SDFFARX1)      0.00    3938.83 r
+  data arrival time                                        3938.83
+
+  clock fun_clk (rise edge)                       10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  data/data_memory_reg[27][3]/CLK (SDFFARX1)       0.00     10.00 r
+  clock uncertainty                               -0.03      9.97
+  library setup time                               0.28     10.25
+  data required time                                        10.25
+  ------------------------------------------------------------------------
+  data required time                                        10.25
+  data arrival time                                        -3938.83
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                         -3928.58
+
+
+1

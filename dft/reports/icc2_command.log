@@ -1,0 +1,201 @@
+#@ # 
+#@ # Running icc2_shell Version O-2018.06-SP1 for linux64 -- Jul 17, 2018
+#@ # Date:   Mon Aug 18 06:17:35 2025
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+man set_case_analysis
+cd ../../
+ls
+cd pnr
+cd setup
+set_app_var search_path /home/ICer/Downloads/Lib
+set ref_path /home/ICer/test_RISCV/ndm/ndm_libs/saed90nm_max.ndm
+set tf_path ${search_path}/process/astro/tech/astroTechFile.tf
+create_lib -technology $tf_path -ref_libs $ref_path  RISCV.dlib
+read_verilog -top RISCV /home/ICer/test_RISCV/dft/output/RISCV.v
+read_sdc /home/ICer/test_RISCV/dft/output/RISCV.sdc
+set_case_analysis 0 [get_ports test_mode]
+set Tech $search_path/Technology_Kit/starrcxt
+read_parasitic_tech -layermap $Tech/tech2itf.map -tlup $Tech/tluplus/saed90nm_1p9m_1t_Cmax.tluplus  -name maxTLU
+read_parasitic_tech -layermap $Tech/tech2itf.map -tlup $Tech/tluplus/saed90nm_1p9m_1t_Cmin.tluplus  -name minTLU
+set_parasitic_parameters -late_spec maxTLU -early_spec minTLU
+save_block -as RISCV_setup  RISCV.dlib:RISCV.design
+get_clocks
+man get_clocks
+report_clocks
+man report_clocks
+report_clocks -groups
+report_clocks -attributes
+cd ../fp/script
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_setup/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_setup.design
+copy_block -from_block ${design}.dlib:${design}_setup.design -to_block ${design}_fp
+current_block ${design}_fp.design
+#start_gui
+set_attribute [get_layers {M1 M3 M5 M7 M9}] routing_direction horizontal
+set_attribute [get_layers {M2 M4 M6 M8}] routing_direction vertical
+set_attribute [get_layers {M1}] track_offset 0.03
+set_attribute [get_layers {M2}] track_offset 0.03
+set_ignored_layers -max_routing_layer [get_layers {M8}]
+set_ignored_layers -max_routing_layer [get_layers {M9}]
+set Name_unit [get_site_defs]
+set_attribute [get_site_defs $Name_unit] is_default true
+set_attribute [get_site_defs  $Name_unit] symmetry {Y}
+initialize_floorplan -core_utilization 0.5 -shape R -orientation N -core_offset {60} -side_ratio {1 1} -flip_first_row false
+place_pins -ports [get_ports *]
+save_block
+cd ../../pp/script
+set offset 5
+set width 5
+set spacing 10
+set horiz_top M9
+set vert_top M8
+set mesh2_horiz_top M7
+set mesh2_vert_top M6
+set mesh_width 5
+set mesh_pitch 15
+set mesh_offset 1
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_fp/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_fp.design
+copy_block -from_block ${design}.dlib:${design}_fp.design -to_block ${design}_pp
+current_block ${design}_pp.design
+#start_gui
+remove_ignored_layers -all -max_routing_layer -min_routing_layer
+report_ignored_layers
+create_net -power VDD
+create_net -ground VSS
+connect_pg_net -net VDD [get_pins -hierarchical *\VDD]
+connect_pg_net -net VSS [get_pins -hierarchical *\VSS]
+set_app_option -name plan.pgroute.auto_connect_pg_net -value true
+create_pg_region ring_region -core -expand_by_edge "{{side:1} {offset:$offset}} {{side:2} {offset:$offset}} {{side:3} {offset:$offset}} {{side:4} {offset:$offset}}"
+create_pg_ring_pattern ring_pattern -horizontal_layer $horiz_top -vertical_layer $vert_top  -horizontal_spacing $spacing -vertical_spacing $spacing -horizontal_width $width -vertical_width $width
+set_pg_strategy ring_strategy -pg_regions {ring_region} -pattern {{name:ring_pattern} {nets: "VSS VDD"}}
+compile_pg -strategies ring_strategy
+check_pg_drc
+check_pg_connectivity
+create_pg_mesh_pattern mesh1  -layers {{{vertical_layer: M8} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim:true}} {{horizontal_layer: M9} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim: true}}}
+set_pg_strategy mesh_strat1 -core -pattern {{pattern: mesh1} {nets: "VSS VDD"}} -extension {stop:outermost_ring}
+compile_pg -strategies mesh_strat1
+check_pg_drc
+create_pg_mesh_pattern mesh2  -layers {{{vertical_layer: M6} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim:true}} {{horizontal_layer: M7} {width:2} {spacing:interleaving} {pitch:40} {offset:1} {trim: true}}}
+set_pg_strategy mesh_strat2 -core -pattern {{pattern: mesh2} {nets: "VSS VDD"}} -extension {stop:outermost_ring}
+compile_pg -strategies mesh_strat2
+check_pg_drc
+create_pg_std_cell_conn_pattern std_cell_rail -layers M1 -rail_width 0.16
+set_pg_strategy rails_M1 -core -pattern {{name: std_cell_rail} {nets: "VDD VSS"} }
+compile_pg -strategies rails_M1
+check_pg_drc
+check_pg_connectivity
+check_pg_missing_vias
+cd ../../placement/script
+set design RISCV
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_pp/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_pp.design
+copy_block -from_block ${design}.dlib:${design}_pp.design -to_block ${design}_placement
+current_block ${design}_placement.design
+#start_gui
+read_def ../../../dft/output/${design}.def
+check_design -checks pre_placement_stage
+suppress_message -force CMD-013
+suppress_message -force CMD-013; report_design_mismatch -check_design >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+suppress_message -force CMD-013; check_scan_chain >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+suppress_message -force CMD-013; check_mv_design >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+suppress_message -force CMD-013; check_rp_constraints >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+suppress_message -force CMD-013; check_timing >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+suppress_message -force CMD-013; check_hier_design -stage pre_placement >> /home/ICer/test_RISCV/pnr/placement/script/check_design2025Aug18062252.log
+unsuppress_message CMD-013
+set_app_option  -name place.coarse.congestion_driven_max_util -value 0.6
+set_app_options -name opt.common.user_instance_name_prefix -value "PLACE_"
+set_app_options -name opt.common.max_fanout   -value 10
+set_app_options -name opt.tie_cell.max_fanout -value 10
+get_lib_cell */NA*
+get_lib_cell */IN*
+add_spare_cells -cell_name SpareCell  -lib_cell "*/NAND2X2 */INVX1"  -num_instances 15
+spread_spare_cells -cells [get_cells Spare*] -random_distribution
+place_eco_cells -cells [get_cells Spare*] -legalize_only
+set spare_cells [get_cells Spare*]
+set_attribute [get_lib_cells saed90nm_max/TIEH] dont_use false
+set_attribute [get_lib_cells saed90nm_max/TIEH] dont_touch false
+set_lib_cell_purpose -include all {saed90nm_max/TIEH}
+set_attribute [get_lib_cells saed90nm_max/TIEL] dont_use false
+set_attribute [get_lib_cells saed90nm_max/TIEL] dont_touch false
+set_lib_cell_purpose -include all {saed90nm_max/TIEL}
+add_tie_cells -objects $spare_cells   -tie_low_lib_cells  saed90nm_max/TIEL   -tie_high_lib_cells saed90nm_max/TIEH       -legalize
+set_dont_touch $spare_cells
+set_fixed_objects $spare_cells
+connect_pg_net -net "VDD" [get_pins -hierarchical "*/VDD*"]
+connect_pg_net -net "VSS" [get_pins -hierarchical "*/VSS"]
+check_pg_drc > ../report/before_placement_drc_spare.rpt
+create_placement  -effort high    -timing_driven -buffering_aware_timing_driven   -congestion -congestion_effort  medium   -incremental
+legalize_placement -incremental
+check_pg_drc  > ../report/drc_legalized.rpt
+connect_pg_net -net "VDD" [get_pins -hierarchical "*/VDD*"]
+connect_pg_net -net "VSS" [get_pins -hierarchical "*/VSS"]
+check_pg_drc > ../report/After_placement_drc.rpt
+check_legality -verbose  > ../report/legality.rpt
+check_routability   > ../report/routeability.rpt
+report_utilization > ../report/utilization.rpt
+check_pg_drc  > ../report/drc_final.rpt
+report_design > ../report/design.rpt
+report_cell   > ../report/cells.rpt
+report_timing > ../report/timing.rpt
+write_def ../output/${design}.def
+write_verilog -include {all} ../output/${design}.v
+check_legality
+save_block
+cd ../../cts/script
+set design RISCV
+set_host_options -max_cores 8
+sh rm /home/ICer/test_RISCV/pnr/setup/RISCV.dlib/RISCV_placement/design.ndm.lock
+set design_lib_path /home/ICer/test_RISCV/pnr/setup
+open_block $design_lib_path/${design}.dlib:${design}_placement.design
+copy_block -from_block ${design}.dlib:${design}_placement.design -to_block ${design}_cts
+current_block ${design}_cts.design
+#start_gui
+check_design -checks pre_clock_tree_stage
+suppress_message -force CMD-013
+suppress_message -force CMD-013; report_design_mismatch -check_design >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_scan_chain >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_mv_design >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_legality >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; design_extraction_check >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_timing >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_clock_trees >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+suppress_message -force CMD-013; check_hier_design -stage pre_clock_tree >> /home/ICer/test_RISCV/pnr/cts/script/check_design2025Aug18062703.log
+unsuppress_message CMD-013
+set_ignored_layers -max_routing_layer M6 -min_routing_layer M1 -verbose
+remove_clock_tree_options -all -target_skew -target_latency
+report_clocks
+set_input_transition -rise 0.5 {fun_clk scan_clk}
+set_input_transition -fall 0.5 {fun_clk scan_clk}
+set_lib_cell_purpose -exclude cts [get_lib_cells -of [get_cells *]]
+set_lib_cell_purpose -include cts */INVX2 ;
+set_lib_cell_purpose -include cts */INVX4
+set_lib_cell_purpose -include cts */*INVX8 ;
+set_lib_cell_purpose -include cts */*INVX16 ;
+set_clock_tree_options -target_skew 1
+set_clock_tree_options -target_latency 1
+create_routing_rule clk_network_NDR -multiplier_spacing 2 -multiplier_width 2
+# ----- root:from port to first buffer
+set_clock_routing_rules -net_type root -rules clk_network_NDR -max_routing_layer M5 -min_routing_layer M2
+# ----- internal : from first buffer to last buffer before sink
+set_clock_routing_rules -net_type internal -rules clk_network_NDR -max_routing_layer M5 -min_routing_layer M2
+# ----- Sink >> from last buffer to sink(leaf) without NDR
+set_clock_routing_rules -net_type sink -default_rule -max_routing_layer M2 -min_routing_layer M1
+# over all Rules
+report_routing_rules -verbose
+# Special Clock net all Rules
+report_clock_routing_rules
+set_max_transition -clock_path 0.500 [get_clocks ]
+set_app_options -as_user_default -list {cts.common.max_fanout 20}
+set_app_options -name cts.common.user_instance_name_prefix -value "CTS_"
+set_app_options -name time.remove_clock_reconvergence_pessimism -value true
+report_clock_settings
+clock_opt -from build_clock -to build_clock
+synthesize_clock_trees

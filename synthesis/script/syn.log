@@ -1,0 +1,1878 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version O-2018.06-SP1 for linux64 - Jul 19, 2018 
+
+                    Copyright (c) 1988 - 2018 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/ICer/.synopsys_dv_prefs.tcl
+set_host_options -max_cores 6
+1
+lappend search_path "/home/ICer/Downloads/Lib/synopsys/models"
+. /home/synopsys/syn/O-2018.06-SP1/libraries/syn /home/synopsys/syn/O-2018.06-SP1/minpower/syn /home/synopsys/syn/O-2018.06-SP1/dw/syn_ver /home/synopsys/syn/O-2018.06-SP1/dw/sim_ver /home/ICer/Downloads/Lib/synopsys/models
+set worst_case "saed90nm_max.db"
+saed90nm_max.db
+set_app_var target_library [list $worst_case]
+saed90nm_max.db
+set_app_var link_library "* $target_library "
+* saed90nm_max.db 
+sh rm -rf work
+sh mkdir -p work
+define_design_lib work -path ./work
+1
+set design RISCV
+RISCV
+set compile_top_all_paths true
+true
+set_svf ${design}.svf
+1
+analyze -format verilog -lib work ../rtl/${design}.v
+Running PRESTO HDLC
+Compiling source file ../rtl/RISCV.v
+Opening include file ../rtl/ALU.v
+Opening include file ../rtl/ALU_decoder.v
+Opening include file ../rtl/control_unit.v
+Opening include file ../rtl/data_mem.v
+Opening include file ../rtl/instr_mem.v
+Warning:  ../rtl/data_mem.v:20: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../rtl/main_decoder.v
+Warning:  ../rtl/instr_mem.v:7: The statements in initial blocks are ignored. (VER-281)
+Opening include file ../rtl/MUX2to1.v
+Opening include file ../rtl/mux4to1.v
+Opening include file ../rtl/PC.v
+Opening include file ../rtl/reg_file.v
+Opening include file ../rtl/sign_extend.v
+Warning:  ../rtl/reg_file.v:24: The statements in initial blocks are ignored. (VER-281)
+Warning:  ../rtl/RISCV.v:20: Redeclaration of port 'rst'. (VER-331)
+Presto compilation completed successfully.
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+1
+elaborate -lib work $design
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/home/synopsys/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'saed90nm_max'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'RISCV'.
+Information: Building the design 'mux2to1' instantiated from design 'RISCV' with
+	the parameters "DATA=32". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'PC'. (HDL-193)
+
+Inferred memory devices in process
+	in routine PC line 9 in file
+		'../rtl/PC.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       PC_reg        | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'instr_mem' instantiated from design 'RISCV' with
+	the parameters "ADDRESS=32,INSTR=32". (HDL-193)
+Statistics for MUX_OPs
+====================================================================
+|        block name/line         | Inputs | Outputs | # sel inputs |
+====================================================================
+| instr_mem_ADDRESS32_INSTR32/31 |   32   |    1    |      5       |
+====================================================================
+Presto compilation completed successfully.
+Information: Building the design 'reg_file' instantiated from design 'RISCV' with
+	the parameters "ADDRESS=5,DATA=32". (HDL-193)
+
+Inferred memory devices in process
+	in routine reg_file_ADDRESS5_DATA32 line 18 in file
+		'../rtl/reg_file.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     reg_mem_reg     | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=================================================================
+|      block name/line        | Inputs | Outputs | # sel inputs |
+=================================================================
+| reg_file_ADDRESS5_DATA32/15 |   32   |   32    |      5       |
+| reg_file_ADDRESS5_DATA32/16 |   32   |   32    |      5       |
+=================================================================
+Presto compilation completed successfully.
+Information: Building the design 'sign_extend'. (HDL-193)
+
+Statistics for case statements in always block at line 7 in file
+	'../rtl/sign_extend.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            9             |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ALU' instantiated from design 'RISCV' with
+	the parameters "DATA=32,CONTROL=3". (HDL-193)
+
+Statistics for case statements in always block at line 9 in file
+	'../rtl/ALU.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'data_mem' instantiated from design 'RISCV' with
+	the parameters "ADDRESS=32,DATA=32". (HDL-193)
+
+Inferred memory devices in process
+	in routine data_mem_ADDRESS32_DATA32 line 14 in file
+		'../rtl/data_mem.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   data_memory_reg   | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+==================================================================
+|       block name/line        | Inputs | Outputs | # sel inputs |
+==================================================================
+| data_mem_ADDRESS32_DATA32/19 |   32   |   32    |      5       |
+==================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4to1' instantiated from design 'RISCV' with
+	the parameters "DATA=32". (HDL-193)
+
+Statistics for case statements in always block at line 9 in file
+	'../rtl/mux4to1.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'control_unit'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'main_decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 16 in file
+	'../rtl/main_decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            19            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ALU_decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 9 in file
+	'../rtl/ALU_decoder.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+|            16            |    auto/auto     |
+|            19            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
+current_design
+Current design is 'RISCV'.
+{RISCV}
+check_design
+ 
+****************************************
+check_design summary:
+Version:     O-2018.06-SP1
+Date:        Thu Aug 28 00:21:11 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     61
+    Unconnected ports (LINT-28)                                    32
+    Feedthrough (LINT-29)                                          18
+    Shorted outputs (LINT-31)                                      11
+
+Cells                                                               3
+    Cells do not drive (LINT-1)                                     3
+--------------------------------------------------------------------------------
+
+Warning: In design 'ALU_DATA32_CONTROL3', cell 'B_6' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA32_CONTROL3', cell 'B_7' does not drive any nets. (LINT-1)
+Warning: In design 'ALU_DATA32_CONTROL3', cell 'B_8' does not drive any nets. (LINT-1)
+Warning: In design 'RISCV', port 'test_mode' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'instr_mem_ADDRESS32_INSTR32', port 'A[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'reg_file_ADDRESS5_DATA32', port 'rst' is not connected to any nets. (LINT-28)
+Warning: In design 'data_mem_ADDRESS32_DATA32', port 'A[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'data_mem_ADDRESS32_DATA32', port 'A[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'data_mem_ADDRESS32_DATA32', port 'rst' is not connected to any nets. (LINT-28)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[20]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[21]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[22]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[23]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[24]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[25]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[26]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[27]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[28]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[29]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[30]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[24]' is connected directly to output port 'ImmExt[31]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[23]' is connected directly to output port 'ImmExt[10]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[22]' is connected directly to output port 'ImmExt[9]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[21]' is connected directly to output port 'ImmExt[8]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[20]' is connected directly to output port 'ImmExt[7]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[19]' is connected directly to output port 'ImmExt[6]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in_val[18]' is connected directly to output port 'ImmExt[5]'. (LINT-29)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[20]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[21]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[22]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[23]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[24]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[25]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[26]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[27]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[28]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[29]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'ImmExt[31]' is connected directly to output port 'ImmExt[30]'. (LINT-31)
+1
+set_app_var  auto_wire_load_selection false
+false
+source ../cons/cons.tcl
+Current design is 'RISCV'.
+Current design is 'RISCV'.
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+set_fix_multiple_port_nets -all -buffer_constants -feedthroughs
+1
+link
+
+  Linking design 'RISCV'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (12 designs)              /home/ICer/test_RISCV/synthesis/script/RISCV.db, etc
+  saed90nm_max (library)      /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db
+
+1
+#start_gui
+compile -map_effort high -incremental
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 64 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+  Processing 'ALU_decoder'
+  Processing 'main_decoder'
+  Processing 'control_unit'
+  Processing 'mux4to1_DATA32'
+  Processing 'data_mem_ADDRESS32_DATA32'
+  Processing 'ALU_DATA32_CONTROL3'
+  Processing 'sign_extend'
+  Processing 'mux2to1_DATA32_0'
+  Processing 'reg_file_ADDRESS5_DATA32'
+  Processing 'instr_mem_ADDRESS32_INSTR32'
+  Processing 'PC'
+  Processing 'RISCV'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+  Processing 'RISCV_DW01_add_0'
+  Processing 'RISCV_DW01_add_1'
+  Processing 'ALU_DATA32_CONTROL3_DW01_sub_0'
+  Processing 'ALU_DATA32_CONTROL3_DW01_add_0'
+  Processing 'ALU_DATA32_CONTROL3_DW01_cmp6_0'
+
+  Beginning Mapping Optimizations  (High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+  Selecting critical implementations
+  Structuring 'RISCV_DW01_add_3'
+  Mapping 'RISCV_DW01_add_3'
+  Structuring 'RISCV_DW01_add_4'
+  Mapping 'RISCV_DW01_add_4'
+  Structuring 'RISCV_DW01_add_4'
+  Mapping 'RISCV_DW01_add_4'
+  Structuring 'RISCV_DW01_add_5'
+  Mapping 'RISCV_DW01_add_5'
+  Structuring 'RISCV_DW01_add_6'
+  Mapping 'RISCV_DW01_add_6'
+  Selecting implementations
+  Selecting implementations
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:10  121530.5      4.19      54.3   29330.4                          
+    0:00:11  121757.2      3.48      46.0   29472.2 PC_dut/PC_reg[31]/D      
+    0:00:11  121768.2      3.07      45.1   29473.9 PC_dut/PC_reg[31]/D      
+    0:00:11  121797.7      2.84      36.2   29468.8 PC_dut/PC_reg[31]/D      
+    0:00:11  121788.5      2.45      26.7   29462.3 PC_dut/PC_reg[31]/D      
+    0:00:11  121794.0      1.84      22.8   29463.3 PC_dut/PC_reg[31]/D      
+    0:00:11  121805.1      1.76      21.9   29462.1 PC_dut/PC_reg[31]/D      
+    0:00:11  121838.3      1.42      17.5   29460.4 PC_dut/PC_reg[31]/D      
+    0:00:11  121789.4      1.12      11.4   29450.9 PC_dut/PC_reg[31]/D      
+    0:00:11  121794.0      0.92       8.8   29448.9 PC_dut/PC_reg[15]/D      
+    0:00:11  121760.9      0.65       6.2   29449.3 PC_dut/PC_reg[31]/D      
+    0:00:11  121750.7      0.60       6.1   29450.7 PC_dut/PC_reg[31]/D      
+    0:00:11  121719.4      0.55       4.5   29452.6 PC_dut/PC_reg[15]/D      
+    0:00:12  121744.3      0.46       3.4   29446.2 PC_dut/PC_reg[31]/D      
+    0:00:12  121762.7      0.43       3.1   29443.5 PC_dut/PC_reg[31]/D      
+    0:00:12  121724.9      0.33       2.6   29454.2                          
+    0:00:12  121713.9      0.21       1.6   29446.4 PC_dut/PC_reg[11]/D      
+    0:00:12  121725.8      0.16       0.8   29455.2 PC_dut/PC_reg[31]/D      
+    0:00:12  121709.3      0.11       0.2   29454.3 PC_dut/PC_reg[15]/D      
+    0:00:12  121729.5      0.04       0.1   29468.9                          
+    0:00:12  121723.1      0.00       0.0   29469.0                          
+    0:00:12  121723.1      0.00       0.0   29469.0                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:12  121723.1      0.00       0.0   29469.0                          
+    0:00:13  122607.8      0.00       0.0   28379.8 reg_f/n136               
+    0:00:13  123492.6      0.00       0.0   27294.3 data/n102                
+    0:00:13  124377.3      0.00       0.0   26500.0 reg_f/C2123/net24251     
+    0:00:13  125211.3      0.00       0.0   25876.2 reg_f/n49                
+    0:00:13  126096.1      0.00       0.0   25383.0 data/n49                 
+    0:00:13  126856.4      0.00       0.0   24981.5 control/PCSrc            
+    0:00:13  127173.4      0.00       0.0   24866.0 reg_f/net48559           
+    0:00:13  127452.7      0.00       0.0   24785.2 reg_f/net48519           
+    0:00:14  127731.9      0.00       0.0   24704.3 reg_f/net48474           
+    0:00:14  128011.2      0.00       0.0   24623.5 reg_f/net48489           
+    0:00:14  128290.4      0.00       0.0   24542.6 reg_f/net48444           
+    0:00:14  128569.7      0.00       0.0   24461.7 reg_f/net48399           
+    0:00:14  128848.9      0.00       0.0   24380.9 reg_f/net48354           
+    0:00:14  129128.1      0.00       0.0   24300.0 reg_f/net48369           
+    0:00:14  129407.4      0.00       0.0   24219.2 reg_f/net48324           
+    0:00:15  129686.6      0.00       0.0   24138.3 reg_f/net48279           
+    0:00:15  129965.9      0.00       0.0   24057.5 data/net48874            
+    0:00:15  130245.1      0.00       0.0   23976.6 data/net48839            
+    0:00:15  130524.4      0.00       0.0   23895.8 data/net48794            
+    0:00:15  130803.6      0.00       0.0   23814.9 data/net48809            
+    0:00:15  131082.9      0.00       0.0   23734.1 data/net48764            
+    0:00:15  131362.1      0.00       0.0   23653.2 data/net48719            
+    0:00:15  131641.3      0.00       0.0   23572.4 data/net48674            
+    0:00:15  131920.6      0.00       0.0   23491.5 data/net48689            
+    0:00:16  132199.8      0.00       0.0   23410.7 data/net48644            
+    0:00:16  132479.1      0.00       0.0   23329.8 data/net48599            
+    0:00:16  132758.3      0.00       0.0   23248.9 data/net48584            
+    0:00:16  133037.6      0.00       0.0   23168.4 ALU_dut/net48915         
+    0:00:16  133424.6      0.00       0.0   23059.3 reg_f/net49204           
+    0:00:16  133811.7      0.00       0.0   22950.2 reg_f/net49164           
+    0:00:16  134198.8      0.00       0.0   22841.1 reg_f/net49124           
+    0:00:16  134585.9      0.00       0.0   22732.0 reg_f/net49084           
+    0:00:17  134972.9      0.00       0.0   22622.9 reg_f/net49044           
+    0:00:17  135360.0      0.00       0.0   22513.8 reg_f/net49004           
+    0:00:17  135747.1      0.00       0.0   22404.7 reg_f/net48964           
+    0:00:17  136134.1      0.00       0.0   22295.6 reg_f/net48934           
+    0:00:17  136521.2      0.00       0.0   22186.5 data/net49364            
+    0:00:17  136908.3      0.00       0.0   22077.4 data/net49324            
+    0:00:17  137295.4      0.00       0.0   21968.3 data/net49284            
+    0:00:18  137682.4      0.00       0.0   21859.2 data/net49254            
+    0:00:18  137697.2      0.00       0.0   21810.1 reg_f/RD1[7]             
+    0:00:18  137708.2      0.00       0.0   21809.6 reg_f/RD1[6]             
+    0:00:18  137775.5      0.00       0.0   21798.8 reg_f/RD1[9]             
+    0:00:18  138411.4      0.00       0.0   21683.7 reg_f/net49494           
+    0:00:18  139075.0      0.00       0.0   21563.7 data/net49894            
+    0:00:18  139680.5      0.00       0.0   21448.9 reg_f/net49701           
+    0:00:18  140006.7      0.00       0.0   21379.3 reg_f/net49671           
+    0:00:18  140333.0      0.00       0.0   21309.7 reg_f/net49581           
+    0:00:18  140659.2      0.00       0.0   21240.1 reg_f/net49551           
+    0:00:19  140985.4      0.00       0.0   21170.5 reg_f/net49461           
+    0:00:19  141311.7      0.00       0.0   21100.9 reg_f/net49416           
+    0:00:19  141637.9      0.00       0.0   21031.3 data/net49981            
+    0:00:19  141964.2      0.00       0.0   20961.7 data/net49951            
+    0:00:19  142290.4      0.00       0.0   20892.1 data/net49861            
+    0:00:19  142616.7      0.00       0.0   20822.4 data/net49831            
+    0:00:19  142942.9      0.00       0.0   20752.8 data/net49741            
+    0:00:19  143307.9      0.00       0.0   20683.2 reg_f/n871               
+    0:00:19  143791.7      0.00       0.0   20592.8 ALU_dut/net50134         
+    0:00:19  143949.3      0.00       0.0   20560.0 PC_dut/net54016          
+    0:00:20  144347.4      0.00       0.0   20494.5 reg_f/net48450           
+    0:00:20  144773.2      0.00       0.0   20427.9 data/net48880            
+    0:00:20  145027.6      0.00       0.0   20390.4 data/net48800            
+    0:00:20  145263.5      0.00       0.0   20357.3 data/net48770            
+    0:00:20  145527.1      0.00       0.0   20320.3 data/net48680            
+    0:00:20  145781.5      0.00       0.0   20282.7 data/net48650            
+    0:00:20  146042.3      0.00       0.0   20244.4 data/net48885            
+    0:00:20  146573.1      0.00       0.0   20157.1 reg_f/net50455           
+    0:00:20  147103.9      0.00       0.0   20069.7 data/net51747            
+    0:00:20  147435.7      0.00       0.0   20001.1 reg_f/net51202           
+    0:00:20  147480.0      0.00       0.0   19965.8 reg_f/net50794           
+    0:00:21  147579.5      0.00       0.0   19928.3 reg_f/net50386           
+    0:00:21  147585.0      0.00       0.0   19913.0 SrcB_mux/out[9]          
+    0:00:21  147569.4      0.00       0.0   19874.1 reg_f/net48434           
+    0:00:21  147613.6      0.00       0.0   19843.5 reg_f/net53413           
+    0:00:21  148232.9      0.00       0.0   19741.6 reg_f/net52937           
+    0:00:21  148852.2      0.00       0.0   19639.7 reg_f/net52461           
+    0:00:21  148813.5      0.00       0.0   19607.7 reg_f/net49165           
+    0:00:21  148747.2      0.00       0.0   19576.7 reg_f/net49045           
+    0:00:21  148819.0      0.00       0.0   19540.5 data/net53991            
+    0:00:21  149410.7      0.00       0.0   19439.6 data/net53515            
+    0:00:22  149344.4      0.00       0.0   19408.7 data/net49275            
+    0:00:22  149309.3      0.00       0.0   19381.5 PC_dut/PC[28]            
+    0:00:22  149812.5      0.00       0.0   19308.6 reg_f/net49453           
+    0:00:22  150343.4      0.00       0.0   19231.6 data/net49818            
+    0:00:22  150739.7      0.00       0.0   19173.3 reg_f/net53409           
+    0:00:22  151137.8      0.00       0.0   19116.6 reg_f/net50483           
+    0:00:22  151111.1      0.00       0.0   19116.8 control/ALU_dec/ALUControl[0]
+    0:00:22  151509.2      0.00       0.0   19060.1 reg_f/net48928           
+    0:00:22  151940.5      0.00       0.0   19008.2 reg_f/net50215           
+    0:00:22  152161.7      0.00       0.0   18959.2 reg_f/net51098           
+    0:00:22  152382.9      0.00       0.0   18908.3 reg_f/net50928           
+    0:00:22  152604.1      0.00       0.0   18856.2 reg_f/net50758           
+    0:00:23  152825.2      0.00       0.0   18805.2 reg_f/net50588           
+    0:00:23  153056.6      0.00       0.0   18756.4 reg_f/net50418           
+    0:00:23  153293.4      0.00       0.0   18709.1 reg_f/net50313           
+    0:00:23  153524.7      0.00       0.0   18663.0 reg_f/net50214           
+    0:00:23  153722.9      0.00       0.0   18627.5 data/net52217            
+    0:00:23  153920.1      0.00       0.0   18592.9 data/net52149            
+    0:00:23  154117.3      0.00       0.0   18558.3 data/net52081            
+    0:00:23  154314.5      0.00       0.0   18523.7 data/net52013            
+    0:00:23  154511.8      0.00       0.0   18489.1 data/net51945            
+    0:00:23  154709.0      0.00       0.0   18454.5 data/net51877            
+    0:00:23  154906.2      0.00       0.0   18419.9 data/net51809            
+    0:00:23  155103.4      0.00       0.0   18386.1 data/net51741            
+    0:00:23  155300.7      0.00       0.0   18351.4 data/net51673            
+    0:00:23  155543.0      0.00       0.0   18308.1 data/net51566            
+    0:00:24  155751.3      0.00       0.0   18274.3 data/net51541            
+    0:00:24  155948.5      0.00       0.0   18239.7 data/net51473            
+    0:00:24  156145.8      0.00       0.0   18205.1 data/net51405            
+    0:00:24  156343.0      0.00       0.0   18170.5 data/net51337            
+    0:00:24  156540.2      0.00       0.0   18136.7 data/net51226            
+    0:00:24  156800.1      0.00       0.0   18089.6 data/net52315            
+    0:00:24  157213.9      0.00       0.0   18037.7 reg_f/net48282           
+    0:00:24  157457.2      0.00       0.0   17995.3 data/net48802            
+    0:00:24  157584.4      0.00       0.0   17959.2 data/net48602            
+    0:00:24  157707.9      0.00       0.0   17939.2 reg_f/net51028           
+    0:00:24  157886.7      0.00       0.0   17909.8 reg_f/net50756           
+    0:00:25  158081.1      0.00       0.0   17880.5 reg_f/net50519           
+    0:00:25  158112.5      0.00       0.0   17863.2 PC_dut/n1                
+    0:00:25  158643.3      0.00       0.0   17787.7 reg_f/net54854           
+    0:00:25  159174.1      0.00       0.0   17712.1 reg_f/net54119           
+    0:00:25  159705.0      0.00       0.0   17636.6 reg_f/net53100           
+    0:00:25  160235.8      0.00       0.0   17561.0 reg_f/net52556           
+    0:00:25  160766.7      0.00       0.0   17485.5 reg_f/net49033           
+    0:00:25  161297.5      0.00       0.0   17410.0 reg_f/net48408           
+    0:00:25  161828.4      0.00       0.0   17334.4 data/net55814            
+    0:00:25  162359.2      0.00       0.0   17258.9 data/net54599            
+    0:00:26  162890.0      0.00       0.0   17183.4 data/net53916            
+    0:00:26  163420.9      0.00       0.0   17107.8 data/net49393            
+    0:00:26  163951.7      0.00       0.0   17032.3 data/net48718            
+    0:00:26  164343.4      0.00       0.0   16984.2 ext/net47289             
+    0:00:26  164325.0      0.00       0.0   16983.8 ALU_dut/net52354         
+    0:00:26  164789.5      0.00       0.0   16917.7 reg_f/net49007           
+    0:00:26  165253.9      0.00       0.0   16851.6 reg_f/n271               
+    0:00:26  165584.8      0.00       0.0   16803.1 data/C2254/net10954      
+    0:00:26  166034.5      0.00       0.0   16737.1 reg_f/net53378           
+    0:00:27  166499.0      0.00       0.0   16671.0 reg_f/net53274           
+    0:00:27  166963.5      0.00       0.0   16604.9 reg_f/net53170           
+    0:00:27  167428.0      0.00       0.0   16538.8 reg_f/net53065           
+    0:00:27  167892.5      0.00       0.0   16472.7 reg_f/net52961           
+    0:00:27  168357.0      0.00       0.0   16406.6 reg_f/net52902           
+    0:00:27  168821.5      0.00       0.0   16340.5 reg_f/net52798           
+    0:00:27  169285.9      0.00       0.0   16274.4 reg_f/net52694           
+    0:00:27  169750.4      0.00       0.0   16208.4 reg_f/net52589           
+    0:00:27  170214.9      0.00       0.0   16142.3 reg_f/net52485           
+    0:00:27  170679.4      0.00       0.0   16076.2 reg_f/net52426           
+    0:00:27  171143.9      0.00       0.0   16010.1 data/net53949            
+    0:00:27  171608.4      0.00       0.0   15944.0 data/net53845            
+    0:00:27  172072.9      0.00       0.0   15877.9 data/net53786            
+    0:00:27  172537.3      0.00       0.0   15811.8 data/net53682            
+    0:00:28  173001.8      0.00       0.0   15745.7 data/net53578            
+    0:00:28  173466.3      0.00       0.0   15679.6 data/net53473            
+    0:00:28  173977.8      0.00       0.0   15608.0 data/C2254/net9604       
+    0:00:28  174015.6      0.00       0.0   15598.7 data/net49905            
+    0:00:28  174612.8      0.00       0.0   15546.2 reg_f/net49695           
+    0:00:28  175143.6      0.00       0.0   15499.4 reg_f/net49585           
+    0:00:28  175674.5      0.00       0.0   15452.7 reg_f/net49424           
+    0:00:28  176271.7      0.00       0.0   15400.1 data/net55401            
+    0:00:28  176802.5      0.00       0.0   15353.3 data/net49950            
+    0:00:28  177300.2      0.00       0.0   15309.5 data/net49780            
+    0:00:28  177731.5      0.00       0.0   15264.4 reg_f/net61330           
+    0:00:28  177855.9      0.00       0.0   15245.5 reg_f/net57206           
+    0:00:29  178176.6      0.00       0.0   15211.2 data/net57310            
+    0:00:29  178552.6      0.00       0.0   15173.8 reg_f/net48319           
+    0:00:29  178746.2      0.00       0.0   15154.5 reg_f/net50221           
+    0:00:29  178834.6      0.00       0.0   15141.6 reg_f/net48450           
+    0:00:29  178939.7      0.00       0.0   15125.2 reg_f/net48280           
+    0:00:29  179116.6      0.00       0.0   15103.9 data/net52045            
+    0:00:29  179121.3      0.00       0.0   15092.8 data/net68887            
+    0:00:29  179287.1      0.00       0.0   15072.0 data/net51702            
+    0:00:29  179414.3      0.00       0.0   15053.0 data/net67528            
+    0:00:29  179585.7      0.00       0.0   15032.0 data/net51299            
+    0:00:29  179664.1      0.00       0.0   15002.9 reg_f/net55257           
+    0:00:29  179752.6      0.00       0.0   14970.2 reg_f/net55066           
+    0:00:29  179841.0      0.00       0.0   14937.4 reg_f/net54919           
+    0:00:29  179929.5      0.00       0.0   14904.7 reg_f/net54777           
+    0:00:30  180106.4      0.00       0.0   14867.9 data/net55858            
+    0:00:30  180338.7      0.00       0.0   14827.0 data/net55547            
+    0:00:30  180547.9      0.00       0.0   14791.7 reg_f/net48907           
+    0:00:30  180580.1      0.00       0.0   14786.9 reg_f/net51100           
+    0:00:30  180762.6      0.00       0.0   14769.7 reg_f/net48332           
+    0:00:30  180900.9      0.00       0.0   14754.3 data/net48804            
+    0:00:30  181039.1      0.00       0.0   14739.9 reg_f/net59250           
+    0:00:30  181171.8      0.00       0.0   14724.7 reg_f/net57506           
+    0:00:30  181321.1      0.00       0.0   14715.0 reg_f/net57117           
+    0:00:30  181470.4      0.00       0.0   14702.1 reg_f/net51098           
+    0:00:30  181597.6      0.00       0.0   14681.8 reg_f/net50717           
+    0:00:30  181708.2      0.00       0.0   14660.0 reg_f/net50418           
+    0:00:31  181791.1      0.00       0.0   14648.2 data/net52179            
+    0:00:31  181934.9      0.00       0.0   14634.9 data/net51737            
+    0:00:31  182045.5      0.00       0.0   14624.6 data/net51329            
+    0:00:31  182095.3      0.00       0.0   14615.1 data/net48727            
+    0:00:31  182178.2      0.00       0.0   14605.9 ALU_dut/n178             
+    0:00:31  182460.2      0.00       0.0   14581.2 reg_f/net58079           
+    0:00:31  182548.7      0.00       0.0   14562.5 reg_f/net57951           
+    0:00:31  182637.2      0.00       0.0   14543.8 reg_f/net57823           
+    0:00:31  182725.6      0.00       0.0   14525.1 reg_f/net57695           
+    0:00:32  183068.5      0.00       0.0   14494.6 reg_f/net57167           
+    0:00:32  183632.5      0.00       0.0   14454.9 reg_f/net56481           
+    0:00:32  184085.9      0.00       0.0   14418.6 reg_f/net53244           
+    0:00:32  184594.6      0.00       0.0   14381.2 reg_f/net51157           
+    0:00:32  185125.5      0.00       0.0   14343.7 reg_f/net50762           
+    0:00:32  185689.5      0.00       0.0   14303.9 reg_f/net50286           
+    0:00:32  186187.2      0.00       0.0   14268.8 data/net58673            
+    0:00:32  186496.8      0.00       0.0   14240.8 data/net58283            
+    0:00:32  186585.3      0.00       0.0   14222.0 data/net58155            
+    0:00:33  186861.8      0.00       0.0   14196.3 data/net57367            
+    0:00:33  187392.6      0.00       0.0   14158.9 data/net56735            
+    0:00:33  187956.6      0.00       0.0   14119.1 data/net52326            
+    0:00:33  188354.8      0.00       0.0   14086.3 data/net51985            
+    0:00:33  188808.2      0.00       0.0   14051.2 data/net51713            
+    0:00:33  189162.1      0.00       0.0   14020.7 data/net51442            
+    0:00:33  189532.6      0.00       0.0   13990.3 reg_f/net61323           
+    0:00:33  189632.1      0.00       0.0   13979.5 data/net55969            
+    0:00:33  189704.0      0.00       0.0   13973.2 reg_f/net57498           
+    0:00:34  189791.5      0.00       0.0   13965.8 reg_f/net57150           
+    0:00:34  189917.8      0.00       0.0   13957.3 reg_f/net57021           
+    0:00:34  190033.9      0.00       0.0   13949.1 reg_f/net51025           
+    0:00:34  190161.1      0.00       0.0   13939.8 reg_f/net50787           
+    0:00:34  190277.2      0.00       0.0   13931.6 reg_f/net50515           
+    0:00:34  190354.6      0.00       0.0   13924.6 reg_f/net50275           
+    0:00:34  190479.1      0.00       0.0   13912.3 ALU_dut/net63952         
+    0:00:34  190603.5      0.00       0.0   13901.4 reg_f/net50900           
+    0:00:34  190642.2      0.00       0.0   13885.3 reg_f/net50322           
+    0:00:34  190714.1      0.00       0.0   13872.7 data/net51668            
+    0:00:39  190821.9      0.00       0.0   13860.8 control/decoder/n3       
+    0:00:39  191153.7      0.00       0.0   13836.9 reg_f/net57985           
+    0:00:40  191651.3      0.00       0.0   13801.8 reg_f/net57721           
+    0:00:40  192149.0      0.00       0.0   13766.7 data/net58225            
+    0:00:40  192431.0      0.00       0.0   13741.2 control/decoder/net58809 
+    0:00:40  192509.3      0.00       0.0   13722.7 read_mux/net50143        
+    0:00:40  192608.9      0.00       0.0   13703.8 reg_f/net49164           
+    0:00:40  192542.5      0.00       0.0   13689.7 reg_f/net49044           
+    0:00:40  192553.6      0.00       0.0   13674.6 ALU_dut/net56240         
+    0:00:40  192575.7      0.00       0.0   13655.5 data/net49314            
+    0:00:40  192581.2      0.00       0.0   13638.4 SrcB_mux/net50162        
+    0:00:41  192878.9      0.00       0.0   13608.7 ALU_dut/sub_13/carry[1]  
+    0:00:41  192988.6      0.00       0.0   13593.9 add_43/net43874          
+    0:00:41  193539.7      0.00       0.0   13562.9 reg_f/C2123/net24254     
+    0:00:41  194236.4      0.00       0.0   13526.6 data/C2254/net9640       
+    0:00:41  194933.1      0.00       0.0   13490.4 reg_f/n27                
+    0:00:42  195464.0      0.00       0.0   13459.0 data/net48802            
+    0:00:42  195592.1      0.00       0.0   13441.2 data/n43                 
+    0:00:42  195606.8      0.00       0.0   13426.8 data/n11                 
+    0:00:42  195704.5      0.00       0.0   13418.7 reg_f/net57042           
+    0:00:42  195820.6      0.00       0.0   13409.1 data/net51535            
+    0:00:42  196205.9      0.00       0.0   13389.2 reg_f/net58956           
+    0:00:42  196703.5      0.00       0.0   13365.8 reg_f/net58893           
+    0:00:42  197201.2      0.00       0.0   13342.3 reg_f/net50933           
+    0:00:42  197698.9      0.00       0.0   13318.8 reg_f/net50491           
+    0:00:43  198196.5      0.00       0.0   13295.3 data/net69427            
+    0:00:43  198694.2      0.00       0.0   13271.8 data/net59029            
+    0:00:43  199167.9      0.00       0.0   13249.5 reg_f/net55130           
+    0:00:43  199698.7      0.00       0.0   13227.7 reg_f/net54120           
+    0:00:43  200229.6      0.00       0.0   13205.8 data/net54637            
+    0:00:43  200760.4      0.00       0.0   13184.0 data/net54410            
+    0:00:43  200880.2      0.00       0.0   13176.3 reg_f/net70076           
+    0:00:43  201444.3      0.00       0.0   13156.6 reg_f/net68014           
+    0:00:43  202008.3      0.00       0.0   13136.8 reg_f/net67795           
+    0:00:43  202572.3      0.00       0.0   13117.0 reg_f/net67609           
+    0:00:44  203136.3      0.00       0.0   13097.3 reg_f/net55168           
+    0:00:44  203700.3      0.00       0.0   13077.5 reg_f/net54988           
+    0:00:44  204264.3      0.00       0.0   13057.7 reg_f/net54796           
+    0:00:44  204828.4      0.00       0.0   13038.0 reg_f/net54321           
+    0:00:44  205392.4      0.00       0.0   13018.2 reg_f/net54198           
+    0:00:44  205956.4      0.00       0.0   12998.4 reg_f/net54076           
+    0:00:44  206520.4      0.00       0.0   12978.7 data/net68779            
+    0:00:44  207084.4      0.00       0.0   12958.9 data/net68542            
+    0:00:44  207648.5      0.00       0.0   12939.1 data/net68323            
+    0:00:45  208212.5      0.00       0.0   12919.4 data/net55916            
+    0:00:45  208776.5      0.00       0.0   12899.6 data/net55733            
+    0:00:45  209340.5      0.00       0.0   12879.8 data/net55577            
+    0:00:45  209904.5      0.00       0.0   12860.1 data/net55430            
+    0:00:45  210468.6      0.00       0.0   12840.3 data/net54641            
+    0:00:45  211032.6      0.00       0.0   12820.5 data/net54526            
+    0:00:45  211596.6      0.00       0.0   12800.8 data/net54403            
+    0:00:45  211971.7      0.00       0.0   12786.2 data/net59131            
+    0:00:46  212219.6      0.00       0.0   12778.3 reg_f/net69212           
+    0:00:46  212767.0      0.00       0.0   12765.0 reg_f/net59260           
+    0:00:46  213181.7      0.00       0.0   12752.4 reg_f/net50925           
+    0:00:46  213657.3      0.00       0.0   12739.1 reg_f/net50453           
+    0:00:46  213928.2      0.00       0.0   12727.4 reg_f/net48409           
+    0:00:46  214425.9      0.00       0.0   12714.0 data/net56844            
+    0:00:46  214973.3      0.00       0.0   12699.8 data/net51436            
+    0:00:46  215321.7      0.00       0.0   12690.4 reg_f/net69414           
+    0:00:47  215454.4      0.00       0.0   12686.3 reg_f/net69290           
+    0:00:47  215592.7      0.00       0.0   12682.4 reg_f/net61614           
+    0:00:47  215603.7      0.00       0.0   12678.9 reg_f/net61330           
+    0:00:47  215708.8      0.00       0.0   12675.1 reg_f/net59949           
+    0:00:47  215769.6      0.00       0.0   12672.3 reg_f/net59913           
+    0:00:47  215847.0      0.00       0.0   12668.4 reg_f/net59836           
+    0:00:47  215941.0      0.00       0.0   12663.4 reg_f/net59784           
+    0:00:47  216040.6      0.00       0.0   12659.2 reg_f/net59725           
+    0:00:48  216123.5      0.00       0.0   12654.6 reg_f/net59695           
+    0:00:48  216228.6      0.00       0.0   12650.5 reg_f/net59635           
+    0:00:48  216322.6      0.00       0.0   12645.5 reg_f/net59605           
+    0:00:48  216405.5      0.00       0.0   12640.8 reg_f/net59548           
+    0:00:48  216532.7      0.00       0.0   12636.5 reg_f/net59491           
+    0:00:48  216610.1      0.00       0.0   12631.8 reg_f/net59461           
+    0:00:48  216720.7      0.00       0.0   12627.6 reg_f/net59401           
+    0:00:48  216803.6      0.00       0.0   12622.9 reg_f/net59371           
+    0:00:48  216875.5      0.00       0.0   12618.5 reg_f/net59258           
+    0:00:49  216886.6      0.00       0.0   12615.3 reg_f/net57552           
+    0:00:49  216919.8      0.00       0.0   12611.6 reg_f/net71092           
+    0:00:49  217041.4      0.00       0.0   12605.8 reg_f/net57116           
+    0:00:49  217107.8      0.00       0.0   12600.1 reg_f/net57013           
+    0:00:49  217207.3      0.00       0.0   12595.4 reg_f/net56514           
+    0:00:49  217340.0      0.00       0.0   12590.9 reg_f/net56487           
+    0:00:49  217483.8      0.00       0.0   12586.5 reg_f/net56412           
+    0:00:49  217627.5      0.00       0.0   12581.8 reg_f/net56386           
+    0:00:49  217760.3      0.00       0.0   12577.3 reg_f/net56359           
+    0:00:50  217848.7      0.00       0.0   12572.9 reg_f/net51207           
+    0:00:50  217854.3      0.00       0.0   12568.9 reg_f/net50799           
+    0:00:50  217859.8      0.00       0.0   12565.0 reg_f/net50323           
+    0:00:50  217931.7      0.00       0.0   12560.6 data/net69591            
+    0:00:50  218031.2      0.00       0.0   12555.9 data/net69506            
+    0:00:50  218097.6      0.00       0.0   12552.5 data/net61496            
+    0:00:50  218186.0      0.00       0.0   12549.3 data/net61423            
+    0:00:50  218252.4      0.00       0.0   12547.0 data/net61126            
+    0:00:50  218291.1      0.00       0.0   12544.2 data/net61065            
+    0:00:50  218363.0      0.00       0.0   12540.5 data/net61030            
+    0:00:51  218390.6      0.00       0.0   12539.3 data/net60970            
+    0:00:51  218390.6      0.00       0.0   12538.8 data/net60957            
+    0:00:51  218462.5      0.00       0.0   12535.1 data/net60895            
+    0:00:51  218495.7      0.00       0.0   12533.1 data/net60836            
+    0:00:51  218545.5      0.00       0.0   12530.8 data/net60822            
+    0:00:51  218562.1      0.00       0.0   12528.8 data/net60740            
+    0:00:51  218573.1      0.00       0.0   12526.9 data/net60688            
+    0:00:51  218573.1      0.00       0.0   12525.4 data/net60628            
+    0:00:51  218628.4      0.00       0.0   12521.7 data/net60553            
+    0:00:51  218700.3      0.00       0.0   12518.3 data/net60515            
+    0:00:52  218711.3      0.00       0.0   12516.9 data/net60477            
+    0:00:52  218783.2      0.00       0.0   12514.5 data/net60380            
+    0:00:52  218799.8      0.00       0.0   12513.6 data/net60349            
+    0:00:52  218871.7      0.00       0.0   12509.4 data/net60290            
+    0:00:52  218938.1      0.00       0.0   12506.3 data/net60231            
+    0:00:52  218971.2      0.00       0.0   12502.8 data/net60172            
+    0:00:52  219048.7      0.00       0.0   12500.1 data/net60135            
+    0:00:52  219092.9      0.00       0.0   12498.8 data/net60076            
+    0:00:52  219109.5      0.00       0.0   12497.8 data/net60045            
+    0:00:53  219153.7      0.00       0.0   12495.1 data/net59982            
+    0:00:53  219175.8      0.00       0.0   12492.0 data/net59127            
+    0:00:53  219175.8      0.00       0.0   12488.8 data/net59061            
+    0:00:53  219242.2      0.00       0.0   12484.9 data/net57424            
+    0:00:53  219330.7      0.00       0.0   12479.9 data/net57405            
+    0:00:53  219408.1      0.00       0.0   12475.8 data/net57341            
+    0:00:53  219463.4      0.00       0.0   12471.5 data/net57276            
+    0:00:53  219574.0      0.00       0.0   12467.2 data/net56927            
+    0:00:53  219717.7      0.00       0.0   12462.6 data/net56869            
+    0:00:53  219867.0      0.00       0.0   12458.1 data/net56849            
+    0:00:54  220005.3      0.00       0.0   12453.6 data/net56789            
+    0:00:54  220160.1      0.00       0.0   12448.4 data/net56737            
+    0:00:54  220292.8      0.00       0.0   12443.8 data/net56649            
+    0:00:54  220442.1      0.00       0.0   12439.3 data/net56593            
+    0:00:54  220591.4      0.00       0.0   12434.8 data/net56576            
+    0:00:54  220729.7      0.00       0.0   12429.8 data/net52261            
+    0:00:54  220796.0      0.00       0.0   12426.1 data/net52158            
+    0:00:54  220917.7      0.00       0.0   12420.5 data/net52023            
+    0:00:54  221011.7      0.00       0.0   12416.6 data/net51921            
+    0:00:54  221072.5      0.00       0.0   12413.6 data/net51810            
+    0:00:54  221188.6      0.00       0.0   12409.9 data/net51678            
+    0:00:55  221349.0      0.00       0.0   12405.3 data/net51542            
+    0:00:55  221465.1      0.00       0.0   12401.3 data/net51444            
+    0:00:55  221559.1      0.00       0.0   12397.6 data/net51294            
+    0:00:55  221774.7      0.00       0.0   12392.5 add_43/net44107          
+    0:00:55  222338.8      0.00       0.0   12382.6 reg_f/net69693           
+    0:00:55  222886.2      0.00       0.0   12372.1 reg_f/net49582           
+    0:00:55  223433.6      0.00       0.0   12362.2 data/net69951            
+    0:00:55  224047.4      0.00       0.0   12351.2 data/net56902            
+    0:00:55  224628.0      0.00       0.0   12340.7 data/net49747            
+    0:00:56  224771.8      0.00       0.0   12338.1 reg_f/net70317           
+    0:00:56  224965.3      0.00       0.0   12332.5 data/net85362            
+    0:00:56  225042.7      0.00       0.0   12330.5 data/net69675            
+    0:00:56  225098.0      0.00       0.0   12328.9 data/net69017            
+    0:00:56  225181.0      0.00       0.0   12326.9 data/net57490            
+    0:00:56  225269.5      0.00       0.0   12323.7 data/net51232            
+    0:00:56  225551.5      0.00       0.0   12315.8 ALU_dut/r60/net29754     
+    0:00:56  225557.0      0.00       0.0   12315.3 add_43/net47519          
+    0:00:56  225467.6      0.00       0.0   12314.6 read_mux/net75487        
+    0:00:57  225451.0      0.00       0.0   12314.6 read_mux/net58371        
+    0:00:57  225395.7      0.00       0.0   12314.4 reg_f/net87620           
+    0:00:57  225236.3      0.00       0.0   12311.2 reg_f/net86922           
+    0:00:57  225049.2      0.00       0.0   12311.2 reg_f/net86832           
+    0:00:57  224911.0      0.00       0.0   12311.2 reg_f/net86754           
+    0:00:57  224746.0      0.00       0.0   12311.2 reg_f/net86679           
+    0:00:57  224569.0      0.00       0.0   12311.2 reg_f/net86583           
+    0:00:57  224425.3      0.00       0.0   12311.0 reg_f/net86474           
+    0:00:57  224364.4      0.00       0.0   12310.6 reg_f/net85026           
+    0:00:57  224231.7      0.00       0.0   12310.3 reg_f/net84942           
+    0:00:57  224137.7      0.00       0.0   12309.9 reg_f/net84866           
+    0:00:58  224005.0      0.00       0.0   12309.6 reg_f/net84796           
+    0:00:58  223850.2      0.00       0.0   12309.5 reg_f/net84706           
+    0:00:58  223739.6      0.00       0.0   12309.3 reg_f/net87646           
+    0:00:58  223612.4      0.00       0.0   12309.0 reg_f/net84538           
+    0:00:58  223529.5      0.00       0.0   12308.6 reg_f/net84472           
+    0:00:58  223413.4      0.00       0.0   12308.1 reg_f/net84386           
+    0:00:58  223319.3      0.00       0.0   12307.8 reg_f/net84314           
+    0:00:58  223186.6      0.00       0.0   12307.2 reg_f/net84232           
+    0:00:58  223081.6      0.00       0.0   12307.1 reg_f/net84154           
+    0:00:58  222921.2      0.00       0.0   12307.1 reg_f/net84930           
+    0:00:59  222772.8      0.00       0.0   12306.2 reg_f/net84300           
+    0:00:59  222662.2      0.00       0.0   12306.2 reg_f/net84286           
+    0:00:59  222448.4      0.00       0.0   12306.1 reg_f/net83369           
+    0:00:59  222361.8      0.00       0.0   12305.9 reg_f/net84912           
+    0:00:59  222183.9      0.00       0.0   12305.7 reg_f/net83267           
+    0:00:59  222016.2      0.00       0.0   12305.6 reg_f/net83204           
+    0:00:59  221870.6      0.00       0.0   12305.5 reg_f/net83153           
+    0:00:59  221719.5      0.00       0.0   12305.5 reg_f/net83105           
+    0:00:59  221626.4      0.00       0.0   12305.3 reg_f/net88065           
+    0:00:59  221549.0      0.00       0.0   12305.2 reg_f/n375               
+    0:01:00  221456.8      0.00       0.0   12305.1 reg_f/net88115           
+    0:01:00  221274.3      0.00       0.0   12305.1 reg_f/net82886           
+    0:01:00  221174.8      0.00       0.0   12304.9 reg_f/n342               
+    0:01:00  221114.0      0.00       0.0   12304.8 reg_f/net84414           
+    0:01:00  221014.4      0.00       0.0   12304.8 reg_f/net86455           
+    0:01:00  220909.4      0.00       0.0   12304.8 reg_f/net83368           
+    0:01:00  220798.8      0.00       0.0   12304.8 reg_f/net80584           
+    0:01:00  220699.2      0.00       0.0   12304.8 reg_f/net80500           
+    0:01:00  220599.7      0.00       0.0   12304.8 reg_f/net80416           
+    0:01:00  220489.1      0.00       0.0   12304.8 reg_f/net80332           
+    0:01:00  220389.6      0.00       0.0   12304.8 reg_f/net80248           
+    0:01:01  220279.0      0.00       0.0   12304.8 reg_f/net80164           
+    0:01:01  220223.7      0.00       0.0   12304.8 reg_f/net80068           
+    0:01:01  220201.6      0.00       0.0   12304.8 reg_f/net79960           
+    0:01:01  220300.2      0.00       0.0   12284.2 reg_f/net50062           
+    0:01:01  220597.9      0.00       0.0   12239.0 net47417                 
+    0:01:01  220791.4      0.00       0.0   12220.7 reg_f/net59184           
+    0:01:02  220785.9      0.00       0.0   12219.0 reg_f/net78739           
+    0:01:02  220774.8      0.00       0.0   12219.0 reg_f/net77728           
+    0:01:02  220680.8      0.00       0.0   12219.0 reg_f/net84202           
+    0:01:03  220603.4      0.00       0.0   12219.0 reg_f/net77608           
+    0:01:03  220488.2      0.00       0.0   12219.0 reg_f/net77551           
+    0:01:03  220399.7      0.00       0.0   12219.0 reg_f/net77491           
+    0:01:03  220316.8      0.00       0.0   12219.0 reg_f/net84484           
+    0:01:03  220233.8      0.00       0.0   12219.0 reg_f/net77344           
+    0:01:03  220140.8      0.00       0.0   12218.2 reg_f/net77251           
+    0:01:03  220046.7      0.00       0.0   12218.2 reg_f/net77200           
+    0:01:03  219952.7      0.00       0.0   12218.2 reg_f/net83048           
+    0:01:03  219847.7      0.00       0.0   12218.2 reg_f/net88061           
+    0:01:03  219759.2      0.00       0.0   12217.0 reg_f/net84326           
+    0:01:04  219676.3      0.00       0.0   12216.9 reg_f/n68                
+    0:01:04  219593.3      0.00       0.0   12216.9 reg_f/net76856           
+    0:01:04  219515.9      0.00       0.0   12216.9 reg_f/net76582           
+    0:01:04  219438.5      0.00       0.0   12216.9 reg_f/net76498           
+    0:01:04  219361.1      0.00       0.0   12215.7 reg_f/net76862           
+    0:01:04  219289.2      0.00       0.0   12215.5 reg_f/net88365           
+    0:01:04  219228.4      0.00       0.0   12215.2 reg_f/net76260           
+    0:01:04  219189.7      0.00       0.0   12215.2 reg_f/net76222           
+    0:01:05  219128.8      0.00       0.0   12214.9 reg_f/net76185           
+    0:01:05  219068.0      0.00       0.0   12214.6 reg_f/net76862           
+    0:01:05  219018.2      0.00       0.0   12214.5 reg_f/net83053           
+    0:01:05  218957.4      0.00       0.0   12213.8 reg_f/net76099           
+    0:01:05  218880.0      0.00       0.0   12213.8 reg_f/C2123/net24252     
+    0:01:05  218802.6      0.00       0.0   12213.8 reg_f/net76015           
+    0:01:05  218725.2      0.00       0.0   12213.8 reg_f/C2122/net26687     
+    0:01:05  218642.2      0.00       0.0   12213.8 reg_f/net75937           
+    0:01:05  218531.6      0.00       0.0   12212.9 reg_f/net76449           
+    0:01:06  218432.1      0.00       0.0   12212.9 reg_f/C2122/net26693     
+    0:01:06  218338.1      0.00       0.0   12212.9 reg_f/C2122/net26686     
+    0:01:06  218238.6      0.00       0.0   12212.9 reg_f/net75190           
+    0:01:06  218144.6      0.00       0.0   12212.9 reg_f/net75151           
+    0:01:06  218045.0      0.00       0.0   12212.9 reg_f/C2123/net24270     
+    0:01:06  217951.0      0.00       0.0   12212.9 reg_f/C2123/net24267     
+    0:01:06  217851.5      0.00       0.0   12212.9 reg_f/net75022           
+    0:01:06  217757.5      0.00       0.0   12212.9 reg_f/net74983           
+    0:01:06  217663.5      0.00       0.0   12212.9 reg_f/net73907           
+    0:01:07  217547.4      0.00       0.0   12212.9 reg_f/net73871           
+    0:01:07  217470.0      0.00       0.0   12212.7 reg_f/net83002           
+    0:01:07  217370.4      0.00       0.0   12212.7 reg_f/net73727           
+    0:01:07  217276.4      0.00       0.0   12212.7 reg_f/net73691           
+    0:01:07  217221.1      0.00       0.0   12212.7 reg_f/net73657           
+    0:01:07  217138.2      0.00       0.0   12212.7 reg_f/net73601           
+    0:01:07  217082.9      0.00       0.0   12212.7 reg_f/net73563           
+    0:01:07  217022.1      0.00       0.0   12211.5 reg_f/net86479           
+    0:01:07  216972.3      0.00       0.0   12210.4 reg_f/net72059           
+    0:01:08  216944.6      0.00       0.0   12210.4 reg_f/net84190           
+    0:01:08  216917.0      0.00       0.0   12210.4 reg_f/net73850           
+    0:01:08  216889.3      0.00       0.0   12209.6 reg_f/net77660           
+    0:01:08  216839.6      0.00       0.0   12209.6 reg_f/net88365           
+    0:01:08  216811.9      0.00       0.0   12209.0 reg_f/net73913           
+    0:01:08  216784.3      0.00       0.0   12209.0 reg_f/net83996           
+    0:01:08  216767.7      0.00       0.0   12208.4 reg_f/net56360           
+    0:01:08  216762.2      0.00       0.0   12207.4 reg_f/net86701           
+    0:01:08  216751.1      0.00       0.0   12206.1 reg_f/net88427           
+    0:01:08  216706.9      0.00       0.0   12206.0 reg_f/net76222           
+    0:01:08  216690.3      0.00       0.0   12206.1 reg_f/net71881           
+    0:01:08  216668.2      0.00       0.0   12205.6 reg_f/net88369           
+    0:01:09  216640.5      0.00       0.0   12205.6 reg_f/net71829           
+    0:01:09  216646.0      0.00       0.0   12204.2 reg_f/net88453           
+    0:01:09  216612.9      0.00       0.0   12203.0 reg_f/net73716           
+    0:01:09  216568.6      0.00       0.0   12203.0 reg_f/net88370           
+    0:01:09  216557.6      0.00       0.0   12202.1 reg_f/net71769           
+    0:01:09  216518.9      0.00       0.0   12201.2 reg_f/net71745           
+    0:01:09  216491.2      0.00       0.0   12201.2 reg_f/net71726           
+    0:01:09  216469.1      0.00       0.0   12199.3 reg_f/net83131           
+    0:01:09  216452.5      0.00       0.0   12199.3 reg_f/net71673           
+    0:01:09  216419.3      0.00       0.0   12198.7 reg_f/net88373           
+    0:01:10  216397.2      0.00       0.0   12198.2 reg_f/net71650           
+    0:01:10  216402.7      0.00       0.0   12196.9 reg_f/net88521           
+    0:01:10  216364.0      0.00       0.0   12195.7 reg_f/net87614           
+    0:01:10  216325.3      0.00       0.0   12194.5 reg_f/net71616           
+    0:01:10  216247.9      0.00       0.0   12194.5 reg_f/net71599           
+    0:01:10  216148.4      0.00       0.0   12194.5 reg_f/net71575           
+    0:01:10  216048.8      0.00       0.0   12194.5 reg_f/net71551           
+    0:01:10  215949.3      0.00       0.0   12194.5 reg_f/net71527           
+    0:01:10  215849.8      0.00       0.0   12194.5 reg_f/net71503           
+    0:01:10  215750.2      0.00       0.0   12194.5 reg_f/net71479           
+    0:01:10  215650.7      0.00       0.0   12194.5 reg_f/net71455           
+    0:01:11  215584.4      0.00       0.0   12194.5 reg_f/net71427           
+    0:01:11  215578.8      0.00       0.0   12194.5 reg_f/net71380           
+    0:01:11  215578.8      0.00       0.0   12193.7 reg_f/net88097           
+    0:01:11  215562.2      0.00       0.0   12193.7 reg_f/net71287           
+    0:01:11  215551.2      0.00       0.0   12193.7 reg_f/net71252           
+    0:01:11  215556.7      0.00       0.0   12191.8 reg_f/net71202           
+    0:01:11  215545.7      0.00       0.0   12190.8 reg_f/net71175           
+    0:01:11  215545.7      0.00       0.0   12190.4 reg_f/net71154           
+    0:01:12  215545.7      0.00       0.0   12189.0 reg_f/net88599           
+    0:01:12  215545.7      0.00       0.0   12187.6 reg_f/net84019           
+    0:01:12  215540.1      0.00       0.0   12186.4 reg_f/net71901           
+    0:01:12  215523.5      0.00       0.0   12186.2 reg_f/net71094           
+    0:01:12  215523.5      0.00       0.0   12185.5 reg_f/net71072           
+    0:01:12  215529.1      0.00       0.0   12183.5 reg_f/net88649           
+    0:01:12  215523.5      0.00       0.0   12183.5 reg_f/net71000           
+    0:01:12  215451.7      0.00       0.0   12183.5 reg_f/net71444           
+    0:01:12  215385.3      0.00       0.0   12183.5 reg_f/net75247           
+    0:01:12  215318.9      0.00       0.0   12183.5 reg_f/net70951           
+    0:01:13  215252.6      0.00       0.0   12183.5 reg_f/net75211           
+    0:01:13  215186.2      0.00       0.0   12183.5 reg_f/net70912           
+    0:01:13  215119.9      0.00       0.0   12183.5 reg_f/net71516           
+    0:01:13  215053.5      0.00       0.0   12183.5 reg_f/net75103           
+    0:01:13  214987.2      0.00       0.0   12183.5 reg_f/net70879           
+    0:01:13  214920.8      0.00       0.0   12183.5 reg_f/net75067           
+    0:01:13  214854.5      0.00       0.0   12183.5 reg_f/net70840           
+    0:01:13  214788.1      0.00       0.0   12183.5 reg_f/net71588           
+    0:01:13  214727.3      0.00       0.0   12183.5 reg_f/net70812           
+    0:01:14  214705.2      0.00       0.0   12183.5 reg_f/net69878           
+    0:01:14  214672.0      0.00       0.0   12183.5 reg_f/net69812           
+    0:01:14  214649.9      0.00       0.0   12183.5 reg_f/net69752           
+    0:01:14  214616.7      0.00       0.0   12183.5 reg_f/net69686           
+    0:01:14  214605.6      0.00       0.0   12183.5 reg_f/net68223           
+    0:01:15  214539.3      0.00       0.0   12183.5 reg_f/net68199           
+    0:01:15  214478.4      0.00       0.0   12183.5 reg_f/net68130           
+    0:01:15  214417.6      0.00       0.0   12183.5 reg_f/net68103           
+    0:01:15  214362.3      0.00       0.0   12183.5 reg_f/net86924           
+    0:01:15  214301.5      0.00       0.0   12183.5 reg_f/net68031           
+    0:01:15  214251.7      0.00       0.0   12183.5 reg_f/net68031           
+    0:01:15  214190.9      0.00       0.0   12183.5 reg_f/net67962           
+    0:01:15  214130.1      0.00       0.0   12183.5 reg_f/net67935           
+    0:01:15  214074.8      0.00       0.0   12183.5 reg_f/net86867           
+    0:01:15  214014.0      0.00       0.0   12183.5 reg_f/net67863           
+    0:01:15  213964.2      0.00       0.0   12183.5 reg_f/net67863           
+    0:01:15  213903.4      0.00       0.0   12183.5 reg_f/net67794           
+    0:01:15  213831.5      0.00       0.0   12183.5 reg_f/net67773           
+    0:01:16  213770.7      0.00       0.0   12183.5 reg_f/net86852           
+    0:01:16  213709.8      0.00       0.0   12183.5 reg_f/net67887           
+    0:01:16  213637.9      0.00       0.0   12183.5 reg_f/net86573           
+    0:01:16  213582.6      0.00       0.0   12183.5 reg_f/net67989           
+    0:01:16  213521.8      0.00       0.0   12183.5 reg_f/net86621           
+    0:01:16  213455.5      0.00       0.0   12183.5 reg_f/net86690           
+    0:01:16  213400.2      0.00       0.0   12183.5 reg_f/net68223           
+    0:01:16  213367.0      0.00       0.0   12183.5 reg_f/net75585           
+    0:01:16  213306.2      0.00       0.0   12183.5 reg_f/net66378           
+    0:01:16  213284.0      0.00       0.0   12183.5 reg_f/net66306           
+    0:01:16  213267.5      0.00       0.0   12183.5 reg_f/net66258           
+    0:01:16  213245.3      0.00       0.0   12183.5 reg_f/net66156           
+    0:01:16  213223.2      0.00       0.0   12183.5 reg_f/net66084           
+    0:01:17  213212.2      0.00       0.0   12183.5 reg_f/net66018           
+    0:01:17  213190.0      0.00       0.0   12183.5 reg_f/net65916           
+    0:01:17  213167.9      0.00       0.0   12183.5 reg_f/net65844           
+    0:01:17  213156.9      0.00       0.0   12183.5 reg_f/net65778           
+    0:01:17  213134.7      0.00       0.0   12183.5 reg_f/net65676           
+    0:01:17  213112.6      0.00       0.0   12183.5 reg_f/net65604           
+    0:01:17  213101.6      0.00       0.0   12183.5 reg_f/net65538           
+    0:01:17  213079.5      0.00       0.0   12183.5 reg_f/net65436           
+    0:01:17  213057.3      0.00       0.0   12183.5 reg_f/net65364           
+    0:01:17  213046.3      0.00       0.0   12183.5 reg_f/net65298           
+    0:01:17  213024.2      0.00       0.0   12183.5 reg_f/net65196           
+    0:01:17  213002.0      0.00       0.0   12183.5 reg_f/net65124           
+    0:01:18  212991.0      0.00       0.0   12183.5 reg_f/net65058           
+    0:01:18  212968.9      0.00       0.0   12183.5 reg_f/net64956           
+    0:01:18  212946.7      0.00       0.0   12183.5 reg_f/net64884           
+    0:01:18  212935.7      0.00       0.0   12183.5 reg_f/net64818           
+    0:01:18  212913.6      0.00       0.0   12183.5 reg_f/net64716           
+    0:01:18  212891.4      0.00       0.0   12183.5 reg_f/net64644           
+    0:01:18  212874.9      0.00       0.0   12183.5 reg_f/net64569           
+    0:01:18  212860.1      0.00       0.0   12183.5 reg_f/net64391           
+    0:01:18  212845.4      0.00       0.0   12183.2 reg_f/net62932           
+    0:01:18  212867.5      0.00       0.0   12181.2 reg_f/net86451           
+    0:01:19  212856.4      0.00       0.0   12180.3 reg_f/net62914           
+    0:01:19  212884.1      0.00       0.0   12177.7 reg_f/net77396           
+    0:01:19  212884.1      0.00       0.0   12176.0 reg_f/net62836           
+    0:01:19  212884.1      0.00       0.0   12174.5 reg_f/net62742           
+    0:01:19  212895.1      0.00       0.0   12171.5 reg_f/net88793           
+    0:01:21  212889.6      0.00       0.0   12170.5 reg_f/net62163           
+    0:01:21  212878.5      0.00       0.0   12170.5 reg_f/net62139           
+    0:01:21  212823.2      0.00       0.0   12170.5 reg_f/net62147           
+    0:01:21  212768.0      0.00       0.0   12170.5 reg_f/net67866           
+    0:01:21  212712.7      0.00       0.0   12170.5 reg_f/net62091           
+    0:01:21  212668.4      0.00       0.0   12170.5 reg_f/net67938           
+    0:01:22  212607.6      0.00       0.0   12170.5 reg_f/net62073           
+    0:01:22  212546.8      0.00       0.0   12170.5 reg_f/net67677           
+    0:01:22  212485.9      0.00       0.0   12170.5 reg_f/net68040           
+    0:01:22  212425.1      0.00       0.0   12170.5 reg_f/net62023           
+    0:01:22  212353.2      0.00       0.0   12170.5 reg_f/net61997           
+    0:01:22  212303.5      0.00       0.0   12170.5 reg_f/net62005           
+    0:01:22  212248.2      0.00       0.0   12170.5 reg_f/net86693           
+    0:01:22  212203.9      0.00       0.0   12170.5 reg_f/net61951           
+    0:01:22  212165.2      0.00       0.0   12170.5 reg_f/net61932           
+    0:01:22  212126.5      0.00       0.0   12170.5 reg_f/net62096           
+    0:01:22  212121.0      0.00       0.0   12170.5 reg_f/net61882           
+    0:01:22  212109.9      0.00       0.0   12170.5 reg_f/net61859           
+    0:01:22  212082.3      0.00       0.0   12170.5 reg_f/net61810           
+    0:01:22  212065.7      0.00       0.0   12170.5 reg_f/net61786           
+    0:01:23  212021.5      0.00       0.0   12170.5 reg_f/net61765           
+    0:01:23  212004.9      0.00       0.0   12170.0 reg_f/net61690           
+    0:01:23  212010.4      0.00       0.0   12168.4 reg_f/net77504           
+    0:01:23  212004.9      0.00       0.0   12168.2 reg_f/net61565           
+    0:01:23  212004.9      0.00       0.0   12167.2 reg_f/net61524           
+    0:01:23  212004.9      0.00       0.0   12166.4 reg_f/net61321           
+    0:01:23  212010.4      0.00       0.0   12165.9 reg_f/net61279           
+    0:01:23  212010.4      0.00       0.0   12165.0 reg_f/net59951           
+    0:01:24  212004.9      0.00       0.0   12164.5 reg_f/net59303           
+    0:01:24  212004.9      0.00       0.0   12163.7 reg_f/net59259           
+    0:01:24  212010.4      0.00       0.0   12163.3 reg_f/net59208           
+    0:01:24  211995.7      0.00       0.0   12162.9 reg_f/net48932           
+    0:01:25  211985.5      0.00       0.0   12162.9 reg_f/net56303           
+    0:01:26  211953.3      0.00       0.0   12162.9 reg_f/net55286           
+    0:01:26  211933.0      0.00       0.0   12162.9 reg_f/net55259           
+    0:01:26  211901.6      0.00       0.0   12162.9 reg_f/net55188           
+    0:01:26  211881.4      0.00       0.0   12162.9 reg_f/net55161           
+    0:01:26  211850.0      0.00       0.0   12162.9 reg_f/net55135           
+    0:01:26  211818.7      0.00       0.0   12162.9 reg_f/net55068           
+    0:01:26  211798.4      0.00       0.0   12162.9 reg_f/net55041           
+    0:01:26  211778.2      0.00       0.0   12162.9 reg_f/net55017           
+    0:01:26  211757.9      0.00       0.0   12162.9 reg_f/net54946           
+    0:01:26  211737.6      0.00       0.0   12162.9 reg_f/net54919           
+    0:01:26  211706.3      0.00       0.0   12162.9 reg_f/net54899           
+    0:01:26  211674.9      0.00       0.0   12162.9 reg_f/net54868           
+    0:01:26  211654.7      0.00       0.0   12162.9 reg_f/net54801           
+    0:01:27  211634.4      0.00       0.0   12162.9 reg_f/net54779           
+    0:01:27  211614.1      0.00       0.0   12162.9 reg_f/net54706           
+    0:01:27  211592.9      0.00       0.0   12162.9 reg_f/net54678           
+    0:01:27  211571.7      0.00       0.0   12162.9 reg_f/net54284           
+    0:01:27  211560.7      0.00       0.0   12162.9 reg_f/net54165           
+    0:01:27  211550.5      0.00       0.0   12162.9 reg_f/net53372           
+    0:01:27  211530.2      0.00       0.0   12162.9 reg_f/net53236           
+    0:01:27  211510.0      0.00       0.0   12162.9 reg_f/net53100           
+    0:01:27  211489.7      0.00       0.0   12162.9 reg_f/net52964           
+    0:01:27  211469.4      0.00       0.0   12162.9 reg_f/net52828           
+    0:01:28  211449.1      0.00       0.0   12162.9 reg_f/net52692           
+    0:01:28  211428.9      0.00       0.0   12162.9 reg_f/net52556           
+    0:01:28  211408.6      0.00       0.0   12162.9 reg_f/net52427           
+    0:01:28  211392.9      0.00       0.0   12162.3 reg_f/net51191           
+    0:01:28  211404.0      0.00       0.0   12161.5 reg_f/net51136           
+    0:01:28  211404.0      0.00       0.0   12160.7 reg_f/net50953           
+    0:01:28  211404.0      0.00       0.0   12159.8 reg_f/net50830           
+    0:01:28  211388.3      0.00       0.0   12159.6 reg_f/net50728           
+    0:01:29  211388.3      0.00       0.0   12159.2 reg_f/net50558           
+    0:01:29  211388.3      0.00       0.0   12158.1 reg_f/net50171           
+    0:01:29  211404.0      0.00       0.0   12155.0 ALU_dut/ALUResult[3]     
+    0:01:30  211463.9      0.00       0.0   12145.7 PC_dut/net54017          
+    0:01:30  211481.4      0.00       0.0   12144.2 ext/net47283             
+    0:01:30  211547.8      0.00       0.0   12134.9 ALU_dut/sub_13/B_not[12] 
+    0:01:30  211805.8      0.00       0.0   12097.1 ALU_dut/net52353         
+    0:01:30  211855.6      0.00       0.0   12090.6 add_43/net48113          
+    0:01:31  212043.6      0.00       0.0   12069.4 data/net48714            
+    0:01:31  212278.6      0.00       0.0   12045.0 ALU_dut/net52349         
+    0:01:31  212485.0      0.00       0.0   12024.3 reg_f/reg_mem[0][0]      
+    0:01:31  213010.3      0.00       0.0   11990.3 reg_f/reg_mem[1][5]      
+    0:01:31  213541.2      0.00       0.0   11955.2 reg_f/reg_mem[2][8]      
+    0:01:31  214072.0      0.00       0.0   11920.3 reg_f/reg_mem[3][10]     
+    0:01:31  214602.9      0.00       0.0   11885.3 reg_f/reg_mem[4][15]     
+    0:01:31  215133.7      0.00       0.0   11850.2 reg_f/reg_mem[5][24]     
+    0:01:32  215659.0      0.00       0.0   11816.2 reg_f/reg_mem[6][29]     
+    0:01:32  216106.9      0.00       0.0   11786.6 reg_f/reg_mem[7][30]     
+    0:01:32  216637.7      0.00       0.0   11751.6 reg_f/reg_mem[8][31]     
+    0:01:32  217168.6      0.00       0.0   11716.6 reg_f/reg_mem[10][5]     
+    0:01:32  217699.4      0.00       0.0   11681.5 reg_f/reg_mem[11][10]    
+    0:01:32  218157.5      0.00       0.0   11651.6 reg_f/reg_mem[12][8]     
+    0:01:32  218688.3      0.00       0.0   11616.6 reg_f/reg_mem[13][11]    
+    0:01:32  219219.2      0.00       0.0   11581.6 reg_f/reg_mem[14][13]    
+    0:01:32  219750.0      0.00       0.0   11546.6 reg_f/reg_mem[15][20]    
+    0:01:32  220280.8      0.00       0.0   11511.6 reg_f/reg_mem[16][22]    
+    0:01:32  220811.7      0.00       0.0   11476.6 reg_f/reg_mem[17][25]    
+    0:01:32  221259.6      0.00       0.0   11446.9 reg_f/reg_mem[18][24]    
+    0:01:32  221707.5      0.00       0.0   11417.3 reg_f/reg_mem[19][24]    
+    0:01:32  222232.8      0.00       0.0   11383.3 reg_f/reg_mem[20][26]    
+    0:01:32  222763.6      0.00       0.0   11348.3 reg_f/reg_mem[21][29]    
+    0:01:33  223294.5      0.00       0.0   11313.4 reg_f/reg_mem[23][1]     
+    0:01:33  223825.3      0.00       0.0   11278.4 reg_f/reg_mem[24][6]     
+    0:01:33  224356.2      0.00       0.0   11243.4 reg_f/reg_mem[25][9]     
+    0:01:33  224887.0      0.00       0.0   11208.4 reg_f/reg_mem[26][10]    
+    0:01:33  225334.9      0.00       0.0   11178.8 reg_f/reg_mem[27][11]    
+    0:01:33  225865.7      0.00       0.0   11143.8 reg_f/reg_mem[28][17]    
+    0:01:33  226396.6      0.00       0.0   11108.6 reg_f/reg_mem[29][22]    
+    0:01:33  226927.4      0.00       0.0   11073.6 reg_f/reg_mem[30][24]    
+    0:01:33  227458.3      0.00       0.0   11038.6 reg_f/reg_mem[31][28]    
+    0:01:33  227745.8      0.00       0.0   11018.5 reg_f/reg_mem[4][19]     
+    0:01:33  228055.5      0.00       0.0   10998.7 reg_f/reg_mem[9][22]     
+    0:01:33  228320.9      0.00       0.0   10981.1 reg_f/reg_mem[17][5]     
+    0:01:33  228619.5      0.00       0.0   10961.2 reg_f/reg_mem[24][23]    
+    0:01:34  228914.4      0.00       0.0   10941.0 reg_f/reg_mem[31][23]    
+    0:01:34  229113.4      0.00       0.0   10927.1 ALU_dut/ALUResult[21]    
+    0:01:34  229444.3      0.00       0.0   10920.1 reg_f/net59934           
+    0:01:34  229499.6      0.00       0.0   10916.6 data/net60994            
+    0:01:34  229566.0      0.00       0.0   10912.2 data/net60781            
+    0:01:34  229632.3      0.00       0.0   10908.4 data/net60591            
+    0:01:34  229687.6      0.00       0.0   10905.1 data/net60441            
+    0:01:34  229720.8      0.00       0.0   10902.7 data/net60386            
+    0:01:34  229803.7      0.00       0.0   10899.7 data/net60099            
+    0:01:34  229886.7      0.00       0.0   10896.1 data/net56629            
+    0:01:35  230301.4      0.00       0.0   10885.9 data/net60045            
+    0:01:35  230572.3      0.00       0.0   10881.9 reg_f/net86809           
+    0:01:35  230937.3      0.00       0.0   10875.2 reg_f/net77109           
+    0:01:35  231412.8      0.00       0.0   10868.2 reg_f/net59947           
+    0:01:35  231717.0      0.00       0.0   10860.0 reg_f/net59455           
+    0:01:35  232225.7      0.00       0.0   10851.5 reg_f/net56454           
+    0:01:35  232679.1      0.00       0.0   10843.8 data/net95682            
+    0:01:36  232883.7      0.00       0.0   10839.3 data/net69579            
+    0:01:36  233093.8      0.00       0.0   10835.4 data/net60973            
+    0:01:36  233171.3      0.00       0.0   10830.7 data/net59106            
+    0:01:36  233259.7      0.00       0.0   10827.0 data/net52222            
+    0:01:36  233442.2      0.00       0.0   10822.9 data/net51533            
+    0:01:36  233574.9      0.00       0.0   10820.8 reg_f/net88681           
+    0:01:37  233635.7      0.00       0.0   10819.3 reg_f/net96373           
+    0:01:37  233713.2      0.00       0.0   10818.2 ALU_dut/r60/net29776     
+    0:01:37  233707.6      0.00       0.0   10818.0 reg_f/net97229           
+    0:01:37  233613.6      0.00       0.0   10816.9 reg_f/n308               
+    0:01:37  233503.0      0.00       0.0   10816.0 reg_f/net96698           
+    0:01:37  233409.0      0.00       0.0   10815.2 reg_f/net88368           
+    0:01:37  233331.6      0.00       0.0   10814.1 reg_f/n906               
+    0:01:37  233215.5      0.00       0.0   10813.6 reg_f/net96548           
+    0:01:38  233088.3      0.00       0.0   10813.0 reg_f/net96740           
+    0:01:38  233005.4      0.00       0.0   10812.0 reg_f/net97245           
+    0:01:38  232928.0      0.00       0.0   10811.4 reg_f/n474               
+    0:01:38  232822.9      0.00       0.0   10811.1 reg_f/n375               
+    0:01:38  232745.5      0.00       0.0   10810.7 reg_f/n68                
+    0:01:38  232640.4      0.00       0.0   10810.3 reg_f/n474               
+    0:01:38  232529.8      0.00       0.0   10809.8 reg_f/net96119           
+    0:01:38  232441.3      0.00       0.0   10809.5 reg_f/net96194           
+    0:01:39  232369.5      0.00       0.0   10809.3 reg_f/net88373           
+    0:01:39  232308.6      0.00       0.0   10809.2 reg_f/n308               
+    0:01:39  232225.7      0.00       0.0   10809.1 reg_f/net95862           
+    0:01:39  232175.9      0.00       0.0   10809.1 reg_f/n973               
+    0:01:39  232131.7      0.00       0.0   10809.1 reg_f/net88368           
+    0:01:39  232149.2      0.00       0.0   10808.0 reg_f/net95369           
+    0:01:39  232259.8      0.00       0.0   10806.6 reg_f/net95267           
+    0:01:39  232370.4      0.00       0.0   10805.2 reg_f/net95147           
+    0:01:39  232481.0      0.00       0.0   10803.9 reg_f/net95027           
+    0:01:40  232565.8      0.00       0.0   10801.2 reg_f/net94896           
+    0:01:40  232676.4      0.00       0.0   10799.7 reg_f/net94755           
+    0:01:40  232786.9      0.00       0.0   10798.1 reg_f/net94635           
+    0:01:40  232897.5      0.00       0.0   10796.6 reg_f/net94515           
+    0:01:40  233008.1      0.00       0.0   10795.2 reg_f/net94395           
+    0:01:40  233118.7      0.00       0.0   10793.7 reg_f/net94275           
+    0:01:40  233229.3      0.00       0.0   10792.2 reg_f/net94155           
+    0:01:40  233339.9      0.00       0.0   10790.8 reg_f/net94044           
+    0:01:40  233450.5      0.00       0.0   10789.2 reg_f/net93924           
+    0:01:40  233561.1      0.00       0.0   10787.7 reg_f/net93804           
+    0:01:40  233671.7      0.00       0.0   10786.2 reg_f/net93684           
+    0:01:40  233782.3      0.00       0.0   10784.6 reg_f/net93564           
+    0:01:40  233892.9      0.00       0.0   10783.1 reg_f/net93444           
+    0:01:41  234003.5      0.00       0.0   10781.6 reg_f/net93324           
+    0:01:41  234114.1      0.00       0.0   10780.1 reg_f/net93204           
+    0:01:41  234224.6      0.00       0.0   10778.6 reg_f/net93084           
+    0:01:41  234335.2      0.00       0.0   10777.0 reg_f/net92964           
+    0:01:41  234445.8      0.00       0.0   10775.6 reg_f/net92849           
+    0:01:41  234556.4      0.00       0.0   10774.1 reg_f/net92738           
+    0:01:41  234667.0      0.00       0.0   10772.7 reg_f/net92618           
+    0:01:41  234777.6      0.00       0.0   10771.2 reg_f/net92471           
+    0:01:41  234888.2      0.00       0.0   10769.7 reg_f/net92351           
+    0:01:41  234998.8      0.00       0.0   10768.2 reg_f/net92231           
+    0:01:41  235109.4      0.00       0.0   10766.6 reg_f/net92111           
+    0:01:41  235220.0      0.00       0.0   10765.1 reg_f/net91991           
+    0:01:41  235330.6      0.00       0.0   10763.6 reg_f/net91871           
+    0:01:42  235441.2      0.00       0.0   10762.0 reg_f/net91751           
+    0:01:42  235551.7      0.00       0.0   10760.5 reg_f/net91631           
+    0:01:42  235662.3      0.00       0.0   10759.0 reg_f/net91511           
+    0:01:42  235772.9      0.00       0.0   10757.5 reg_f/net91391           
+    0:01:42  235883.5      0.00       0.0   10755.9 reg_f/net91278           
+    0:01:42  235994.1      0.00       0.0   10754.5 reg_f/net91158           
+    0:01:42  236104.7      0.00       0.0   10753.1 reg_f/net91038           
+    0:01:42  236215.3      0.00       0.0   10751.6 reg_f/net90918           
+    0:01:42  236325.9      0.00       0.0   10750.0 reg_f/net90798           
+    0:01:42  236436.5      0.00       0.0   10748.6 reg_f/net90687           
+    0:01:42  236547.1      0.00       0.0   10747.1 reg_f/net90567           
+    0:01:42  236657.7      0.00       0.0   10745.5 reg_f/net90447           
+    0:01:42  236768.3      0.00       0.0   10744.1 reg_f/net90332           
+    0:01:43  236878.9      0.00       0.0   10742.6 reg_f/net90212           
+    0:01:43  236989.4      0.00       0.0   10741.2 reg_f/net90092           
+    0:01:43  237100.0      0.00       0.0   10739.5 reg_f/net89972           
+    0:01:43  237210.6      0.00       0.0   10738.1 reg_f/net89852           
+    0:01:43  237321.2      0.00       0.0   10736.5 reg_f/net89732           
+    0:01:43  237431.8      0.00       0.0   10735.0 reg_f/net89612           
+    0:01:43  237542.4      0.00       0.0   10733.6 reg_f/net89492           
+    0:01:43  237542.4      0.00       0.0   10733.3 reg_f/net88786           
+    0:01:43  237514.8      0.00       0.0   10733.2 reg_f/n507               
+    0:01:43  237476.0      0.00       0.0   10733.2 reg_f/net88327           
+    0:01:44  237448.4      0.00       0.0   10733.1 reg_f/net88071           
+    0:01:44  237426.3      0.00       0.0   10733.1 reg_f/net96761           
+    0:01:44  237409.7      0.00       0.0   10733.1 reg_f/net86499           
+    0:01:44  237398.6      0.00       0.0   10733.1 reg_f/net84256           
+    0:01:44  237382.0      0.00       0.0   10733.1 reg_f/net96683           
+    0:01:45  237365.5      0.00       0.0   10733.1 reg_f/net80128           
+    0:01:45  237354.4      0.00       0.0   10733.1 reg_f/net79996           
+    0:01:45  237310.2      0.00       0.0   10733.1 reg_f/net79912           
+    0:01:45  237288.0      0.00       0.0   10733.1 reg_f/net79792           
+    0:01:45  237277.0      0.00       0.0   10733.1 reg_f/net79720           
+    0:01:45  237254.9      0.00       0.0   10733.1 reg_f/net79648           
+    0:01:45  237221.7      0.00       0.0   10733.1 reg_f/net79552           
+    0:01:45  237199.6      0.00       0.0   10733.1 reg_f/net79456           
+    0:01:46  237177.4      0.00       0.0   10733.1 reg_f/net78187           
+    0:01:46  237166.4      0.00       0.0   10733.1 reg_f/net77284           
+    0:01:47  237144.3      0.00       0.0   10733.1 reg_f/net73799           
+    0:01:48  237138.7      0.00       0.0   10733.1 reg_f/net72082           
+    0:01:48  237116.6      0.00       0.0   10733.1 reg_f/net71953           
+    0:01:48  237094.5      0.00       0.0   10733.1 reg_f/net71882           
+    0:01:48  237083.4      0.00       0.0   10733.1 reg_f/net71821           
+    0:01:48  237066.9      0.00       0.0   10733.1 reg_f/net71698           
+    0:01:49  237061.3      0.00       0.0   10733.1 reg_f/net71407           
+    0:01:49  237050.3      0.00       0.0   10733.1 reg_f/net71142           
+    0:02:04  237011.6      0.00       0.0   10733.1 ALU_dut/net97097         
+    0:02:04  236937.8      0.00       0.0   10730.6 ALU_dut/n19              
+    0:02:04  236861.3      0.00       0.0   10730.4 ALU_dut/net99265         
+    0:02:04  236795.9      0.00       0.0   10730.2 ALU_dut/net73829         
+    0:02:04  236779.3      0.00       0.0   10730.2 ALU_dut/net64062         
+    0:02:04  236740.6      0.00       0.0   10730.2 ALU_dut/net62937         
+    0:02:04  236718.5      0.00       0.0   10730.2 ALU_dut/net56193         
+    0:02:04  236713.0      0.00       0.0   10729.8 data/net97063            
+    0:02:05  236552.6      0.00       0.0   10729.6 data/net96941            
+    0:02:05  236408.8      0.00       0.0   10729.4 data/net96819            
+    0:02:05  236267.8      0.00       0.0   10729.1 data/net95880            
+    0:02:05  236157.2      0.00       0.0   10728.5 data/net97023            
+    0:02:05  236072.5      0.00       0.0   10727.6 data/net89356            
+    0:02:05  235956.3      0.00       0.0   10727.1 data/net87772            
+    0:02:05  235790.4      0.00       0.0   10727.1 data/net87468            
+    0:02:05  235596.9      0.00       0.0   10727.1 data/net87372            
+    0:02:06  235466.0      0.00       0.0   10727.0 data/n68                 
+    0:02:06  235283.6      0.00       0.0   10726.9 data/net87243            
+    0:02:06  235100.2      0.00       0.0   10726.7 data/net95636            
+    0:02:06  234939.8      0.00       0.0   10726.6 data/net87099            
+    0:02:06  234762.9      0.00       0.0   10726.6 data/net87003            
+    0:02:06  234613.6      0.00       0.0   10726.3 data/net86400            
+    0:02:06  234480.8      0.00       0.0   10726.0 data/net87156            
+    0:02:07  234375.8      0.00       0.0   10725.1 data/net87159            
+    0:02:07  234251.4      0.00       0.0   10724.8 data/net99303            
+    0:02:07  234169.3      0.00       0.0   10724.1 data/net86214            
+    0:02:07  233991.5      0.00       0.0   10723.8 data/net86130            
+    0:02:07  233903.0      0.00       0.0   10723.5 data/net99315            
+    0:02:07  233814.5      0.00       0.0   10722.9 data/net99307            
+    0:02:07  233764.8      0.00       0.0   10722.5 data/net99294            
+    0:02:07  233670.8      0.00       0.0   10722.3 data/net99334            
+    0:02:08  233593.3      0.00       0.0   10722.1 data/net99303            
+    0:02:08  233521.5      0.00       0.0   10720.4 data/n238                
+    0:02:08  233455.1      0.00       0.0   10720.0 data/net85892            
+    0:02:08  233361.1      0.00       0.0   10719.7 data/net89374            
+    0:02:08  233256.0      0.00       0.0   10719.7 data/net83912            
+    0:02:08  233128.9      0.00       0.0   10719.2 data/net99332            
+    0:02:09  233029.3      0.00       0.0   10717.9 data/n508                
+    0:02:09  232929.8      0.00       0.0   10717.8 data/net86246            
+    0:02:09  232806.3      0.00       0.0   10717.7 data/n1073               
+    0:02:09  232667.1      0.00       0.0   10717.5 data/net99318            
+    0:02:09  232391.6      0.00       0.0   10717.5 data/net85106            
+    0:02:09  232250.6      0.00       0.0   10717.5 data/net99350            
+    0:02:10  232162.1      0.00       0.0   10717.5 data/net87710            
+    0:02:10  232051.5      0.00       0.0   10717.4 data/net99346            
+    0:02:10  231918.8      0.00       0.0   10717.3 data/net82687            
+    0:02:10  231775.0      0.00       0.0   10717.3 data/net82591            
+    0:02:10  231620.2      0.00       0.0   10717.3 data/net82495            
+    0:02:10  231465.4      0.00       0.0   10717.3 data/net82399            
+    0:02:10  231332.7      0.00       0.0   10717.3 data/net82303            
+    0:02:10  231155.7      0.00       0.0   10717.3 data/net82207            
+    0:02:10  231144.7      0.00       0.0   10717.3 data/net82039            
+    0:02:11  231133.6      0.00       0.0   10717.3 data/net81583            
+    0:02:11  231111.5      0.00       0.0   10717.3 data/net81463            
+    0:02:11  231100.4      0.00       0.0   10717.3 data/net81343            
+    0:02:12  231045.1      0.00       0.0   10717.3 data/net78715            
+    0:02:12  231012.9      0.00       0.0   10717.3 data/net78052            
+    0:02:12  230929.9      0.00       0.0   10717.3 data/net78004            
+    0:02:13  230874.6      0.00       0.0   10717.3 data/net77956            
+    0:02:13  230858.0      0.00       0.0   10717.3 data/net99321            
+    0:02:13  230753.0      0.00       0.0   10717.0 data/net77827            
+    0:02:13  230681.1      0.00       0.0   10717.0 data/net86052            
+    0:02:13  230625.8      0.00       0.0   10716.9 data/net97077            
+    0:02:13  230559.4      0.00       0.0   10716.8 data/net89374            
+    0:02:13  230476.5      0.00       0.0   10716.8 data/net99378            
+    0:02:14  230399.1      0.00       0.0   10716.6 data/net76711            
+    0:02:14  230321.7      0.00       0.0   10716.5 data/net76702            
+    0:02:14  230277.4      0.00       0.0   10716.3 data/C2254/net9621       
+    0:02:14  230205.5      0.00       0.0   10716.3 data/net86978            
+    0:02:14  230122.6      0.00       0.0   10716.3 data/net76354            
+    0:02:15  230012.0      0.00       0.0   10716.2 data/net75864            
+    0:02:15  229984.4      0.00       0.0   10716.0 data/n409                
+    0:02:15  229903.3      0.00       0.0   10716.0 data/n409                
+    0:02:15  229774.2      0.00       0.0   10715.8 data/net99406            
+    0:02:15  229638.8      0.00       0.0   10715.6 data/net76726            
+    0:02:15  229528.2      0.00       0.0   10715.6 data/C2254/net9640       
+    0:02:16  229417.6      0.00       0.0   10715.6 data/net75430            
+    0:02:16  229307.0      0.00       0.0   10715.6 data/C2254/net9624       
+    0:02:16  229201.9      0.00       0.0   10715.6 data/C2254/net9616       
+    0:02:16  229119.0      0.00       0.0   10715.6 data/net86256            
+    0:02:16  229052.6      0.00       0.0   10715.6 data/net99370            
+    0:02:16  228997.3      0.00       0.0   10715.6 data/net99357            
+    0:02:16  228942.0      0.00       0.0   10715.6 data/net99370            
+    0:02:16  228898.7      0.00       0.0   10715.1 data/n204                
+    0:02:17  228826.8      0.00       0.0   10715.1 data/net85050            
+    0:02:17  228732.8      0.00       0.0   10715.1 data/net86008            
+    0:02:17  228656.3      0.00       0.0   10715.1 data/net83836            
+    0:02:17  228617.6      0.00       0.0   10715.1 data/net86378            
+    0:02:17  228563.3      0.00       0.0   10715.1 data/net86378            
+    0:02:17  228530.1      0.00       0.0   10715.0 data/n272                
+    0:02:17  228491.4      0.00       0.0   10715.0 data/net73283            
+    0:02:17  228458.2      0.00       0.0   10714.8 data/net73257            
+    0:02:17  228359.6      0.00       0.0   10714.8 data/net99382            
+    0:02:18  228287.7      0.00       0.0   10714.8 data/net99392            
+    0:02:18  228249.0      0.00       0.0   10714.8 data/net99281            
+    0:02:18  228188.2      0.00       0.0   10714.7 data/net99420            
+    0:02:18  228121.8      0.00       0.0   10714.7 data/net85860            
+    0:02:18  228066.5      0.00       0.0   10714.7 data/net86226            
+    0:02:18  228006.6      0.00       0.0   10714.6 data/n773                
+    0:02:18  227956.8      0.00       0.0   10714.3 data/net87332            
+    0:02:18  227912.6      0.00       0.0   10714.1 data/net99430            
+    0:02:19  227846.2      0.00       0.0   10714.1 data/net99350            
+    0:02:19  227796.5      0.00       0.0   10714.1 data/net86201            
+    0:02:19  227753.2      0.00       0.0   10714.1 data/net73059            
+    0:02:19  227725.5      0.00       0.0   10713.9 data/net73034            
+    0:02:19  227664.7      0.00       0.0   10713.9 data/net95900            
+    0:02:19  227598.3      0.00       0.0   10713.9 data/net72995            
+    0:02:19  227554.1      0.00       0.0   10713.9 data/net85478            
+    0:02:19  227476.7      0.00       0.0   10713.9 data/net72956            
+    0:02:19  227443.5      0.00       0.0   10713.7 data/n1007               
+    0:02:20  227371.6      0.00       0.0   10713.7 data/net72940            
+    0:02:20  227316.3      0.00       0.0   10713.7 data/net99311            
+    0:02:20  227233.4      0.00       0.0   10713.4 data/net72873            
+    0:02:20  227122.8      0.00       0.0   10713.4 data/net72850            
+    0:02:20  227028.8      0.00       0.0   10713.4 data/net75406            
+    0:02:20  226912.7      0.00       0.0   10713.4 data/net75454            
+    0:02:20  226862.9      0.00       0.0   10713.4 data/net72794            
+    0:02:20  226807.6      0.00       0.0   10713.4 data/net72741            
+    0:02:20  226791.0      0.00       0.0   10713.4 data/net76785            
+    0:02:21  226774.4      0.00       0.0   10713.4 data/net83674            
+    0:02:21  226752.3      0.00       0.0   10713.4 data/net72625            
+    0:02:21  226713.6      0.00       0.0   10713.4 data/net85674            
+    0:02:21  226680.4      0.00       0.0   10713.4 data/net72562            
+    0:02:21  226663.8      0.00       0.0   10713.4 data/net72503            
+    0:02:21  226636.2      0.00       0.0   10713.4 data/net72465            
+    0:02:21  226597.5      0.00       0.0   10713.4 data/net86064            
+    0:02:22  226569.8      0.00       0.0   10713.4 data/net72419            
+    0:02:22  226503.5      0.00       0.0   10713.4 data/net75478            
+    0:02:22  226448.2      0.00       0.0   10713.4 data/net72387            
+    0:02:22  226381.8      0.00       0.0   10713.4 data/net75406            
+    0:02:22  226315.5      0.00       0.0   10713.4 data/net75382            
+    0:02:22  226254.6      0.00       0.0   10713.4 data/net75343            
+    0:02:22  226193.8      0.00       0.0   10713.4 data/net75307            
+    0:02:22  226110.9      0.00       0.0   10713.4 data/net87365            
+    0:02:22  226039.0      0.00       0.0   10713.4 data/net87362            
+    0:02:22  225956.0      0.00       0.0   10713.4 data/net87041            
+    0:02:22  225873.1      0.00       0.0   10713.4 data/net87398            
+    0:02:22  225795.7      0.00       0.0   10713.4 data/net87089            
+    0:02:23  225712.7      0.00       0.0   10713.4 data/net87074            
+    0:02:23  225629.8      0.00       0.0   10713.4 data/net87134            
+    0:02:23  225552.4      0.00       0.0   10713.4 data/net87497            
+    0:02:23  225480.5      0.00       0.0   10713.4 data/net87146            
+    0:02:23  225447.3      0.00       0.0   10713.4 data/net72754            
+    0:02:23  225419.7      0.00       0.0   10713.4 data/net85804            
+    0:02:23  225408.6      0.00       0.0   10713.4 data/net70631            
+    0:02:23  225397.6      0.00       0.0   10713.4 data/net70559            
+    0:02:24  225364.4      0.00       0.0   10713.4 data/net73473            
+    0:02:24  225287.0      0.00       0.0   10713.4 data/net70022            
+    0:02:24  225253.8      0.00       0.0   10713.4 data/net72226            
+    0:02:24  225193.0      0.00       0.0   10713.4 data/net72154            
+    0:02:24  225165.3      0.00       0.0   10713.4 data/net69469            
+    0:02:25  225148.7      0.00       0.0   10713.4 data/net68867            
+    0:02:25  225076.8      0.00       0.0   10713.4 data/net72166            
+    0:02:25  224993.9      0.00       0.0   10713.4 data/net68727            
+    0:02:25  224916.5      0.00       0.0   10713.4 data/net68683            
+    0:02:25  224839.1      0.00       0.0   10713.4 data/net72238            
+    0:02:25  224772.7      0.00       0.0   10713.4 data/net72262            
+    0:02:25  224695.3      0.00       0.0   10713.4 data/net68536            
+    0:02:25  224617.9      0.00       0.0   10713.4 data/net68518            
+    0:02:25  224546.0      0.00       0.0   10713.4 data/net72310            
+    0:02:25  224485.2      0.00       0.0   10713.4 data/net68473            
+    0:02:26  224452.0      0.00       0.0   10713.4 data/net68439            
+    0:02:26  224407.8      0.00       0.0   10713.4 data/net68583            
+    0:02:26  224358.0      0.00       0.0   10713.4 data/net68295            
+    0:02:26  224308.2      0.00       0.0   10713.4 data/net68755            
+    0:02:26  224264.0      0.00       0.0   10713.4 data/net68847            
+    0:02:26  224225.3      0.00       0.0   10713.4 data/net67440            
+    0:02:26  224203.2      0.00       0.0   10713.4 data/net75307            
+    0:02:26  224175.5      0.00       0.0   10713.4 data/net67218            
+    0:02:26  224170.0      0.00       0.0   10713.4 data/net67137            
+    0:02:26  224153.4      0.00       0.0   10713.4 data/net75343            
+    0:02:27  224142.3      0.00       0.0   10713.4 data/net66999            
+    0:02:27  224120.2      0.00       0.0   10713.4 data/net66897            
+    0:02:27  224114.7      0.00       0.0   10713.4 data/net66849            
+    0:02:27  224087.0      0.00       0.0   10713.4 data/net66777            
+    0:02:27  224064.9      0.00       0.0   10713.4 data/net66705            
+    0:02:27  224053.9      0.00       0.0   10713.4 data/net66642            
+    0:02:27  224031.7      0.00       0.0   10713.4 data/net66522            
+    0:02:27  224015.2      0.00       0.0   10713.4 data/net75463            
+    0:02:28  224001.3      0.00       0.0   10712.8 data/net63852            
+    0:02:28  224012.4      0.00       0.0   10712.2 data/net63777            
+    0:02:28  223990.3      0.00       0.0   10711.6 data/net63728            
+    0:02:28  224001.3      0.00       0.0   10711.1 data/net63636            
+    0:02:29  223968.2      0.00       0.0   10711.1 data/net63585            
+    0:02:29  223940.5      0.00       0.0   10711.1 data/net87752            
+    0:02:29  223929.4      0.00       0.0   10711.1 data/net63388            
+    0:02:29  223901.8      0.00       0.0   10711.1 data/net68493            
+    0:02:29  223890.7      0.00       0.0   10711.1 data/net63343            
+    0:02:29  223841.0      0.00       0.0   10711.1 data/net68610            
+    0:02:30  223785.7      0.00       0.0   10711.1 data/net63300            
+    0:02:30  223741.4      0.00       0.0   10711.1 data/net68742            
+    0:02:30  223719.3      0.00       0.0   10711.1 data/net63251            
+    0:02:30  223691.7      0.00       0.0   10711.1 data/net63226            
+    0:02:30  223653.0      0.00       0.0   10711.1 data/net63204            
+    0:02:30  223641.9      0.00       0.0   10711.1 data/net63178            
+    0:02:30  223625.3      0.00       0.0   10711.1 data/net63152            
+    0:02:30  223608.7      0.00       0.0   10711.1 data/net63132            
+    0:02:30  223603.2      0.00       0.0   10711.1 data/net63076            
+    0:02:30  223570.0      0.00       0.0   10711.1 data/net63085            
+    0:02:31  223553.4      0.00       0.0   10711.1 data/net63029            
+    0:02:31  223541.5      0.00       0.0   10711.0 data/net63003            
+    0:02:31  223502.7      0.00       0.0   10711.0 data/net73821            
+    0:02:31  223465.0      0.00       0.0   10710.9 data/net61142            
+    0:02:31  223444.7      0.00       0.0   10710.9 data/net60990            
+    0:02:31  223433.6      0.00       0.0   10710.9 data/net60861            
+    0:02:31  223413.4      0.00       0.0   10710.9 data/net69048            
+    0:02:32  223396.8      0.00       0.0   10710.9 data/net60669            
+    0:02:32  223375.6      0.00       0.0   10710.9 data/net60500            
+    0:02:32  223355.3      0.00       0.0   10710.9 data/net60382            
+    0:02:32  223345.2      0.00       0.0   10710.9 data/net60265            
+    0:02:32  223335.0      0.00       0.0   10710.9 data/net60160            
+    0:02:32  223324.9      0.00       0.0   10710.9 data/net60084            
+    0:02:32  223314.7      0.00       0.0   10710.9 data/net59999            
+    0:02:32  223288.0      0.00       0.0   10710.9 data/net59165            
+    0:02:33  223282.5      0.00       0.0   10710.9 data/net58645            
+    0:02:34  223272.3      0.00       0.0   10710.9 data/net56979            
+    0:02:34  223252.1      0.00       0.0   10710.9 data/net56871            
+    0:02:34  223236.4      0.00       0.0   10710.9 data/net56702            
+    0:02:34  223216.1      0.00       0.0   10710.9 data/net69598            
+    0:02:34  223195.9      0.00       0.0   10710.9 data/net55941            
+    0:02:34  223175.6      0.00       0.0   10710.9 data/net55919            
+    0:02:34  223155.3      0.00       0.0   10710.9 data/net55848            
+    0:02:34  223135.0      0.00       0.0   10710.9 data/net55819            
+    0:02:34  223114.8      0.00       0.0   10710.9 data/net55799            
+    0:02:34  223094.5      0.00       0.0   10710.9 data/net55728            
+    0:02:34  223074.2      0.00       0.0   10710.9 data/net55698            
+    0:02:35  223053.9      0.00       0.0   10710.9 data/net55676            
+    0:02:35  223033.7      0.00       0.0   10710.9 data/net55646            
+    0:02:35  223023.5      0.00       0.0   10710.9 data/net55619            
+    0:02:35  223003.2      0.00       0.0   10710.9 data/net55548            
+    0:02:35  222983.0      0.00       0.0   10710.9 data/net55517            
+    0:02:35  222962.7      0.00       0.0   10710.9 data/net55499            
+    0:02:35  222942.4      0.00       0.0   10710.9 data/net55468            
+    0:02:35  222922.1      0.00       0.0   10710.9 data/net55398            
+    0:02:35  222901.9      0.00       0.0   10710.9 data/net55379            
+    0:02:35  222881.6      0.00       0.0   10710.9 data/net55321            
+    0:02:36  222871.5      0.00       0.0   10710.9 data/net53954            
+    0:02:36  222851.2      0.00       0.0   10710.9 data/net76331            
+    0:02:36  222820.8      0.00       0.0   10710.9 data/net53680            
+    0:02:36  222790.4      0.00       0.0   10710.9 data/net53617            
+    0:02:36  222759.9      0.00       0.0   10710.9 data/net53481            
+    0:02:36  222719.4      0.00       0.0   10710.9 data/net52143            
+    0:02:36  222709.3      0.00       0.0   10710.9 data/net52081            
+    0:02:36  222689.0      0.00       0.0   10710.9 data/net51910            
+    0:02:37  222668.7      0.00       0.0   10710.9 data/net51769            
+    0:02:37  222642.9      0.00       0.0   10710.9 data/net67502            
+    0:02:37  222627.2      0.00       0.0   10710.9 data/net51373            
+    0:02:37  222617.1      0.00       0.0   10710.9 data/net51237            
+    0:02:38  222617.1      0.00       0.0   10710.6 data/n906                
+    0:02:38  222551.7      0.00       0.0   10708.5 add_43/net43980          
+    0:02:38  222540.6      0.00       0.0   10706.4 add_43/net48115          
+    0:02:38  222501.9      0.00       0.0   10705.8 SrcB_mux/net75683        
+    0:02:39  222452.1      0.00       0.0   10705.2 PCmux/net75701           
+    0:02:39  222419.9      0.00       0.0   10705.2 PCmux/net59161           
+    0:02:39  222480.7      0.00       0.0   10703.0 ALU_dut/r60/net87862     
+    0:02:39  222411.6      0.00       0.0   10701.4 PC_dut/net89348          
+    0:02:39  222372.9      0.00       0.0   10701.4 PC_dut/net89156          
+    0:02:39  222378.4      0.00       0.0   10699.0 net88194                 
+    0:02:39  222395.0      0.00       0.0   10698.5 rst                      
+    0:02:39  222300.1      0.00       0.0   10698.5 reg_f/net89138           
+    0:02:39  222289.9      0.00       0.0   10698.5 PC_dut/net49404          
+    0:02:39  222262.3      0.00       0.0   10698.3 ext/net87814             
+    0:02:39  222234.6      0.00       0.0   10696.9 ext/net55959             
+    0:02:39  222230.0      0.00       0.0   10696.2 control/decoder/net76831 
+    0:02:39  222119.4      0.00       0.0   10696.1 net88270                 
+    0:02:39  222003.3      0.00       0.0   10696.1 read_mux/out[8]          
+    0:02:40  221995.9      0.00       0.0   10693.8 reg_f/net95528           
+    0:02:40  222073.3      0.00       0.0   10682.5 reg_f/net94759           
+    0:02:40  222161.8      0.00       0.0   10671.2 reg_f/net94645           
+    0:02:40  222250.3      0.00       0.0   10659.9 reg_f/net94492           
+    0:02:40  222338.8      0.00       0.0   10648.6 reg_f/net94372           
+    0:02:40  222388.5      0.00       0.0   10639.5 reg_f/net94282           
+    0:02:40  222471.5      0.00       0.0   10628.9 reg_f/net94165           
+    0:02:40  222560.0      0.00       0.0   10617.6 reg_f/net94018           
+    0:02:40  222648.4      0.00       0.0   10606.3 reg_f/net93904           
+    0:02:40  222736.9      0.00       0.0   10595.0 reg_f/net93787           
+    0:02:40  222803.3      0.00       0.0   10585.2 reg_f/net93664           
+    0:02:40  222891.7      0.00       0.0   10573.9 reg_f/net93514           
+    0:02:40  222980.2      0.00       0.0   10562.6 reg_f/net93397           
+    0:02:40  223068.7      0.00       0.0   10551.3 reg_f/net93280           
+    0:02:41  223157.1      0.00       0.0   10540.0 reg_f/net93130           
+    0:02:41  223245.6      0.00       0.0   10528.8 reg_f/net93013           
+    0:02:41  223312.0      0.00       0.0   10518.9 reg_f/reg_mem[20][18]    
+    0:02:41  223400.5      0.00       0.0   10507.6 reg_f/net92778           
+    0:02:41  223472.3      0.00       0.0   10497.0 reg_f/net92637           
+    0:02:41  223555.3      0.00       0.0   10486.5 reg_f/net92550           
+    0:02:41  223643.8      0.00       0.0   10475.2 reg_f/net92400           
+    0:02:41  223704.6      0.00       0.0   10464.6 reg_f/net92280           
+    0:02:41  223793.1      0.00       0.0   10453.3 reg_f/net92166           
+    0:02:41  223881.5      0.00       0.0   10442.0 reg_f/net92049           
+    0:02:41  223970.0      0.00       0.0   10430.7 reg_f/net91896           
+    0:02:41  224030.8      0.00       0.0   10420.2 reg_f/reg_mem[13][28]    
+    0:02:41  224119.3      0.00       0.0   10408.9 reg_f/net91659           
+    0:02:41  224207.8      0.00       0.0   10397.6 reg_f/net91542           
+    0:02:41  224296.2      0.00       0.0   10386.3 reg_f/net91392           
+    0:02:42  224384.7      0.00       0.0   10375.0 reg_f/net91279           
+    0:02:42  224456.6      0.00       0.0   10364.5 reg_f/net91159           
+    0:02:42  224539.5      0.00       0.0   10353.9 reg_f/net91039           
+    0:02:42  224628.0      0.00       0.0   10342.6 reg_f/net90925           
+    0:02:42  224716.5      0.00       0.0   10331.3 reg_f/net90772           
+    0:02:42  224805.0      0.00       0.0   10320.1 reg_f/net90661           
+    0:02:42  224893.4      0.00       0.0   10308.8 reg_f/net90544           
+    0:02:42  224981.9      0.00       0.0   10297.5 reg_f/net90396           
+    0:02:42  225070.4      0.00       0.0   10286.2 reg_f/net90276           
+    0:02:42  225158.9      0.00       0.0   10275.0 reg_f/net90162           
+    0:02:42  225225.2      0.00       0.0   10265.1 reg_f/net90039           
+    0:02:42  225313.7      0.00       0.0   10253.8 reg_f/net89922           
+    0:02:42  225402.2      0.00       0.0   10242.5 reg_f/net89772           
+    0:02:42  225490.6      0.00       0.0   10231.3 reg_f/net89652           
+    0:02:43  225579.1      0.00       0.0   10220.0 reg_f/net89535           
+    0:02:44  225657.4      0.00       0.0   10212.8 data/net56789            
+    0:02:45  225751.5      0.00       0.0   10211.2 reg_f/net95789           
+    0:02:45  225839.9      0.00       0.0   10200.2 reg_f/net95298           
+    0:02:45  225928.4      0.00       0.0   10189.1 reg_f/net95211           
+    0:02:45  226016.9      0.00       0.0   10178.1 reg_f/net95115           
+    0:02:45  226105.3      0.00       0.0   10167.0 reg_f/net95028           
+    0:02:45  226193.8      0.00       0.0   10155.9 reg_f/net94906           
+    0:03:03  226199.4      0.00       0.0   10155.0 data/net48584            
+    0:03:03  226190.1      0.00       0.0   10153.7 data/net55980            
+    0:03:04  226178.2      0.00       0.0   10151.4 reg_f/net84014           
+    0:03:08  226189.2      0.00       0.0   10151.2 ALU_dut/n173             
+    0:03:08  226380.9      0.00       0.0   10141.6 reg_f/net94568           
+    0:03:08  226572.6      0.00       0.0   10132.0 reg_f/net94142           
+    0:03:08  226764.3      0.00       0.0   10122.4 reg_f/net93740           
+    0:03:08  226956.0      0.00       0.0   10112.9 reg_f/net93356           
+    0:03:08  227147.7      0.00       0.0   10103.3 reg_f/net92966           
+    0:03:08  227339.4      0.00       0.0   10093.7 reg_f/net92506           
+    0:03:08  227531.1      0.00       0.0   10084.1 reg_f/net92119           
+    0:03:08  227722.8      0.00       0.0   10074.5 reg_f/net91738           
+    0:03:08  227914.4      0.00       0.0   10065.0 reg_f/net91331           
+    0:03:08  228106.1      0.00       0.0   10055.4 reg_f/net90923           
+    0:03:08  228297.8      0.00       0.0   10045.8 reg_f/net90524           
+    0:03:09  228489.5      0.00       0.0   10036.2 reg_f/net90094           
+    0:03:09  228681.2      0.00       0.0   10026.6 reg_f/net89704           
+    0:03:09  228751.3      0.00       0.0   10022.5 add_43/net102829         
+    0:03:09  228729.1      0.00       0.0   10022.1 ALU_dut/r60/net29755     
+    0:03:09  228696.0      0.00       0.0   10021.7 ALU_dut/r60/net87828     
+    0:03:09  228729.1      0.00       0.0   10020.9 reg_f/RD2[30]            
+    0:03:09  228718.1      0.00       0.0   10019.9 reg_f/net89397           
+    0:03:09  228718.1      0.00       0.0   10018.7 reg_f/net88170           
+    0:03:09  228741.1      0.00       0.0   10016.1 ALU_dut/r60/net83948     
+    0:03:09  228887.7      0.00       0.0   10003.5 data/data_memory[0][23]  
+    0:03:09  229098.7      0.00       0.0    9990.9 data/data_memory[1][19]  
+    0:03:09  229264.6      0.00       0.0    9978.3 data/data_memory[2][13]  
+    0:03:09  229442.5      0.00       0.0    9965.2 data/data_memory[3][5]   
+    0:03:10  229588.1      0.00       0.0    9952.0 data/data_memory[3][29]  
+    0:03:10  229812.0      0.00       0.0    9939.4 data/data_memory[4][21]  
+    0:03:10  230004.6      0.00       0.0    9927.3 data/data_memory[5][13]  
+    0:03:10  230195.4      0.00       0.0    9914.1 data/data_memory[6][5]   
+    0:03:10  230386.2      0.00       0.0    9901.0 data/data_memory[6][30]  
+    0:03:10  230538.2      0.00       0.0    9887.8 data/data_memory[7][22]  
+    0:03:10  230748.4      0.00       0.0    9874.6 data/data_memory[8][14]  
+    0:03:10  230997.2      0.00       0.0    9861.5 data/data_memory[9][7]   
+    0:03:10  231258.9      0.00       0.0    9848.3 data/data_memory[10][0]  
+    0:03:10  231450.6      0.00       0.0    9835.7 data/data_memory[10][25] 
+    0:03:10  231615.6      0.00       0.0    9822.5 data/data_memory[11][17] 
+    0:03:10  231799.9      0.00       0.0    9809.4 data/data_memory[12][11] 
+    0:03:10  232043.2      0.00       0.0    9796.7 data/data_memory[13][4]  
+    0:03:10  232298.5      0.00       0.0    9783.6 data/data_memory[13][28] 
+    0:03:11  232495.7      0.00       0.0    9770.4 data/data_memory[14][21] 
+    0:03:11  232667.1      0.00       0.0    9757.3 data/data_memory[15][13] 
+    0:03:11  232825.7      0.00       0.0    9744.1 data/data_memory[16][5]  
+    0:03:11  232984.2      0.00       0.0    9730.9 data/data_memory[16][30] 
+    0:03:11  233265.3      0.00       0.0    9717.8 data/data_memory[17][23] 
+    0:03:11  233552.8      0.00       0.0    9704.6 data/data_memory[18][15] 
+    0:03:11  233782.3      0.00       0.0    9691.4 data/data_memory[19][8]  
+    0:03:11  233934.3      0.00       0.0    9678.3 data/data_memory[20][0]  
+    0:03:11  234150.9      0.00       0.0    9665.1 data/data_memory[20][24] 
+    0:03:11  234312.2      0.00       0.0    9653.6 data/data_memory[21][16] 
+    0:03:11  234549.0      0.00       0.0    9641.0 data/data_memory[22][8]  
+    0:03:11  234791.4      0.00       0.0    9627.8 data/data_memory[23][3]  
+    0:03:11  234937.0      0.00       0.0    9614.7 data/data_memory[23][27] 
+    0:03:11  235134.3      0.00       0.0    9601.5 data/data_memory[24][19] 
+    0:03:12  235371.1      0.00       0.0    9588.9 data/data_memory[25][11] 
+    0:03:12  235581.2      0.00       0.0    9575.7 data/data_memory[26][3]  
+    0:03:12  235739.8      0.00       0.0    9562.5 data/data_memory[26][27] 
+    0:03:12  235904.7      0.00       0.0    9549.3 data/data_memory[27][19] 
+    0:03:12  236082.6      0.00       0.0    9536.2 data/data_memory[28][12] 
+    0:03:12  236287.2      0.00       0.0    9523.6 data/data_memory[29][4]  
+    0:03:12  236548.9      0.00       0.0    9510.4 data/data_memory[29][28] 
+    0:03:12  236778.4      0.00       0.0    9497.2 data/data_memory[30][21] 
+    0:03:12  236962.7      0.00       0.0    9484.1 data/data_memory[31][14] 
+    0:03:12  236963.6      0.00       0.0    9476.2 reg_f/net94786           
+    0:03:12  236786.7      0.00       0.0    9474.5 reg_f/net94375           
+    0:03:12  236609.7      0.00       0.0    9472.8 reg_f/net93955           
+    0:03:12  236432.8      0.00       0.0    9471.1 reg_f/net93568           
+    0:03:13  236255.8      0.00       0.0    9469.4 reg_f/net93187           
+    0:03:13  236078.9      0.00       0.0    9467.7 reg_f/net92781           
+    0:03:13  235902.0      0.00       0.0    9466.0 reg_f/net92334           
+    0:03:13  235725.0      0.00       0.0    9464.3 reg_f/net91953           
+    0:03:13  235548.1      0.00       0.0    9462.6 reg_f/net91566           
+    0:03:13  235371.1      0.00       0.0    9460.9 reg_f/net91132           
+    0:03:13  235194.2      0.00       0.0    9459.2 reg_f/net90733           
+    0:03:13  235017.2      0.00       0.0    9457.5 reg_f/net90303           
+    0:03:13  234840.3      0.00       0.0    9455.8 reg_f/net89925           
+    0:03:13  234679.9      0.00       0.0    9453.6 reg_f/net89514           
+    0:03:13  234884.5      0.00       0.0    9441.3 data/data_memory[27][25] 
+    0:03:13  234876.2      0.00       0.0    9438.2 add_43/net75679          
+    0:03:14  234910.3      0.00       0.0    9436.2 ALU_dut/r60/net29828     
+    0:03:14  234906.6      0.00       0.0    9435.9 read_mux/net56178        
+    0:03:15  234896.5      0.00       0.0    9435.9 reg_f/net53409           
+    0:03:16  234886.4      0.00       0.0    9435.9 ALU_dut/net57600         
+    0:03:17  234876.2      0.00       0.0    9435.9 data/net53990            
+    0:03:17  234866.1      0.00       0.0    9435.9 data/net53718            
+    0:03:17  234855.0      0.00       0.0    9435.8 ALU_dut/sub_13/*cell*27074/net30238
+    0:03:17  234844.0      0.00       0.0    9435.4 PCmux/net64353           
+    0:03:17  234858.7      0.00       0.0    9434.7 ext/net95437             
+    0:03:18  234780.4      0.00       0.0    9434.6 reg_f/reg_mem[31][12]    
+    0:03:18  234686.4      0.00       0.0    9434.6 reg_f/reg_mem[28][5]     
+    0:03:18  234592.4      0.00       0.0    9434.6 reg_f/reg_mem[22][23]    
+    0:03:18  234498.4      0.00       0.0    9434.6 reg_f/reg_mem[19][5]     
+    0:03:18  234404.4      0.00       0.0    9434.6 reg_f/reg_mem[14][12]    
+    0:03:18  234310.4      0.00       0.0    9434.6 reg_f/reg_mem[10][12]    
+    0:03:18  234216.3      0.00       0.0    9434.6 reg_f/reg_mem[5][23]     
+    0:03:18  234122.3      0.00       0.0    9434.6 reg_f/reg_mem[3][31]     
+    0:03:18  234037.6      0.00       0.0    9434.6 reg_f/reg_mem[20][20]    
+    0:03:18  233981.3      0.00       0.0    9434.6 reg_f/reg_mem[31][26]    
+    0:03:18  233891.9      0.00       0.0    9434.6 reg_f/reg_mem[31][18]    
+    0:03:18  233802.6      0.00       0.0    9434.6 reg_f/reg_mem[31][1]     
+    0:03:18  233702.1      0.00       0.0    9434.6 reg_f/reg_mem[30][19]    
+    0:03:18  233628.4      0.00       0.0    9434.6 reg_f/reg_mem[30][11]    
+    0:03:18  233527.9      0.00       0.0    9434.6 reg_f/reg_mem[30][4]     
+    0:03:18  233433.9      0.00       0.0    9434.6 reg_f/reg_mem[29][29]    
+    0:03:18  233360.2      0.00       0.0    9434.6 reg_f/reg_mem[29][13]    
+    0:03:18  233259.7      0.00       0.0    9434.6 reg_f/reg_mem[29][7]     
+    0:03:19  233202.6      0.00       0.0    9434.0 reg_f/reg_mem[28][29]    
+    0:03:19  233129.8      0.00       0.0    9433.3 reg_f/reg_mem[28][20]    
+    0:03:19  233040.4      0.00       0.0    9433.2 reg_f/reg_mem[28][10]    
+    0:03:19  232955.6      0.00       0.0    9433.2 reg_f/reg_mem[27][26]    
+    0:03:19  232866.2      0.00       0.0    9433.2 reg_f/reg_mem[27][19]    
+    0:03:19  232765.8      0.00       0.0    9433.2 reg_f/reg_mem[27][1]     
+    0:03:19  232681.0      0.00       0.0    9433.2 reg_f/reg_mem[26][26]    
+    0:03:19  232591.6      0.00       0.0    9433.2 reg_f/reg_mem[26][10]    
+    0:03:19  232480.1      0.00       0.0    9433.2 reg_f/reg_mem[26][9]     
+    0:03:19  232395.3      0.00       0.0    9433.2 reg_f/reg_mem[25][27]    
+    0:03:19  232310.5      0.00       0.0    9433.2 reg_f/reg_mem[25][20]    
+    0:03:19  232237.7      0.00       0.0    9432.6 reg_f/reg_mem[25][4]     
+    0:03:19  232148.3      0.00       0.0    9432.5 reg_f/reg_mem[25][3]     
+    0:03:19  232043.2      0.00       0.0    9432.5 reg_f/reg_mem[24][20]    
+    0:03:19  231958.4      0.00       0.0    9432.5 reg_f/reg_mem[24][14]    
+    0:03:19  231853.4      0.00       0.0    9432.5 reg_f/reg_mem[23][30]    
+    0:03:19  231768.6      0.00       0.0    9432.5 reg_f/reg_mem[23][22]    
+    0:03:20  231683.8      0.00       0.0    9432.5 reg_f/reg_mem[23][15]    
+    0:03:20  231594.4      0.00       0.0    9432.5 reg_f/reg_mem[22][29]    
+    0:03:20  231520.7      0.00       0.0    9432.5 reg_f/reg_mem[22][21]    
+    0:03:20  231435.9      0.00       0.0    9432.5 reg_f/reg_mem[22][14]    
+    0:03:20  231341.9      0.00       0.0    9432.5 reg_f/reg_mem[21][30]    
+    0:03:20  231252.5      0.00       0.0    9432.5 reg_f/reg_mem[21][16]    
+    0:03:20  231152.0      0.00       0.0    9432.5 reg_f/reg_mem[21][7]     
+    0:03:20  231067.2      0.00       0.0    9432.5 reg_f/reg_mem[21][0]     
+    0:03:20  230989.8      0.00       0.0    9432.0 reg_f/reg_mem[20][24]    
+    0:03:20  230905.0      0.00       0.0    9431.8 reg_f/reg_mem[20][8]     
+    0:03:20  230811.0      0.00       0.0    9431.8 reg_f/reg_mem[20][2]     
+    0:03:20  230726.2      0.00       0.0    9431.8 reg_f/reg_mem[19][19]    
+    0:03:20  230636.9      0.00       0.0    9431.8 reg_f/reg_mem[19][14]    
+    0:03:20  230559.4      0.00       0.0    9431.2 reg_f/reg_mem[18][30]    
+    0:03:20  230470.0      0.00       0.0    9431.1 reg_f/reg_mem[18][19]    
+    0:03:20  230380.6      0.00       0.0    9431.1 reg_f/reg_mem[18][5]     
+    0:03:20  230275.6      0.00       0.0    9431.1 reg_f/reg_mem[17][30]    
+    0:03:20  230186.2      0.00       0.0    9431.1 reg_f/reg_mem[17][22]    
+    0:03:21  230114.3      0.00       0.0    9431.2 reg_f/reg_mem[17][8]     
+    0:03:21  230020.3      0.00       0.0    9431.2 reg_f/reg_mem[17][1]     
+    0:03:21  229935.5      0.00       0.0    9431.2 reg_f/reg_mem[16][18]    
+    0:03:21  229850.7      0.00       0.0    9431.2 reg_f/reg_mem[16][10]    
+    0:03:21  229761.3      0.00       0.0    9431.2 reg_f/reg_mem[15][29]    
+    0:03:21  229656.3      0.00       0.0    9431.2 reg_f/reg_mem[15][20]    
+    0:03:21  229560.4      0.00       0.0    9431.2 reg_f/reg_mem[15][13]    
+    0:03:21  229466.4      0.00       0.0    9431.2 reg_f/reg_mem[15][2]     
+    0:03:21  229381.6      0.00       0.0    9431.2 reg_f/reg_mem[14][17]    
+    0:03:21  229281.2      0.00       0.0    9431.2 reg_f/reg_mem[14][9]     
+    0:03:21  229191.8      0.00       0.0    9431.2 reg_f/net91780           
+    0:03:21  229107.0      0.00       0.0    9431.2 reg_f/reg_mem[13][15]    
+    0:03:21  229006.5      0.00       0.0    9431.2 reg_f/reg_mem[13][8]     
+    0:03:21  228912.5      0.00       0.0    9431.2 reg_f/reg_mem[13][1]     
+    0:03:21  228827.8      0.00       0.0    9431.2 reg_f/reg_mem[12][18]    
+    0:03:21  228754.0      0.00       0.0    9431.2 reg_f/reg_mem[12][11]    
+    0:03:21  228649.0      0.00       0.0    9431.2 reg_f/reg_mem[11][28]    
+    0:03:21  228575.2      0.00       0.0    9431.2 reg_f/reg_mem[11][21]    
+    0:03:22  228471.1      0.00       0.0    9431.2 reg_f/reg_mem[11][14]    
+    0:03:22  228370.6      0.00       0.0    9431.2 reg_f/reg_mem[10][29]    
+    0:03:22  228281.2      0.00       0.0    9431.2 reg_f/reg_mem[10][21]    
+    0:03:22  228202.0      0.00       0.0    9430.5 reg_f/net91163           
+    0:03:22  228128.3      0.00       0.0    9430.5 reg_f/reg_mem[9][29]     
+    0:03:22  228023.2      0.00       0.0    9430.5 reg_f/reg_mem[9][19]     
+    0:03:22  227922.7      0.00       0.0    9430.5 reg_f/reg_mem[9][4]      
+    0:03:22  227833.3      0.00       0.0    9430.5 reg_f/reg_mem[8][27]     
+    0:03:22  227739.3      0.00       0.0    9430.5 reg_f/reg_mem[8][20]     
+    0:03:22  227643.5      0.00       0.0    9430.5 reg_f/reg_mem[8][7]      
+    0:03:22  227554.1      0.00       0.0    9430.5 reg_f/reg_mem[7][30]     
+    0:03:22  227464.7      0.00       0.0    9430.5 reg_f/reg_mem[7][24]     
+    0:03:22  227364.3      0.00       0.0    9430.5 reg_f/reg_mem[7][8]      
+    0:03:22  227274.9      0.00       0.0    9430.5 reg_f/reg_mem[7][1]      
+    0:03:22  227185.5      0.00       0.0    9430.5 reg_f/reg_mem[6][14]     
+    0:03:22  227096.1      0.00       0.0    9430.5 reg_f/reg_mem[6][7]      
+    0:03:22  227002.1      0.00       0.0    9430.5 reg_f/reg_mem[5][24]     
+    0:03:22  226912.7      0.00       0.0    9430.5 reg_f/reg_mem[5][16]     
+    0:03:22  226816.8      0.00       0.0    9430.5 reg_f/reg_mem[5][8]      
+    0:03:23  226738.5      0.00       0.0    9430.5 reg_f/reg_mem[4][21]     
+    0:03:23  226653.7      0.00       0.0    9430.5 reg_f/reg_mem[4][14]     
+    0:03:23  226576.3      0.00       0.0    9429.9 reg_f/reg_mem[3][30]     
+    0:03:23  226475.8      0.00       0.0    9429.8 reg_f/reg_mem[3][18]     
+    0:03:23  226386.4      0.00       0.0    9429.8 reg_f/reg_mem[3][12]     
+    0:03:23  226301.6      0.00       0.0    9429.8 reg_f/reg_mem[2][30]     
+    0:03:23  226212.3      0.00       0.0    9429.8 reg_f/reg_mem[2][21]     
+    0:03:23  226122.9      0.00       0.0    9429.8 reg_f/reg_mem[2][15]     
+    0:03:23  226017.8      0.00       0.0    9429.8 reg_f/reg_mem[2][7]      
+    0:03:23  225928.4      0.00       0.0    9429.8 reg_f/reg_mem[1][24]     
+    0:03:23  225839.0      0.00       0.0    9429.8 reg_f/reg_mem[1][16]     
+    0:03:23  225738.6      0.00       0.0    9429.8 reg_f/reg_mem[1][0]      
+    0:03:23  225660.2      0.00       0.0    9429.8 reg_f/reg_mem[0][24]     
+    0:03:23  225570.8      0.00       0.0    9429.8 reg_f/reg_mem[0][17]     
+    0:03:23  225511.8      0.00       0.0    9429.5 reg_f/reg_mem[0][3]      
+    0:03:23  225564.4      0.00       0.0    9424.6 add_43/net106929         
+    0:03:23  225569.0      0.00       0.0    9423.8 data/net64440            
+    0:03:23  225569.0      0.00       0.0    9423.4 add_43/SUM[9]            
+    0:03:24  225567.1      0.00       0.0    9421.9 add_43/net89237          
+    0:03:24  225528.4      0.00       0.0    9421.5 add_43/net47833          
+    0:03:24  225526.6      0.00       0.0    9421.2 ALU_dut/r60/net29781     
+    0:03:31  225515.5      0.00       0.0    9421.2 SrcB_mux/net75696        
+    0:03:31  225526.6      0.00       0.0    9420.8 ALU_dut/r60/net106962    
+    0:03:31  225510.0      0.00       0.0    9420.7 ALU_dut/r60/net29852     
+    0:03:31  225620.6      0.00       0.0    9357.6 PCmux/sel                
+    0:03:31  225980.0      0.00       0.0    9293.6 ALU_dut/SrcA[19]         
+    0:03:32  226367.1      0.00       0.0    9227.1 ALU_dut/SrcA[22]         
+    0:03:32  226638.0      0.00       0.0    9177.6 read_mux/net107007       
+    0:03:32  226897.9      0.00       0.0    9139.4 ALU_dut/SrcB[15]         
+    0:03:32  227174.4      0.00       0.0    9098.8 data/net106998           
+    0:03:32  227251.8      0.00       0.0    9082.0 add_44/A[1]              
+    0:03:32  227445.4      0.00       0.0    9042.9 PCmux/net107029          
+    0:03:33  227473.0      0.00       0.0    9023.2 ALU_dut/net107511        
+    0:03:33  227473.0      0.00       0.0    9007.0 ALU_dut/net107427        
+    0:03:33  227506.2      0.00       0.0    9001.0 add_44/B[3]              
+    0:03:33  227838.0      0.00       0.0    8962.6 data/net106996           
+    0:03:33  227886.8      0.00       0.0    8950.5 ALU_dut/net107359        
+    0:03:33  227909.8      0.00       0.0    8946.2 ext/ImmSrc[1]            
+    0:03:33  227948.5      0.00       0.0    8933.3 ALU_dut/net107299        
+    0:03:34  227976.2      0.00       0.0    8921.5 ALU_dut/net107249        
+    0:03:34  228003.8      0.00       0.0    8909.6 ALU_dut/net107199        
+    0:03:34  228031.5      0.00       0.0    8897.8 ALU_dut/net107149        
+    0:03:34  228059.1      0.00       0.0    8886.0 ALU_dut/net107099        
+    0:03:34  228086.8      0.00       0.0    8874.2 ALU_dut/net107039        
+    0:03:34  228103.4      0.00       0.0    8871.9 ALU_dut/SrcB[31]         
+    0:03:34  228191.8      0.00       0.0    8854.6 ALU_dut/net107346        
+    0:03:34  228302.4      0.00       0.0    8835.7 SrcB_mux/net107602       
+    0:03:35  228368.8      0.00       0.0    8826.0 ALU_dut/ALUControl[0]    
+    0:03:35  228540.2      0.00       0.0    8805.5 reg_f/WE3                
+    0:03:35  228581.7      0.00       0.0    8790.9 reg_f/reg_mem[19][21]    
+    0:03:35  228598.3      0.00       0.0    8786.7 data/net107000           
+    0:03:35  228620.4      0.00       0.0    8774.9 SrcB_mux/net107861       
+    0:03:35  228675.7      0.00       0.0    8764.3 data/net106997           
+    0:03:36  228742.0      0.00       0.0    8751.8 PCmux/net107864          
+    0:03:36  228924.5      0.00       0.0    8739.9 data/A[13]               
+    0:03:36  229090.4      0.00       0.0    8734.0 data/A[14]               
+    0:03:36  229223.1      0.00       0.0    8730.0 data/net60936            
+    0:03:36  229322.7      0.00       0.0    8727.4 data/net59167            
+    0:03:36  229444.3      0.00       0.0    8723.6 control/decoder/net67595 
+    0:03:37  229418.5      0.00       0.0    8723.1 read_mux/net108495       
+    0:03:38  229401.9      0.00       0.0    8723.1 reg_f/net95990           
+    0:03:38  229375.2      0.00       0.0    8723.1 reg_f/net88316           
+    0:03:39  229369.7      0.00       0.0    8723.1 reg_f/net83380           
+    0:03:39  229364.1      0.00       0.0    8723.1 reg_f/net82795           
+    0:03:41  229380.7      0.00       0.0    8721.9 dummy_out[0]             
+    0:03:41  229530.0      0.00       0.0    8703.3 net108689                
+    0:03:51  229566.9      0.09       0.3    8696.1 add_43/net47783          
+    0:03:53  229572.4      0.09       0.3    8696.1 PC_dut/PC_reg[29]/D      
+    0:03:53  229584.4      0.03       0.1    8696.1 PC_dut/PC_reg[29]/D      
+    0:03:57  229580.7      0.03       0.1    8696.1 ALU_dut/add_12/carry[2]  
+    0:03:57  229586.2      0.13       0.6    8694.5 add_43/A[5]              
+    0:03:57  229787.1      0.12       0.6    8663.3 reg_f/reg_mem[15][6]     
+    0:03:57  229977.9      0.65       5.9    8634.2 add_43/net44091          
+    0:03:58  230140.1      0.65       7.4    8629.5 data/net60097            
+    0:03:58  230184.3      0.65       7.4    8627.8 data/n1007               
+    0:04:11  230178.8      0.63       7.2    8627.7 PC_dut/PC_reg[31]/D      
+    0:04:11  230177.0      0.47       4.9    8627.4 PC_dut/PC_reg[31]/D      
+    0:04:11  230176.1      0.33       3.1    8626.9 PC_dut/PC_reg[31]/D      
+    0:04:28  230177.0      0.20       1.8    8626.9                          
+    0:04:28  230182.5      0.20       1.7    8626.9                          
+    0:04:28  230188.0      0.20       1.7    8626.9                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'RISCV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'data/clk': 2080 load(s), 1 driver(s)
+1
+compile -top
+
+Information: There are 206 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06  268198.5      0.50       9.3   57331.0                          
+    0:00:07  268021.6      0.12       1.4   57121.8 PC_dut/PC_reg[30]/D      
+    0:00:07  267971.8      0.06       0.4   57088.3 PC_dut/PC_reg[25]/D      
+    0:00:07  267926.6      0.00       0.0   57079.0                          
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:07  267926.6      0.00       0.0   57079.0                          
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'RISCV' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'data/clk': 2080 load(s), 1 driver(s)
+1
+report_timing -max_paths 20 > ../reports/timing_report.rpt
+report_area > ../reports/area_report.rpt
+report_power > ../reports/power_report.rpt
+write_sdc ../output/${design}.sdc
+1
+write_sdf ../output/${design}.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/ICer/test_RISCV/synthesis/output/RISCV.sdf'. (WT-3)
+1
+write -hierarchy -format verilog -output ../output/${design}.v 
+Writing verilog file '/home/ICer/test_RISCV/synthesis/output/RISCV.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write -f ddc -hierarchy -output ../output/${design}.ddc   
+Writing ddc file '../output/RISCV.ddc'.
+1
+start_gui
+Current design is 'RISCV'.
+4.1
+4.1
+dc_shell> dc_shell> dc_shell> exit
+
+Memory usage for main task 173 Mbytes.
+Memory usage for this session 173 Mbytes.
+CPU usage for this session 329 seconds ( 0.09 hours ).
+
+Thank you...

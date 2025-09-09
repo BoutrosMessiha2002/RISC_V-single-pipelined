@@ -1,0 +1,45 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Mon Sep  8 23:24:17 2025
+****************************************
+
+  Startpoint: reg_f/reg_mem_reg[26][31] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_f/reg_mem_reg[26][31] (rising edge-triggered flip-flop clocked by clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: clk
+  Path Type: min
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  reg_f/reg_mem_reg[26][31]/CLK (DFFX2)            0.00      0.00 r
+  reg_f/reg_mem_reg[26][31]/QN (DFFX2)             0.44      0.44 r
+  reg_f/U3020/ZN (INVX1)                           0.08      0.53 f
+  reg_f/U1761/Q (AO21X1)                           0.27      0.80 f
+  reg_f/reg_mem_reg[26][31]/D (DFFX2)              0.00      0.80 f
+  data arrival time                                          0.80
+
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+  reg_f/reg_mem_reg[26][31]/CLK (DFFX2)            0.00      0.00 r
+  clock uncertainty                                0.20      0.20
+  library hold time                               -0.05      0.15
+  data required time                                         0.15
+  ------------------------------------------------------------------------
+  data required time                                         0.15
+  data arrival time                                         -0.80
+  ------------------------------------------------------------------------
+  slack (MET)                                                0.65
+
+
+1

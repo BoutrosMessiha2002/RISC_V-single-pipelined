@@ -1,0 +1,22 @@
+
+icc2_shell> start_gui
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+Information: User units loaded from library 'saed90nm_max' (LNK-040)
+Opening block 'RISCV.dlib:RISCV_routing.design' in edit mode
+Begin building search trees for block RISCV.dlib:RISCV_routing.design
+Done building search trees for block RISCV.dlib:RISCV_routing.design (time 0s)
+icc2_shell> link_block
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_routing.design
+Design 'RISCV' was successfully linked.
+1
+icc2_shell> open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+Information: Incrementing open_count of block 'RISCV.dlib:RISCV_routing.design' to 2. (DES-021)
+{RISCV.dlib:RISCV_routing.design}
+icc2_shell> exit
+Maximum memory usage for this session: 363.55 MB
+CPU usage for this session:     11 seconds (  0.00 hours)
+Elapsed time for this session:     60 seconds (  0.02 hours)
+Thank you for using IC Compiler II.
+

@@ -1,0 +1,30 @@
+#@ # 
+#@ # Running icc2_shell Version O-2018.06-SP1 for linux64 -- Jul 17, 2018
+#@ # Date:   Mon Sep  8 22:23:08 2025
+#@ # Run by: ICer@IC_EDA
+#@ 
+
+start_gui
+gui_set_pref_value -category {SelectByNamePalette} -key {ObjectType} -value {Logical Cells}
+open_lib /home/ICer/test_RISCV/pnr/setup/RISCV.dlib -edit
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetX} -value {0.005}
+gui_set_pref_value -category {showRelativeLocationConstraints} -key {macroOffsetY} -value {0.005}
+link_block
+open_block /home/ICer/test_RISCV/pnr/setup/RISCV.dlib:RISCV_routing.design
+win_set_filter -visible -class cell -filter {hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -visible -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_filter -expand_cell_types {soft_macro  }
+win_set_select_class -visible {cell port bound routing_blockage shaping_blockage pg_region pin_blockage block_shielding topology_node topology_edge core_area die_area edit_group shape via terminal fill_cell placement_blockage }
+win_set_filter -class cell -filter {cell_array hard_macro_margin hard_margin route_blockage_margin soft_margin}
+win_set_filter -class placement_blockage -filter {wiring} -layer {0-77}
+win_set_select_class {cell port bound routing_blockage shaping_blockage pg_region pin_blockage topology_node topology_edge edit_group shape via placement_blockage }
+gui_set_map_option -map {globalCongestionMap} -option {rule_level} -value {hard}
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_scroll -window [gui_get_current_window -view] -vrel .2
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {cellDensityMap} -show {true}
+gui_set_map_option -map {cellDensityMap} -option {area_type} -value {Reset}
+gui_set_map_option -map {cellDensityMap} -option {area_type} -value {WholeDesign}
+gui_zoom -window [gui_get_current_window -view] -full
+exit

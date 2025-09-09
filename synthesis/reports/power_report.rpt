@@ -1,0 +1,80 @@
+Loading db file '/home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:25:50 2025
+****************************************
+
+
+Library(s) Used:
+
+    saed90nm_max (File: /home/ICer/Downloads/Lib/synopsys/models/saed90nm_max.db)
+
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+RISCV                  ForQA             saed90nm_max
+mux2to1_DATA32_0       ForQA             saed90nm_max
+PC                     ForQA             saed90nm_max
+instr_mem_ADDRESS32_INSTR32
+                       ForQA             saed90nm_max
+reg_file_ADDRESS5_DATA32
+                       ForQA             saed90nm_max
+sign_extend            ForQA             saed90nm_max
+ALU_DATA32_CONTROL3    ForQA             saed90nm_max
+data_mem_ADDRESS32_DATA32
+                       ForQA             saed90nm_max
+mux4to1_DATA32         ForQA             saed90nm_max
+control_unit           ForQA             saed90nm_max
+main_decoder           ForQA             saed90nm_max
+ALU_decoder            ForQA             saed90nm_max
+mux2to1_DATA32_1       ForQA             saed90nm_max
+RISCV_DW01_add_0       ForQA             saed90nm_max
+ALU_DATA32_CONTROL3_DW01_sub_0
+                       ForQA             saed90nm_max
+ALU_DATA32_CONTROL3_DW01_add_0
+                       ForQA             saed90nm_max
+ALU_DATA32_CONTROL3_DW01_cmp6_0
+                       ForQA             saed90nm_max
+RISCV_DW01_add_6       ForQA             saed90nm_max
+
+
+Global Operating Voltage = 0.7  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   7.0895 uW   (55%)
+  Net Switching Power  =   5.7120 uW   (45%)
+                         ---------
+Total Dynamic Power    =  12.8015 uW  (100%)
+
+Cell Leakage Power     = 951.5543 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           0.2321            0.7516        2.5024e+08          251.2215  (  26.05%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      6.8574            4.9603        7.0132e+08          713.1342  (  73.95%)
+--------------------------------------------------------------------------------------------------
+Total              7.0896 uW         5.7119 uW     9.5155e+08 pW       964.3557 uW
+1

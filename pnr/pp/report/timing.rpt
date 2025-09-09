@@ -1,0 +1,55 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:29:41 2025
+****************************************
+
+  Startpoint: PC_dut/PC_reg[14] (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: PC_dut/PC_reg[28] (rising edge-triggered flip-flop clocked by clk)
+  Mode: default
+  Corner: default
+  Scenario: default
+  Path Group: clk
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock clk (rise edge)                            0.00      0.00
+  clock network delay (ideal)                      0.00      0.00
+
+  PC_dut/PC_reg[14]/CLK (DFFARX1)                  0.00      0.00 r
+  PC_dut/PC_reg[14]/Q (DFFARX1)                    0.67      0.67 r
+  add_43/U62/ZN (INVX0)                            0.11      0.78 f
+  add_43/U12/QN (NOR3X0)                           0.18      0.96 r
+  add_43/U11/Q (AND2X1)                            0.25      1.21 r
+  add_43/U7/Q (AND2X1)                             0.20      1.41 r
+  add_43/U116/Q (AND2X1)                           0.21      1.62 r
+  add_43/U128/Q (AND2X1)                           0.20      1.82 r
+  add_43/U54/Q (AND2X4)                            0.31      2.12 r
+  add_43/U163/ZN (INVX0)                           0.09      2.21 f
+  add_43/U164/ZN (INVX0)                           0.08      2.29 r
+  add_43/U166/Q (XOR2X2)                           0.24      2.53 r
+  PCmux/U2/QN (NAND2X0)                            0.12      2.65 f
+  PCmux/U47/QN (NAND2X0)                           0.11      2.76 r
+  PC_dut/PC_reg[28]/D (DFFARX1)                    0.00      2.76 r
+  data arrival time                                          2.76
+
+  clock clk (rise edge)                            5.00      5.00
+  clock network delay (ideal)                      0.00      5.00
+  PC_dut/PC_reg[28]/CLK (DFFARX1)                  0.00      5.00 r
+  clock uncertainty                               -0.30      4.70
+  library setup time                              -0.36      4.34
+  data required time                                         4.34
+  ------------------------------------------------------------------------
+  data required time                                         4.34
+  data arrival time                                         -2.76
+  ------------------------------------------------------------------------
+  slack (MET)                                                1.57
+
+
+1

@@ -1,0 +1,25 @@
+****************************************
+Report : Data Mismatches
+Version: O-2018.06-SP1
+Date   : Thu Aug 28 00:30:41 2025
+****************************************
+No mismatches exist on the design.
+1
+Using libraries: RISCV.dlib saed90nm_max
+Warning: In library RISCV.dlib, no block views exist for block RISCV. (LNK-064)
+Visiting block RISCV.dlib:RISCV_placement.design
+Design 'RISCV' was successfully linked.
+1
+Information: There are no relative placement groups in the design. (NDMUI-173)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+************************************************************
+1
+1

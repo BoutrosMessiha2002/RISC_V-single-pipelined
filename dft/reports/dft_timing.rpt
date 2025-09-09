@@ -1,0 +1,1134 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'RISCV' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : RISCV
+Version: O-2018.06-SP1
+Date   : Wed Aug 27 08:12:14 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WORST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[11]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U215/ZN (INVX0)                   0.26       4.68 f
+  add_45/U111/ZN (INVX0)                   0.12       4.80 r
+  add_45/U19/Q (AND2X4)                    0.47       5.27 r
+  add_45/U20/ZN (INVX0)                    0.25       5.52 f
+  add_45/U122/ZN (INVX0)                   0.12       5.63 r
+  add_45/U123/ZN (INVX0)                   0.26       5.89 f
+  add_45/U220/QN (NOR2X0)                  0.13       6.02 r
+  add_45/U193/Q (AND2X4)                   0.36       6.38 r
+  add_45/U176/Q (XOR2X2)                   0.38       6.76 f
+  add_45/SUM[11] (RISCV_DW01_add_6)        0.00       6.76 f
+  PCmux/A[11] (mux2to1_DATA32_0)           0.00       6.76 f
+  PCmux/U129/QN (NAND2X0)                  1.63       8.39 r
+  PCmux/U127/QN (NAND2X1)                  0.17       8.56 f
+  PCmux/out[11] (mux2to1_DATA32_0)         0.00       8.56 f
+  PC_dut/PCNext[11] (PC)                   0.00       8.56 f
+  PC_dut/PC_reg[11]/D (SDFFARX2)           0.25       8.80 f
+  data arrival time                                   8.80
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[11]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.80
+  -----------------------------------------------------------
+  slack (MET)                                       390.54
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[30]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U159/Q (AND2X1)                   0.35       5.21 r
+  add_45/U196/Q (AND2X1)                   0.38       5.59 r
+  add_45/U211/ZN (INVX0)                   0.26       5.85 f
+  add_45/U116/Q (OR2X1)                    0.26       6.11 f
+  add_45/U277/Q (XOR2X2)                   0.35       6.47 f
+  add_45/SUM[30] (RISCV_DW01_add_6)        0.00       6.47 f
+  PCmux/A[30] (mux2to1_DATA32_0)           0.00       6.47 f
+  PCmux/U90/QN (NAND2X0)                   1.63       8.09 r
+  PCmux/U88/QN (NAND2X1)                   0.17       8.26 f
+  PCmux/out[30] (mux2to1_DATA32_0)         0.00       8.26 f
+  PC_dut/PCNext[30] (PC)                   0.00       8.26 f
+  PC_dut/PC_reg[30]/D (SDFFARX2)           0.25       8.51 f
+  data arrival time                                   8.51
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[30]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.51
+  -----------------------------------------------------------
+  slack (MET)                                       390.83
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[31]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U159/Q (AND2X1)                   0.35       5.21 r
+  add_45/U80/Q (AND2X1)                    0.36       5.57 r
+  add_45/U247/QN (NAND2X0)                 0.27       5.84 f
+  add_45/U246/QN (NOR2X0)                  0.17       6.01 r
+  add_45/U174/Q (XOR2X2)                   0.39       6.40 f
+  add_45/SUM[31] (RISCV_DW01_add_6)        0.00       6.40 f
+  PCmux/A[31] (mux2to1_DATA32_0)           0.00       6.40 f
+  PCmux/U156/QN (NAND2X0)                  1.63       8.03 r
+  PCmux/U154/QN (NAND2X1)                  0.17       8.20 f
+  PCmux/out[31] (mux2to1_DATA32_0)         0.00       8.20 f
+  PC_dut/PCNext[31] (PC)                   0.00       8.20 f
+  PC_dut/PC_reg[31]/D (SDFFARX2)           0.25       8.44 f
+  data arrival time                                   8.44
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[31]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.44
+  -----------------------------------------------------------
+  slack (MET)                                       390.90
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[29]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U159/Q (AND2X1)                   0.35       5.21 r
+  add_45/U80/Q (AND2X1)                    0.36       5.57 r
+  add_45/U191/Q (AND2X4)                   0.45       6.02 r
+  add_45/U190/Q (XOR2X2)                   0.38       6.40 f
+  add_45/SUM[29] (RISCV_DW01_add_6)        0.00       6.40 f
+  PCmux/A[29] (mux2to1_DATA32_0)           0.00       6.40 f
+  PCmux/U81/QN (NAND2X0)                   1.63       8.03 r
+  PCmux/U79/QN (NAND2X1)                   0.17       8.19 f
+  PCmux/out[29] (mux2to1_DATA32_0)         0.00       8.19 f
+  PC_dut/PCNext[29] (PC)                   0.00       8.19 f
+  PC_dut/PC_reg[29]/D (SDFFARX2)           0.25       8.44 f
+  data arrival time                                   8.44
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[29]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.44
+  -----------------------------------------------------------
+  slack (MET)                                       390.90
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[26]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U222/QN (NAND2X0)                 0.30       5.15 f
+  add_45/U209/ZN (INVX0)                   0.28       5.43 r
+  add_45/U188/Q (AND2X4)                   0.49       5.93 r
+  add_45/U177/Q (XOR2X2)                   0.38       6.30 f
+  add_45/SUM[26] (RISCV_DW01_add_6)        0.00       6.30 f
+  PCmux/A[26] (mux2to1_DATA32_0)           0.00       6.30 f
+  PCmux/U87/QN (NAND2X0)                   1.63       7.93 r
+  PCmux/U85/QN (NAND2X1)                   0.17       8.10 f
+  PCmux/out[26] (mux2to1_DATA32_0)         0.00       8.10 f
+  PC_dut/PCNext[26] (PC)                   0.00       8.10 f
+  PC_dut/PC_reg[26]/D (SDFFARX2)           0.25       8.35 f
+  data arrival time                                   8.35
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[26]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.35
+  -----------------------------------------------------------
+  slack (MET)                                       391.00
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[9]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U215/ZN (INVX0)                   0.26       4.68 f
+  add_45/U111/ZN (INVX0)                   0.12       4.80 r
+  add_45/U19/Q (AND2X4)                    0.47       5.27 r
+  add_45/U20/ZN (INVX0)                    0.25       5.52 f
+  add_45/U122/ZN (INVX0)                   0.12       5.63 r
+  add_45/U198/ZN (INVX0)                   0.26       5.89 f
+  add_45/U205/ZN (INVX0)                   0.11       6.01 r
+  add_45/U12/Q (XOR2X2)                    0.36       6.37 f
+  add_45/SUM[9] (RISCV_DW01_add_6)         0.00       6.37 f
+  PCmux/A[9] (mux2to1_DATA32_0)            0.00       6.37 f
+  PCmux/U126/QN (NAND2X0)                  1.54       7.91 r
+  PCmux/U124/QN (NAND2X1)                  0.17       8.07 f
+  PCmux/out[9] (mux2to1_DATA32_0)          0.00       8.07 f
+  PC_dut/PCNext[9] (PC)                    0.00       8.07 f
+  PC_dut/PC_reg[9]/D (SDFFARX2)            0.25       8.32 f
+  data arrival time                                   8.32
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[9]/CLK (SDFFARX2)          0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.32
+  -----------------------------------------------------------
+  slack (MET)                                       391.02
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[23]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U194/QN (NAND2X0)                 0.33       4.79 f
+  add_45/U217/ZN (INVX0)                   0.28       5.07 r
+  add_45/U221/ZN (INVX0)                   0.25       5.32 f
+  add_45/U138/ZN (INVX0)                   0.12       5.44 r
+  add_45/U139/ZN (INVX0)                   0.26       5.70 f
+  add_45/U241/QN (NOR2X0)                  0.18       5.88 r
+  add_45/U125/Q (XOR2X2)                   0.39       6.27 f
+  add_45/SUM[23] (RISCV_DW01_add_6)        0.00       6.27 f
+  PCmux/A[23] (mux2to1_DATA32_0)           0.00       6.27 f
+  PCmux/U69/QN (NAND2X0)                   1.63       7.89 r
+  PCmux/U67/QN (NAND2X1)                   0.17       8.06 f
+  PCmux/out[23] (mux2to1_DATA32_0)         0.00       8.06 f
+  PC_dut/PCNext[23] (PC)                   0.00       8.06 f
+  PC_dut/PC_reg[23]/D (SDFFARX2)           0.25       8.31 f
+  data arrival time                                   8.31
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[23]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.31
+  -----------------------------------------------------------
+  slack (MET)                                       391.03
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[27]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U222/QN (NAND2X0)                 0.30       5.15 f
+  add_45/U209/ZN (INVX0)                   0.28       5.43 r
+  add_45/U200/ZN (INVX0)                   0.25       5.69 f
+  add_45/U231/QN (NOR2X0)                  0.15       5.84 r
+  add_45/U230/Q (XNOR2X1)                  0.42       6.26 f
+  add_45/SUM[27] (RISCV_DW01_add_6)        0.00       6.26 f
+  PCmux/A[27] (mux2to1_DATA32_0)           0.00       6.26 f
+  PCmux/U120/QN (NAND2X0)                  1.63       7.89 r
+  PCmux/U118/QN (NAND2X1)                  0.17       8.05 f
+  PCmux/out[27] (mux2to1_DATA32_0)         0.00       8.05 f
+  PC_dut/PCNext[27] (PC)                   0.00       8.05 f
+  PC_dut/PC_reg[27]/D (SDFFARX2)           0.25       8.30 f
+  data arrival time                                   8.30
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[27]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.30
+  -----------------------------------------------------------
+  slack (MET)                                       391.04
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[28]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U159/Q (AND2X1)                   0.35       5.21 r
+  add_45/U196/Q (AND2X1)                   0.38       5.59 r
+  add_45/U212/ZN (INVX0)                   0.27       5.85 f
+  add_45/U244/Q (XNOR2X1)                  0.39       6.24 f
+  add_45/SUM[28] (RISCV_DW01_add_6)        0.00       6.24 f
+  PCmux/A[28] (mux2to1_DATA32_0)           0.00       6.24 f
+  PCmux/U84/QN (NAND2X0)                   1.63       7.87 r
+  PCmux/U82/QN (NAND2X1)                   0.17       8.04 f
+  PCmux/out[28] (mux2to1_DATA32_0)         0.00       8.04 f
+  PC_dut/PCNext[28] (PC)                   0.00       8.04 f
+  PC_dut/PC_reg[28]/D (SDFFARX2)           0.25       8.29 f
+  data arrival time                                   8.29
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[28]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.29
+  -----------------------------------------------------------
+  slack (MET)                                       391.06
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[15]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U63/Q (AND2X2)                    0.41       4.83 r
+  add_45/U199/Q (AND2X4)                   0.48       5.31 r
+  add_45/U189/Q (AND2X4)                   0.48       5.79 r
+  add_45/U179/Q (XOR2X2)                   0.38       6.17 f
+  add_45/SUM[15] (RISCV_DW01_add_6)        0.00       6.17 f
+  PCmux/A[15] (mux2to1_DATA32_0)           0.00       6.17 f
+  PCmux/U114/QN (NAND2X0)                  1.63       7.80 r
+  PCmux/U112/QN (NAND2X1)                  0.17       7.97 f
+  PCmux/out[15] (mux2to1_DATA32_0)         0.00       7.97 f
+  PC_dut/PCNext[15] (PC)                   0.00       7.97 f
+  PC_dut/PC_reg[15]/D (SDFFARX2)           0.25       8.21 f
+  data arrival time                                   8.21
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[15]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.21
+  -----------------------------------------------------------
+  slack (MET)                                       391.13
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[10]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U215/ZN (INVX0)                   0.26       4.68 f
+  add_45/U111/ZN (INVX0)                   0.12       4.80 r
+  add_45/U19/Q (AND2X4)                    0.47       5.27 r
+  add_45/U192/Q (AND2X4)                   0.48       5.75 r
+  add_45/U185/Q (XOR2X2)                   0.38       6.12 f
+  add_45/SUM[10] (RISCV_DW01_add_6)        0.00       6.12 f
+  PCmux/A[10] (mux2to1_DATA32_0)           0.00       6.12 f
+  PCmux/U123/QN (NAND2X0)                  1.63       7.75 r
+  PCmux/U121/QN (NAND2X1)                  0.17       7.92 f
+  PCmux/out[10] (mux2to1_DATA32_0)         0.00       7.92 f
+  PC_dut/PCNext[10] (PC)                   0.00       7.92 f
+  PC_dut/PC_reg[10]/D (SDFFARX2)           0.25       8.17 f
+  data arrival time                                   8.17
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[10]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.17
+  -----------------------------------------------------------
+  slack (MET)                                       391.17
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[17]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U6/Q (AND4X2)                     0.53       4.51 r
+  add_45/U172/ZN (INVX0)                   0.26       4.76 f
+  add_45/U173/ZN (INVX0)                   0.12       4.88 r
+  add_45/U134/ZN (INVX0)                   0.24       5.12 f
+  add_45/U135/ZN (INVX0)                   0.11       5.24 r
+  add_45/U115/Q (AND2X4)                   0.48       5.72 r
+  add_45/U118/Q (XOR2X2)                   0.38       6.09 f
+  add_45/SUM[17] (RISCV_DW01_add_6)        0.00       6.09 f
+  PCmux/A[17] (mux2to1_DATA32_0)           0.00       6.09 f
+  PCmux/U102/QN (NAND2X0)                  1.63       7.72 r
+  PCmux/U100/QN (NAND2X1)                  0.17       7.89 f
+  PCmux/out[17] (mux2to1_DATA32_0)         0.00       7.89 f
+  PC_dut/PCNext[17] (PC)                   0.00       7.89 f
+  PC_dut/PC_reg[17]/D (SDFFARX2)           0.25       8.14 f
+  data arrival time                                   8.14
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[17]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.14
+  -----------------------------------------------------------
+  slack (MET)                                       391.21
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[20]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U194/QN (NAND2X0)                 0.33       4.79 f
+  add_45/U217/ZN (INVX0)                   0.28       5.07 r
+  add_45/U221/ZN (INVX0)                   0.25       5.32 f
+  add_45/U138/ZN (INVX0)                   0.12       5.44 r
+  add_45/U140/ZN (INVX0)                   0.27       5.71 f
+  add_45/U10/Q (XOR2X2)                    0.35       6.07 f
+  add_45/SUM[20] (RISCV_DW01_add_6)        0.00       6.07 f
+  PCmux/A[20] (mux2to1_DATA32_0)           0.00       6.07 f
+  PCmux/U78/QN (NAND2X0)                   1.63       7.69 r
+  PCmux/U76/QN (NAND2X1)                   0.17       7.86 f
+  PCmux/out[20] (mux2to1_DATA32_0)         0.00       7.86 f
+  PC_dut/PCNext[20] (PC)                   0.00       7.86 f
+  PC_dut/PC_reg[20]/D (SDFFARX2)           0.25       8.11 f
+  data arrival time                                   8.11
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[20]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.11
+  -----------------------------------------------------------
+  slack (MET)                                       391.23
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[14]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U63/Q (AND2X2)                    0.41       4.83 r
+  add_45/U199/Q (AND2X4)                   0.48       5.31 r
+  add_45/U197/ZN (INVX0)                   0.25       5.56 f
+  add_45/U204/ZN (INVX0)                   0.12       5.68 r
+  add_45/U9/Q (XOR2X2)                     0.36       6.04 f
+  add_45/SUM[14] (RISCV_DW01_add_6)        0.00       6.04 f
+  PCmux/A[14] (mux2to1_DATA32_0)           0.00       6.04 f
+  PCmux/U111/QN (NAND2X0)                  1.63       7.67 r
+  PCmux/U109/QN (NAND2X1)                  0.17       7.84 f
+  PCmux/out[14] (mux2to1_DATA32_0)         0.00       7.84 f
+  PC_dut/PCNext[14] (PC)                   0.00       7.84 f
+  PC_dut/PC_reg[14]/D (SDFFARX2)           0.25       8.09 f
+  data arrival time                                   8.09
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[14]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.09
+  -----------------------------------------------------------
+  slack (MET)                                       391.26
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[25]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U158/Q (AND2X1)                   0.39       4.86 r
+  add_45/U222/QN (NAND2X0)                 0.30       5.15 f
+  add_45/U109/ZN (INVX0)                   0.26       5.42 r
+  add_45/U110/ZN (INVX0)                   0.12       5.53 f
+  add_45/U210/ZN (INVX0)                   0.11       5.65 r
+  add_45/U187/Q (XOR2X2)                   0.36       6.01 f
+  add_45/SUM[25] (RISCV_DW01_add_6)        0.00       6.01 f
+  PCmux/A[25] (mux2to1_DATA32_0)           0.00       6.01 f
+  PCmux/U93/QN (NAND2X0)                   1.63       7.64 r
+  PCmux/U91/QN (NAND2X1)                   0.17       7.81 f
+  PCmux/out[25] (mux2to1_DATA32_0)         0.00       7.81 f
+  PC_dut/PCNext[25] (PC)                   0.00       7.81 f
+  PC_dut/PC_reg[25]/D (SDFFARX2)           0.25       8.06 f
+  data arrival time                                   8.06
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[25]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.06
+  -----------------------------------------------------------
+  slack (MET)                                       391.29
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[13]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U63/Q (AND2X2)                    0.41       4.83 r
+  add_45/U223/ZN (INVX0)                   0.24       5.07 f
+  add_45/U206/ZN (INVX0)                   0.12       5.19 r
+  add_45/U207/ZN (INVX0)                   0.26       5.44 f
+  add_45/U228/QN (NOR2X0)                  0.15       5.59 r
+  add_45/U227/Q (XNOR2X1)                  0.42       6.01 f
+  add_45/SUM[13] (RISCV_DW01_add_6)        0.00       6.01 f
+  PCmux/A[13] (mux2to1_DATA32_0)           0.00       6.01 f
+  PCmux/U108/QN (NAND2X0)                  1.63       7.64 r
+  PCmux/U106/QN (NAND2X1)                  0.17       7.81 f
+  PCmux/out[13] (mux2to1_DATA32_0)         0.00       7.81 f
+  PC_dut/PCNext[13] (PC)                   0.00       7.81 f
+  PC_dut/PC_reg[13]/D (SDFFARX2)           0.25       8.05 f
+  data arrival time                                   8.05
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[13]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.05
+  -----------------------------------------------------------
+  slack (MET)                                       391.29
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[16]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U6/Q (AND4X2)                     0.53       4.51 r
+  add_45/U172/ZN (INVX0)                   0.26       4.76 f
+  add_45/U173/ZN (INVX0)                   0.12       4.88 r
+  add_45/U134/ZN (INVX0)                   0.24       5.12 f
+  add_45/U135/ZN (INVX0)                   0.11       5.24 r
+  add_45/U119/ZN (INVX0)                   0.24       5.48 f
+  add_45/U136/ZN (INVX0)                   0.11       5.59 r
+  add_45/U229/Q (XNOR2X1)                  0.40       5.98 f
+  add_45/SUM[16] (RISCV_DW01_add_6)        0.00       5.98 f
+  PCmux/A[16] (mux2to1_DATA32_0)           0.00       5.98 f
+  PCmux/U117/QN (NAND2X0)                  1.63       7.61 r
+  PCmux/U115/QN (NAND2X1)                  0.17       7.78 f
+  PCmux/out[16] (mux2to1_DATA32_0)         0.00       7.78 f
+  PC_dut/PCNext[16] (PC)                   0.00       7.78 f
+  PC_dut/PC_reg[16]/D (SDFFARX2)           0.25       8.03 f
+  data arrival time                                   8.03
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[16]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -8.03
+  -----------------------------------------------------------
+  slack (MET)                                       391.32
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[24]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U194/QN (NAND2X0)                 0.33       4.79 f
+  add_45/U218/ZN (INVX0)                   0.28       5.07 r
+  add_45/U226/Q (AND2X1)                   0.38       5.45 r
+  add_45/U225/Q (XNOR2X1)                  0.40       5.85 f
+  add_45/SUM[24] (RISCV_DW01_add_6)        0.00       5.85 f
+  PCmux/A[24] (mux2to1_DATA32_0)           0.00       5.85 f
+  PCmux/U75/QN (NAND2X0)                   1.63       7.48 r
+  PCmux/U73/QN (NAND2X1)                   0.17       7.64 f
+  PCmux/out[24] (mux2to1_DATA32_0)         0.00       7.64 f
+  PC_dut/PCNext[24] (PC)                   0.00       7.64 f
+  PC_dut/PC_reg[24]/D (SDFFARX2)           0.25       7.89 f
+  data arrival time                                   7.89
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[24]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -7.89
+  -----------------------------------------------------------
+  slack (MET)                                       391.45
+
+
+  Startpoint: PC_dut/PC_reg[8]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[22]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[8]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[8]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[8] (PC)                        0.00       0.81 r
+  add_45/A[8] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U83/ZN (INVX0)                    1.80       2.61 f
+  add_45/U84/ZN (INVX0)                    0.25       2.87 r
+  add_45/U186/Q (AND2X4)                   0.45       3.32 r
+  add_45/U4/Q (AND3X1)                     0.34       3.66 r
+  add_45/U113/ZN (INVX0)                   0.24       3.90 f
+  add_45/U137/ZN (INVX0)                   0.12       4.02 r
+  add_45/U239/QN (NAND2X0)                 0.28       4.30 f
+  add_45/U237/QN (NOR2X0)                  0.17       4.46 r
+  add_45/U194/QN (NAND2X0)                 0.33       4.79 f
+  add_45/U217/ZN (INVX0)                   0.28       5.07 r
+  add_45/U219/QN (NAND2X0)                 0.31       5.39 f
+  add_45/U240/Q (XNOR2X1)                  0.43       5.81 f
+  add_45/SUM[22] (RISCV_DW01_add_6)        0.00       5.81 f
+  PCmux/A[22] (mux2to1_DATA32_0)           0.00       5.81 f
+  PCmux/U66/QN (NAND2X0)                   1.63       7.44 r
+  PCmux/U64/QN (NAND2X1)                   0.17       7.61 f
+  PCmux/out[22] (mux2to1_DATA32_0)         0.00       7.61 f
+  PC_dut/PCNext[22] (PC)                   0.00       7.61 f
+  PC_dut/PC_reg[22]/D (SDFFARX2)           0.25       7.86 f
+  data arrival time                                   7.86
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[22]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -7.86
+  -----------------------------------------------------------
+  slack (MET)                                       391.49
+
+
+  Startpoint: PC_dut/PC_reg[5]
+              (rising edge-triggered flip-flop clocked by scan_clk)
+  Endpoint: PC_dut/PC_reg[12]
+            (rising edge-triggered flip-flop clocked by scan_clk)
+  Path Group: scan_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  RISCV              140000                saed90nm_max
+  RISCV_DW01_add_6   8000                  saed90nm_max
+  mux2to1_DATA32_0   8000                  saed90nm_max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock scan_clk (rise edge)               0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PC_dut/PC_reg[5]/CLK (SDFFARX2)          0.00 #     0.00 r
+  PC_dut/PC_reg[5]/Q (SDFFARX2)            0.81       0.81 r
+  PC_dut/PC[5] (PC)                        0.00       0.81 r
+  add_45/A[5] (RISCV_DW01_add_6)           0.00       0.81 r
+  add_45/U48/ZN (INVX0)                    1.79       2.60 f
+  add_45/U50/ZN (INVX0)                    0.12       2.71 r
+  add_45/U33/ZN (INVX0)                    0.24       2.95 f
+  add_45/U49/ZN (INVX0)                    0.11       3.07 r
+  add_45/U8/Q (AND4X2)                     0.54       3.61 r
+  add_45/U121/ZN (INVX0)                   0.25       3.86 f
+  add_45/U124/ZN (INVX0)                   0.11       3.97 r
+  add_45/U195/Q (AND2X4)                   0.45       4.42 r
+  add_45/U63/Q (AND2X2)                    0.41       4.83 r
+  add_45/U223/ZN (INVX0)                   0.24       5.07 f
+  add_45/U206/ZN (INVX0)                   0.12       5.19 r
+  add_45/U208/ZN (INVX0)                   0.27       5.45 f
+  add_45/U7/Q (XOR2X2)                     0.35       5.81 f
+  add_45/SUM[12] (RISCV_DW01_add_6)        0.00       5.81 f
+  PCmux/A[12] (mux2to1_DATA32_0)           0.00       5.81 f
+  PCmux/U105/QN (NAND2X0)                  1.63       7.44 r
+  PCmux/U103/QN (NAND2X1)                  0.17       7.60 f
+  PCmux/out[12] (mux2to1_DATA32_0)         0.00       7.60 f
+  PC_dut/PCNext[12] (PC)                   0.00       7.60 f
+  PC_dut/PC_reg[12]/D (SDFFARX2)           0.25       7.85 f
+  data arrival time                                   7.85
+
+  clock scan_clk (rise edge)             400.00     400.00
+  clock network delay (ideal)              0.00     400.00
+  PC_dut/PC_reg[12]/CLK (SDFFARX2)         0.00     400.00 r
+  library setup time                      -0.66     399.34
+  data required time                                399.34
+  -----------------------------------------------------------
+  data required time                                399.34
+  data arrival time                                  -7.85
+  -----------------------------------------------------------
+  slack (MET)                                       391.49
+
+
+1
